@@ -6,7 +6,7 @@
     <!-- Sidebar user panel -->
     <div class="user-panel">
         <div class="pull-left image">
-            <img src="dist/img/avatar3.png" class="img-circle" alt="User Image">
+            <img src="{{asset('dist/img/avatar3.png')}}" class="img-circle" alt="User Image">
         </div>
         <div class="pull-left info">
             @if(Auth::check())
@@ -61,7 +61,7 @@
                     <li><a href="pages/personal"><i class="fa fa-circle-o"></i> Personal</a></li>
                     <li><a href="pages/sedes"><i class="fa fa-circle-o"></i> Sedes</a></li>
                     <li><a href="pages/gerencias"><i class="fa fa-circle-o"></i> Gerencias</a></li>
-                    <li><a href="pages/subgerencias"><i class="fa fa-circle-o"></i> Subgerencia</a></li>
+                    <li><a href="/subgerencia"><i class="fa fa-circle-o"></i> Subgerencia</a></li>
                 </ul>
             </li>
         </ul>

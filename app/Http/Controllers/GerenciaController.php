@@ -2,12 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Requests\SgMessageRequest;
-use App\Subgerencia;
+use App\Gerencia;
 use Illuminate\Http\Request;
 
-
-class SubgerenciaController extends Controller
+class GerenciaController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -16,9 +14,7 @@ class SubgerenciaController extends Controller
      */
     public function index()
     {
-        $subgerencias = Subgerencia::all();
-        return view('subgerencia.index',['subgerencias'=>$subgerencias]);
-
+        //
     }
 
     /**
@@ -28,7 +24,7 @@ class SubgerenciaController extends Controller
      */
     public function create()
     {
-        return view('subgerencia.create');
+        //
     }
 
     /**
@@ -37,63 +33,53 @@ class SubgerenciaController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(SgMessageRequest $request)
+    public function store(Request $request)
     {
-        Subgerencia::create($request->all());
-
-       return redirect()->route('subgerencia.index');
+        //
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  int  $id
+     * @param  \App\Gerencia  $gerencia
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(Gerencia $gerencia)
     {
-        return $id;
+        //
     }
 
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  int  $id
+     * @param  \App\Gerencia  $gerencia
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Gerencia $gerencia)
     {
-        $subgerencia = Subgerencia::FindOrFail($id);
-
-        return view("subgerencia.edit",['subgerencia'=>$subgerencia]);
+        //
     }
 
     /**
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
+     * @param  \App\Gerencia  $gerencia
      * @return \Illuminate\Http\Response
      */
-    public function update(SgMessageRequest $request, $id)
+    public function update(Request $request, Gerencia $gerencia)
     {
-
-        Subgerencia::FindOrFail($id)->update($request->all());
-
-        return redirect()->route('subgerencia.index');
+        //
     }
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param  int  $id
+     * @param  \App\Gerencia  $gerencia
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Gerencia $gerencia)
     {
-
-        Subgerencia::FindOrFail($id)->delete();
-
-        return redirect()->route('subgerencia.index');
+        //
     }
 }
