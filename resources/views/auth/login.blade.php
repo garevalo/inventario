@@ -17,7 +17,8 @@
 @section('header') @endsection
 @section('aside') @endsection
 @section('footer') @endsection
-
+@section('content-wrapp') @endsection
+@section('end-content-wrapp') @endsection
 @section('body')
     <body class="hold-transition login-page">
 @endsection
@@ -57,7 +58,7 @@
                 </div>
                 <div class="row">
                     <!-- /.col -->
-                    <div class="col-xs-6">
+                    <div class="col-xs-12">
                         <button type="submit" class="btn btn-primary btn-block btn-flat">Iniciar Sesión</button>
                     </div>
                     <!-- /.col -->

@@ -36,15 +36,69 @@
         @include('back.aside')
     @show
 
+    @section('content-wrapp')
+    <!-- Content Wrapper. Contains page content -->
+        <div class="content-wrapper">
 
-    @yield('content')
+            <!-- Content Header (Page header) -->
+            <section class="content-header">
+                <h1>
+                    <i class="fa fa-users"></i>  Customers &nbsp;&nbsp;
+
+                    <!--START BUTTON -->
+
+                    <a href="http://crudbooster.app/admin/customers?m=3" id="btn_show_data" class="btn btn-sm btn-primary" title="Show Data">
+                        <i class="fa fa-table"></i> Show Data
+                    </a>
+
+
+                    <a href="http://crudbooster.app/admin/customers/add?return_url=http%3A%2F%2Fcrudbooster.app%2Fadmin%2Fcustomers%3Fm%3D3&amp;parent_id=&amp;parent_field=" id="btn_add_new_data" class="btn btn-sm btn-success" title="Add Data">
+                        <i class="fa fa-plus-circle"></i> Add Data
+                    </a>
+
+
+
+                    <a href="javascript:void(0)" id="btn_export_data" data-url-parameter="" title="Export Data" class="btn btn-sm btn-primary btn-export-data">
+                        <i class="fa fa-upload"></i> Export Data
+                    </a>
+
+                    <a href="http://crudbooster.app/admin/customers/import-data" id="btn_import_data" data-url-parameter="" title="Import Data" class="btn btn-sm btn-primary btn-import-data">
+                        <i class="fa fa-download"></i> Import Data
+                    </a>
+
+                    <!--ADD ACTIon-->
+                    <!-- END BUTTON -->
+                </h1>
+                <ol class="breadcrumb">
+                    <li><a href="/"><i class="fa fa-dashboard"></i> Home</a></li>
+                    <li class="active">Dashboard</li>
+                </ol>
+            </section>
+
+
+            <!-- Main content -->
+            <section class="content">
+                <!-- Small boxes (Stat box) -->
+                <div class="row">
+    @show
+
+     @yield('content')
+
+     @section('end-content-wrapp')
+                </div>
+                <!-- /.row -->
+            </section>
+            <!-- /.content -->
+        </div>
+        <!-- /.content-wrapper -->
+     @show
 
     @section('footer')
       @include('back.footer')
     @show
 
     @section('asidecontrol')
-      {{-- @include('back.asidecontrol') --}}
+      @include('back.asidecontrol')
     @show
 
     @section('endwrapper')
