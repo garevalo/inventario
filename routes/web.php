@@ -18,5 +18,6 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::resource('subgerencia','SubgerenciaController');
+Route::resource('sedes','SedeController');
 
 Route::get('/home', 'HomeController@index')->name('home');
