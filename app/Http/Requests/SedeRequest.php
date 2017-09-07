@@ -24,7 +24,7 @@ class SedeRequest extends FormRequest
     public function rules()
     {
         return [
-            'sede'=> 'required|min:5',
+            'sede'=> 'required|min:5|regex:/^[a-z A-Z áéíóú ÁÉÍÓÚ]+$/u|unique:sedes',
             'direccion' => 'required|min:5'
         ];
     }

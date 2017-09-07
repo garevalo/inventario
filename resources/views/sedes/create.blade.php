@@ -8,24 +8,28 @@
 
     <div class="box box-danger">
         <div class="box-header">
-            <h3 class="box-title">Registrar Subgerencia</h3>
+            <h3 class="box-title">Registrar Sede</h3>
         </div>
 
 
-        <form method="POST" action="{{route('subgerencia.store')}}">
+        <form method="POST" action="{{route('sede.store')}}">
 
         {{csrf_field()}}
         <div class="box-body">
+            <div class="form-group {{ $errors->has('sede') ? ' has-error' : '' }}">
+                <label>Sede:</label>
 
-            <!-- IP mask -->
-            <div class="form-group {{ $errors->has('subgerencia') ? ' has-error' : '' }}">
-                <label>Subgerencia:</label>
-
-                <input type="text" class="form-control" name="subgerencia" id="subgerencia" value="{{old('subgerencia')}}" required>
-                {!! $errors->first('subgerencia','<span class="help-block">:message</span>') !!}
-                <!-- /.input group -->
+                <input type="text" class="form-control" name="sede" id="sede" value="{{old('sede')}}" required>
+                {!! $errors->first('sede','<span class="help-block">:message</span>') !!}
             </div>
-            <!-- /.form group -->
+            <div class="form-group {{ $errors->has('sede') ? ' has-error' : '' }}">
+                <label>Dirección:</label>
+
+                <input type="text" class="form-control" name="direccion" id="direccion" value="{{old('direccion')}}" required>
+            {!! $errors->first('direccion','<span class="help-block">:message</span>') !!}
+
+            </div>
+
         </div>
         <div class="box-footer">
             <button type="submit" class="btn btn-primary">Guardar</button>

@@ -18,6 +18,6 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::resource('subgerencia','SubgerenciaController');
-Route::resource('sedes','SedeController');
+Route::resource('sede','SedeController');
 
 Route::get('/home', 'HomeController@index')->name('home');

@@ -16,7 +16,7 @@ class SedeController extends Controller
     public function index()
     {
         $sedes = Sede::all();
-        return view('sedes.index',compact($sedes));
+        return view('sedes.index',compact('sedes'));
     }
 
     /**
@@ -38,7 +38,7 @@ class SedeController extends Controller
     public function store(SedeRequest $request)
     {
         Sede::create($request->all());
-        return redirect()->route('sedes.index');
+        return redirect()->route('sede.index');
     }
 
     /**
@@ -60,7 +60,8 @@ class SedeController extends Controller
      */
     public function edit($id)
     {
-        //
+        $sede = Sede::FindOrFail($id);
+        return view("sedes.edit",compact('sede'));
     }
 
     /**
@@ -70,9 +71,10 @@ class SedeController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(SedeRequest $request, $id)
     {
-        //
+        Sede::FindOrFail($id)->update($request->all());
+        return redirect()->route('sede.index');
     }
 
     /**
@@ -83,6 +85,7 @@ class SedeController extends Controller
      */
     public function destroy($id)
     {
-        //
+        Sede::FindOrFail($id)->delete();
+        return redirect()->route('sede.index');
     }
 }
