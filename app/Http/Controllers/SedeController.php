@@ -37,6 +37,7 @@ class SedeController extends Controller
      */
     public function store(SedeRequest $request)
     {
+        //dd($request->all());
         Sede::create($request->all());
         return redirect()->route('sede.index');
     }

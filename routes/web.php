@@ -17,7 +17,12 @@ Route::get('/', function () {
 
 Auth::routes();
 
-Route::resource('subgerencia','SubgerenciaController');
-Route::resource('sede','SedeController');
 
-Route::get('/home', 'HomeController@index')->name('home');
+Route::middleware(['auth'])->group(function () {
+    Route::resource('subgerencia','SubgerenciaController');
+    Route::resource('gerencia','GerenciaController');
+    Route::resource('sede','SedeController');
+    Route::get('/home', 'HomeController@index')->name('home');
+});
+
+

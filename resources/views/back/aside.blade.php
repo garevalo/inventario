@@ -36,17 +36,13 @@
             <li>
                 <a href="pages/hardware">
                     <i class="fa fa-th"></i> <span>Módulo de Hardware</span>
-                    <span class="pull-right-container">
-              <small class="label pull-right bg-green">new</small>
-            </span>
+                    <span class="pull-right-container"></span>
                 </a>
             </li>
             <li>
                 <a href="pages/software">
                     <i class="fa fa-th"></i> <span>Módulo de Software</span>
-                    <span class="pull-right-container">
-              <small class="label pull-right bg-green">new</small>
-            </span>
+                    <span class="pull-right-container"></span>
                 </a>
             </li>
             <li class="treeview">
@@ -58,9 +54,9 @@
             </span>
                 </a>
                 <ul class="treeview-menu">
-                    <li><a href="pages/personal"><i class="fa fa-circle-o"></i> Personal</a></li>
-                    <li><a href="pages/sedes"><i class="fa fa-circle-o"></i> Sedes</a></li>
-                    <li><a href="pages/gerencias"><i class="fa fa-circle-o"></i> Gerencias</a></li>
+                    {{-- <li><a href="/cargo"><i class="fa fa-circle-o"></i> Cargo</a></li> --}}
+                    <li><a href="/sede"><i class="fa fa-circle-o"></i> Sedes</a></li>
+                    <li><a href="/gerencia"><i class="fa fa-circle-o"></i> Gerencias</a></li>
                     <li><a href="/subgerencia"><i class="fa fa-circle-o"></i> Subgerencia</a></li>
                 </ul>
             </li>

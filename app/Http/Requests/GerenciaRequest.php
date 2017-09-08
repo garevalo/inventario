@@ -4,7 +4,7 @@ namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class SedeRequest extends FormRequest
+class GerenciaRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -24,8 +24,8 @@ class SedeRequest extends FormRequest
     public function rules()
     {
         return [
-            'sede'=> 'required|min:5|regex:/^[a-z A-Z áéíóú ÁÉÍÓÚ]+$/u',
-            'direccion' => 'required|min:5'
+            'gerencia' => 'required|regex:/^[a-z A-Z áéíóú ÁÉÍÓÚ]+$/u',
+            'idsede'   => 'required'
         ];
     }
 }
