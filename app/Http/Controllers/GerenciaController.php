@@ -8,11 +8,16 @@ use App\Sede;
 
 class GerenciaController extends Controller
 {
+    const REDIRECT = "gerencia.index";
+    const MODULO = "Gerencia";
 
     public function index()
     {
+
         $gerencias = Gerencia::all();
-        return view('gerencia.index',['gerencias'=>$gerencias]);
+        $sedes = Sede::all()->pluck('sede','idsede');
+
+        return view('gerencia.index',compact('gerencias','sedes','modulo'));
     }
 
 
@@ -25,10 +30,10 @@ class GerenciaController extends Controller
 
     public function store(GerenciaRequest $request)
     {
-        dd($request->all());
-        Gerencia::create($request->all());
+        //dd($request->all());
 
-        return redirect()->route('gerencia.index');
+        Gerencia::create($request->all());
+        return redirect()->route(self::REDIRECT);
     }
 
 
@@ -41,17 +46,17 @@ class GerenciaController extends Controller
     public function edit($id)
     {
         $gerencia = Gerencia::FindOrFail($id);
-
-        return view("gerencia.edit",['gerencia'=>$gerencia]);
+        $sedes = Sede::all();
+        return view("gerencia.edit",['gerencia'=>$gerencia,'sedes'=>$sedes,'modulo'=>self::MODULO]);
     }
 
 
-    public function update(Gerencia $request, $id)
+    public function update(GerenciaRequest $request, $id)
     {
 
         Gerencia::FindOrFail($id)->update($request->all());
 
-        return redirect()->route('gerencia.index');
+        return redirect()->route(self::REDIRECT);
     }
 
 
@@ -60,6 +65,6 @@ class GerenciaController extends Controller
 
         Gerencia::FindOrFail($id)->delete();
 
-        return redirect()->route('gerencia.index');
+        return redirect()->route(self::REDIRECT);
     }
 }
