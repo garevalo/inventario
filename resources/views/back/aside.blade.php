@@ -31,10 +31,7 @@
     <!-- sidebar menu: : style can be found in sidebar.less -->
         <ul class="sidebar-menu">
             <li class="header">MENU</li>
-            <li>
-                
-            </li>
-
+            <li></li>
             <li>
                 <a href="pages/hardware">
                     <i class="fa fa-th"></i> <span>Módulo de Hardware</span>
