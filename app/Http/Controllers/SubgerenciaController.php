@@ -4,39 +4,28 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\SgMessageRequest;
 use App\Subgerencia;
-use Illuminate\Http\Request;
+use App\Gerencia;
 
 
 class SubgerenciaController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
+
     public function index()
     {
         $subgerencias = Subgerencia::all();
-        return view('subgerencia.index',['subgerencias'=>$subgerencias]);
+        $gerencias = Gerencia::all()->pluck('gerencia','idgerencia');
+        //dd($gerencias);
+        return view('subgerencia.index',['subgerencias'=>$subgerencias,'gerencias'=>$gerencias]);
 
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
     public function create()
     {
-        return view('subgerencia.create');
+        $gerencias = Gerencia::all();
+        return view('subgerencia.create',compact('gerencias'));
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
+
     public function store(SgMessageRequest $request)
     {
         Subgerencia::create($request->all());
@@ -44,12 +33,6 @@ class SubgerenciaController extends Controller
        return redirect()->route('subgerencia.index');
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
     public function show($id)
     {
         return $id;
@@ -64,8 +47,8 @@ class SubgerenciaController extends Controller
     public function edit($id)
     {
         $subgerencia = Subgerencia::FindOrFail($id);
-
-        return view("subgerencia.edit",['subgerencia'=>$subgerencia]);
+        $gerencias = Gerencia::all();
+        return view("subgerencia.edit",['subgerencia'=>$subgerencia,'gerencias'=>$gerencias]);
     }
 
     /**

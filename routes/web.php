@@ -22,6 +22,7 @@ Route::middleware(['auth'])->group(function () {
     Route::resource('subgerencia','SubgerenciaController');
     Route::resource('gerencia','GerenciaController');
     Route::resource('sede','SedeController');
+    Route::resource('cargo','CargoController');
     Route::get('/home', 'HomeController@index')->name('home');
 });
 

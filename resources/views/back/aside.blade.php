@@ -31,7 +31,9 @@
     <!-- sidebar menu: : style can be found in sidebar.less -->
         <ul class="sidebar-menu">
             <li class="header">MENU</li>
-
+            <li>
+                {{dump(request()->getPathInfo() )}}
+            </li>
 
             <li>
                 <a href="pages/hardware">
@@ -54,7 +56,7 @@
             </span>
                 </a>
                 <ul class="treeview-menu">
-                    {{-- <li><a href="/cargo"><i class="fa fa-circle-o"></i> Cargo</a></li> --}}
+                    <li><a href="/cargo"><i class="fa fa-circle-o"></i> Cargo</a></li>
                     <li><a href="/sede"><i class="fa fa-circle-o"></i> Sedes</a></li>
                     <li><a href="/gerencia"><i class="fa fa-circle-o"></i> Gerencias</a></li>
                     <li><a href="/subgerencia"><i class="fa fa-circle-o"></i> Subgerencia</a></li>
