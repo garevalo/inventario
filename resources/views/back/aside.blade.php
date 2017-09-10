@@ -32,7 +32,7 @@
         <ul class="sidebar-menu">
             <li class="header">MENU</li>
             <li>
-                {{dump(request()->getPathInfo() )}}
+                
             </li>
 
             <li>
