@@ -24,7 +24,7 @@ class CargoRequest extends FormRequest
     public function rules()
     {
         return [
-            'cargo'=>'required|min:5|regex:/^[a-z A-Z áéíóú ÁÉÍÓÚ]+$/u'
+            'cargo'=>'required|min:5|regex:/^[a-z A-Z áéíóú ÁÉÍÓÚ]+$/u|unique:cargos,cargo,'.$this->route('cargo')
         ];
     }
 }

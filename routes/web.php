@@ -23,6 +23,7 @@ Route::middleware(['auth'])->group(function () {
     Route::resource('gerencia','GerenciaController');
     Route::resource('sede','SedeController');
     Route::resource('cargo','CargoController');
+    Route::resource('personal','PersonalController');
     Route::get('/home', 'HomeController@index')->name('home');
 });
 

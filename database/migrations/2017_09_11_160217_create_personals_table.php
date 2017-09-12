@@ -25,7 +25,7 @@ class CreatePersonalsTable extends Migration
 
             $table->integer('idsubgerencia_personal')->unsigned();
             $table->foreign('idsubgerencia_personal')->references('idsubgerencia')->on('subgerencias');
-            
+
             $table->timestamps();
         });
     }

@@ -13,7 +13,10 @@ class PersonalController extends Controller
      */
     public function index()
     {
-        //
+
+        $modulo = "Personal";
+
+        return view('personal.index',compact('modulo'));
     }
 
     /**

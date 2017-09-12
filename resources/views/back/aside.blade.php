@@ -31,7 +31,7 @@
     <!-- sidebar menu: : style can be found in sidebar.less -->
         <ul class="sidebar-menu">
             <li class="header">MENU</li>
-            <li></li>
+            <li>{{url()->full()}}</li>
             <li>
                 <a href="pages/hardware">
                     <i class="fa fa-th"></i> <span>Módulo de Hardware</span>
@@ -44,19 +44,22 @@
                     <span class="pull-right-container"></span>
                 </a>
             </li>
-            <li class="treeview">
+            <li class="treeview
+
+                @if(in_array(request()->getRequestUri(),['/cargo','/sede','/gerencia','/subgerencia','/personal'])) active @endif ">
                 <a href="#">
                     <i class="fa fa-pie-chart"></i>
                     <span>Mantenimiento</span>
                     <span class="pull-right-container">
-              <i class="fa fa-angle-left pull-right"></i>
-            </span>
+                        <i class="fa fa-angle-left pull-right"></i>
+                    </span>
                 </a>
                 <ul class="treeview-menu">
-                    <li><a href="/cargo"><i class="fa fa-circle-o"></i> Cargo</a></li>
-                    <li><a href="/sede"><i class="fa fa-circle-o"></i> Sedes</a></li>
-                    <li><a href="/gerencia"><i class="fa fa-circle-o"></i> Gerencias</a></li>
-                    <li><a href="/subgerencia"><i class="fa fa-circle-o"></i> Subgerencia</a></li>
+                    <li class="@if(request()->getRequestUri()=='/cargo') active @endif" ><a href="/cargo"><i class="fa fa-circle-o"></i> Cargo</a></li>
+                    <li class="@if(request()->getRequestUri()=='/sede') active @endif"><a href="/sede"><i class="fa fa-circle-o"></i> Sedes</a></li>
+                    <li class="@if(request()->getRequestUri()=='/gerencia') active @endif"><a href="/gerencia"><i class="fa fa-circle-o"></i> Gerencias</a></li>
+                    <li class="@if(request()->getRequestUri()=='/subgerencia') active @endif"><a href="/subgerencia"><i class="fa fa-circle-o"></i> Subgerencia</a></li>
+                    <li class="@if(request()->getRequestUri()=='/personal') active @endif"><a href="/personal"><i class="fa fa-circle-o"></i> Personal</a></li>
                 </ul>
             </li>
         </ul>
