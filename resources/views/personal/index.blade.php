@@ -12,7 +12,7 @@
     <h1>
         <i class="fa fa-users"></i>  {{$modulo}} &nbsp;&nbsp;
 
-        <a href="{{route('subgerencia.create')}}" class="btn btn-sm btn-success" title="Add Data">
+        <a href="{{route('personal.create')}}" class="btn btn-sm btn-success" title="Add Data">
             <i class="fa fa-plus-circle"></i> Agregar {{$modulo}}
         </a>
 
@@ -75,7 +75,11 @@
 
     <script>
         $(function () {
-            $("#example1").DataTable();
+            $("#example1").DataTable({
+                "language": {
+                    "url": "{{asset("plugins/datatables/Spanish.json")}}"
+                }
+            });
         });
     </script>
 

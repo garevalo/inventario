@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Cargo;
+use App\Subgerencia;
 
 class PersonalController extends Controller
 {
@@ -26,7 +28,11 @@ class PersonalController extends Controller
      */
     public function create()
     {
-        //
+        $cargos = Cargo::all();
+        $subgerencias = Subgerencia::all();
+        $modulo = "Personal";
+
+        return view('personal.create',compact('modulo','cargos','subgerencias'));
     }
 
     /**
