@@ -1,6 +1,11 @@
 @extends('back.app')
 
-@section('title','Registrar Subgerencia')
+@section('title','Registrar Personal')
+
+@section('head')
+    @parent
+    <link rel="stylesheet" href="{{asset('plugins/select2/select2.css')}}">
+@endsection
 
 @section('content')
 
@@ -63,17 +68,6 @@
                 {!! $errors->first('idsubgerencia','<span class="help-block">:message</span>') !!}
             </div>
 
-            <div class="form-group {{ $errors->has('idsubgerencia') ? 'has-error' : '' }}">
-                <label>Sub Gerencia:</label>
-                <select class="form-control" name="idsubgerencia" id="idsubgerencia">
-                    <option value="">Seleccione Subgerencia</option>
-                    @foreach($subgerencias as $subgerencia)
-                        <option value="{{$subgerencia->idsubgerencia}}">{{$subgerencia->subgerencia}}</option>
-                    @endforeach
-                </select>
-                {!! $errors->first('idsubgerencia','<span class="help-block">:message</span>') !!}
-            </div>
-
         </div>
 
 
@@ -88,3 +82,18 @@
 </div>
 
 @endsection
+
+@section('javascript')
+    @parent
+    <!-- Select2 -->
+    <script src="{{asset('plugins/select2//select2.full.min.js')}}"></script>
+
+    <script>
+        $(function () {
+            //Initialize Select2 Elements
+                $('.select2').select2();
+        });
+    </script>
+@endsection
+
+
