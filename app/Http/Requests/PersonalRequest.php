@@ -13,7 +13,7 @@ class PersonalRequest extends FormRequest
      */
     public function authorize()
     {
-        return false;
+        return true;
     }
 
     /**
@@ -24,7 +24,22 @@ class PersonalRequest extends FormRequest
     public function rules()
     {
         return [
-            //
+            'nombres' =>'required|regex:/^[a-z A-Z áéíóú ÁÉÍÓÚ]+$/u',
+            'apellido_paterno' => 'required|regex:/^[a-z A-Z áéíóú ÁÉÍÓÚ]+$/u',
+            'apellido_materno' => 'required|regex:/^[a-z A-Z áéíóú ÁÉÍÓÚ]+$/u',
+            'dni' => 'required|integer|digits:8',
+            'idcargo_personal' => 'required|integer',
+            'idsubgerencia_personal' => 'required|integer'
+        ];
+    }
+
+    public function messages()
+    {
+        return [
+            'idcargo_personal.required' => 'Campo Cargo es requerido',
+            'idcargo_personal.integer' => 'Campo Cargo debe ser entero',
+            'idsubgerencia_personal.required' => 'Campo Subgerencia es requerido',
+            'idsubgerencia_personal.integer' => 'Campo Subgerencia debe ser entero',
         ];
     }
 }

@@ -2,9 +2,12 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
+use App\Http\Requests\PersonalRequest;
+use App\Personal;
 use App\Cargo;
+use App\Sede;
 use App\Subgerencia;
+
 
 class PersonalController extends Controller
 {
@@ -13,12 +16,17 @@ class PersonalController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+
+    const MODULO = "Personal";
+    const REDIRECT = "personal.index";
+
     public function index()
     {
 
+        $personals = Personal::with('cargo','subgerencia')->get();
         $modulo = "Personal";
 
-        return view('personal.index',compact('modulo'));
+        return view('personal.index',compact('modulo','personals'));
     }
 
     /**
@@ -41,9 +49,10 @@ class PersonalController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(PersonalRequest $request)
     {
-        //
+        Personal::create($request->all());
+        return redirect()->route('personal.index');
     }
 
     /**
@@ -65,7 +74,15 @@ class PersonalController extends Controller
      */
     public function edit($id)
     {
-        //
+        $personal = Personal::FindOrFail($id);
+        $sedes = Sede::all();
+        $cargos = Cargo::all();
+        $subgerencias = Subgerencia::all();
+        return view("personal.edit",['personal'=>$personal,
+                                            'sedes'=>$sedes,
+                                            'subgerencias'=>$subgerencias,
+                                            'cargos'=>$cargos,
+                                            'modulo'=>self::MODULO]);
     }
 
     /**
@@ -75,9 +92,11 @@ class PersonalController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(PersonalRequest $request, $id)
     {
-        //
+        Personal::FindOrFail($id)->update($request->all());
+
+        return redirect()->route(self::REDIRECT);
     }
 
     /**
@@ -88,6 +107,8 @@ class PersonalController extends Controller
      */
     public function destroy($id)
     {
-        //
+        Personal::FindOrFail($id)->delete();
+
+        return redirect()->route(self::REDIRECT);
     }
 }

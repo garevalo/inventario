@@ -17,7 +17,7 @@
         </div>
 
 
-        <form method="POST" action="{{route('subgerencia.store')}}">
+        <form method="POST" action="{{route('personal.store')}}">
 
         {{csrf_field()}}
         <div class="box-body">
@@ -46,26 +46,26 @@
                 {!! $errors->first('dni','<span class="help-block">:message</span>') !!}
             </div>
 
-            <div class="form-group {{ $errors->has('idcargo') ? 'has-error' : '' }}">
+            <div class="form-group {{ $errors->has('idcargo_personal') ? 'has-error' : '' }}">
                 <label>Cargo:</label>
-                <select class="form-control" name="idcargo" id="idcargo">
+                <select class="form-control" name="idcargo_personal" id="idcargo_personal">
                     <option value="">Seleccione Cargo</option>
                     @foreach($cargos as $cargo)
-                        <option value="{{$cargo->idcargo}}">{{$cargo->cargo}}</option>
+                        <option value="{{$cargo->idcargo}}" @if(old('idcargo_personal')== $cargo->idcargo) selected @endif >{{$cargo->cargo}}</option>
                     @endforeach
                 </select>
-                {!! $errors->first('idcargo','<span class="help-block">:message</span>') !!}
+                {!! $errors->first('idcargo_personal','<span class="help-block">:message</span>') !!}
             </div>
 
-            <div class="form-group {{ $errors->has('idsubgerencia') ? 'has-error' : '' }}">
+            <div class="form-group {{ $errors->has('idsubgerencia_personal') ? 'has-error' : '' }}">
                 <label>Sub Gerencia:</label>
-                <select class="form-control" name="idsubgerencia" id="idsubgerencia">
+                <select class="form-control" name="idsubgerencia_personal" id="idsubgerencia_personal">
                     <option value="">Seleccione Subgerencia</option>
                     @foreach($subgerencias as $subgerencia)
-                        <option value="{{$subgerencia->idsubgerencia}}">{{$subgerencia->subgerencia}}</option>
+                        <option value="{{$subgerencia->idsubgerencia}}" @if(old('idsubgerencia_personal')== $subgerencia->idsubgerencia) selected @endif>{{$subgerencia->subgerencia}}</option>
                     @endforeach
                 </select>
-                {!! $errors->first('idsubgerencia','<span class="help-block">:message</span>') !!}
+                {!! $errors->first('idsubgerencia_personal','<span class="help-block">:message</span>') !!}
             </div>
 
         </div>

@@ -35,15 +35,30 @@
                         <th>Nombres</th>
                         <th>Apellidos</th>
                         <th>Cargo</th>
-                        <th>Sede</th>
-                        <th>Gerencia</th>
                         <th>Subgerencia</th>
                         <th>Editar</th>
                         <th>Eliminar</th>
                     </tr>
                     </thead>
                     <tbody>
+                        @foreach($personals as $personal)
+                        <tr>
+                            <td>{{$personal->id}}</td>
+                            <td>{{$personal->nombres}}</td>
+                            <td>{{$personal->apellido_paterno .' '.$personal->apellido_materno  }}</td>
+                            <td>{{$personal->cargo->cargo}}</td>
+                            <td>{{$personal->subgerencia->subgerencia}}</td>
+                            <td><a href="{{route('personal.edit',$personal->id)}}" class="btn btn-primary btn-sm">Editar</a></td>
+                            <td>
+                                <form method="post" action="{{route('personal.destroy',$personal->id)}}">
+                                    {!! csrf_field() !!}
+                                    {!! method_field('DELETE') !!}
+                                    <input type="submit" value="Eliminar" class="btn btn-danger btn-sm">
 
+                                </form>
+                            </td>
+                        </tr>
+                        @endforeach
                     </tbody>
                 </table>
             </div>
