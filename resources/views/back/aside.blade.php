@@ -34,7 +34,7 @@
             <li></li>
             <li>
                 <a href="/hardware">
-                    <i class="fa fa-th"></i> <span>Módulo de Hardware</span>
+                    <i class="fa fa-microchip"></i> <span>Módulo de Hardware</span>
                     <span class="pull-right-container"></span>
                 </a>
             </li>

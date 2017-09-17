@@ -1,6 +1,6 @@
 @extends('back.app')
 
-@section('title')Módulo de Hardware @endsection
+@section('title')Módulo de Activos @endsection
 
 @section('head')
     @parent
@@ -10,9 +10,14 @@
 
 @section('menu-h1')
     <h1>
-        <i class="fa fa-microchip"></i>  Hardware &nbsp;&nbsp;
+        <i class="fa fa-microchip"></i>  Activos &nbsp;&nbsp;
+
         <a href="{{route('hardware.create')}}" class="btn btn-sm btn-success" title="Add Data">
-            <i class="fa fa-plus-circle"></i> Nuevo Hardware
+            <i class="fa fa-plus-circle"></i> Registrar Hardware
+        </a>
+
+        <a href="{{route('software.create')}}" class="btn btn-sm btn-success" title="Add Data">
+            <i class="fa fa-plus-circle"></i> Registrar Sofware
         </a>
 
     </h1>
@@ -23,7 +28,7 @@
     <div class="col-xs-12">
         <div class="box">
             <div class="box-header">
-                <h3 class="box-title">Sedes</h3>
+                <h3 class="box-title">Activos</h3>
             </div>
             <!-- /.box-header -->
             <div class="box-body">
@@ -31,10 +36,9 @@
                     <thead>
                     <tr>
                         <th>ID</th>
-                        <th>Sede</th>
-                        <th>Dirección</th>
-                        <th>Editar</th>
-                        <th>Eliminar</th>
+                        <th>Tipo</th>
+                        <th>Fecha de adquision</th>
+                        <th>Asignar</th>
                     </tr>
                     </thead>
                     <tbody>

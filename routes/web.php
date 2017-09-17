@@ -26,6 +26,7 @@ Route::middleware(['auth'])->group(function () {
     Route::resource('personal','PersonalController');
     Route::resource('hardware','HardwareController');
     Route::resource('software','SoftwareController');
+    Route::resource('activo','ActivoController');
     Route::get('/home', 'HomeController@index')->name('home');
 });
 

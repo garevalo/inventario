@@ -13,7 +13,7 @@ class SoftwareController extends Controller
      */
     public function index()
     {
-        //
+        return view("software.index");
     }
 
     /**
@@ -23,7 +23,7 @@ class SoftwareController extends Controller
      */
     public function create()
     {
-        //
+        return view("software.create");
     }
 
     /**

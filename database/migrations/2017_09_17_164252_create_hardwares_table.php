@@ -14,7 +14,22 @@ class CreateHardwaresTable extends Migration
     public function up()
     {
         Schema::create('hardwares', function (Blueprint $table) {
-            $table->increments('id');
+            $table->increments('idhardware');
+            $table->string('marca',50);
+            $table->string('modelo',50);
+            $table->string('num_serie',50);
+            $table->string('cod_inventario',50);
+            $table->integer('estado');
+            $table->string('capacidad',50);
+            $table->string('interfaz',50);
+            $table->dateTime('fecha_adquision');
+
+            $table->integer('idtipo_hardware')->unsigned();
+            $table->foreign('idtipo_hardware')->references('id_tipo_hardware')->on('tipo_hardwares');
+
+            $table->integer('id_activo_hardware')->unsigned();
+            $table->foreign('id_activo_hardware')->references('idactivo')->on('activos');
+
             $table->timestamps();
         });
     }
