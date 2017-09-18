@@ -16,8 +16,6 @@ class CreateGerenciasTable extends Migration
         Schema::create('gerencias', function (Blueprint $table) {
             $table->increments('idgerencia');
             $table->string('gerencia',50);
-            /*$table->integer('idsede')->unsigned();
-            $table->foreign('idsede')->references('idsede')->on('sedes');*/
             $table->timestamps();
         });
     }

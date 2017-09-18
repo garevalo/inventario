@@ -14,8 +14,8 @@ class AddFkToGerenciasTable extends Migration
     public function up()
     {
         Schema::table('gerencias', function (Blueprint $table) {
-            $table->integer('idsede')->unsigned();
-            $table->foreign('idsede')->references('idsede')->on('sedes');
+            //$table->integer('idsede')->unsigned();
+            //$table->foreign('idsede')->references('idsede')->on('sedes');
         });
     }
 
