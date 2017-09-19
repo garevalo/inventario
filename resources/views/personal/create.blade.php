@@ -57,6 +57,28 @@
                 {!! $errors->first('idcargo_personal','<span class="help-block">:message</span>') !!}
             </div>
 
+            <div class="form-group {{ $errors->has('idsede_personal') ? 'has-error' : '' }}">
+                <label>Sede:</label>
+                <select class="form-control" name="idsede_personal" id="idsede_personal">
+                    <option value="">Seleccione Sede</option>
+                    @foreach($sedes as $sede)
+                        <option value="{{$sede->idsede}}" @if(old('idsede_personal')== $sede->idsede) selected @endif>{{$sede->sede}}</option>
+                    @endforeach
+                </select>
+                {!! $errors->first('idsede_personal','<span class="help-block">:message</span>') !!}
+            </div>
+
+            <div class="form-group {{ $errors->has('idgerencia_personal') ? 'has-error' : '' }}">
+                <label>Gerencia:</label>
+                <select class="form-control" name="idgerencia_personal" id="idgerencia_personal">
+                    <option value="">Seleccione Gerencia</option>
+                    @foreach($gerencias as $gerencia)
+                        <option value="{{$gerencia->idgerencia}}" @if(old('idgerencia_personal')== $gerencia->idgerencia) selected @endif>{{$gerencia->gerencia}}</option>
+                    @endforeach
+                </select>
+                {!! $errors->first('idsubgerencia_personal','<span class="help-block">:message</span>') !!}
+            </div>
+
             <div class="form-group {{ $errors->has('idsubgerencia_personal') ? 'has-error' : '' }}">
                 <label>Sub Gerencia:</label>
                 <select class="form-control" name="idsubgerencia_personal" id="idsubgerencia_personal">

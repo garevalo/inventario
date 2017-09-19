@@ -23,17 +23,6 @@
                         {!! $errors->first('subgerencia','<span class="help-block">:message</span>') !!}
                     </div>
 
-                    <div class="form-group {{ $errors->has('idgerencia') ? 'has-error' : '' }}">
-                        <label>Gerencia:</label>
-                        <select class="form-control" name="idgerencia" id="idgerencia">
-                            <option value="">Seleccione Gerencia</option>
-                            @foreach($gerencias as $gerencia)
-                                <option value="{{$gerencia->idgerencia}}" @if($gerencia->idgerencia==$subgerencia->idgerencia) selected @endif > {{$gerencia->gerencia}}</option>
-                            @endforeach
-                        </select>
-                        {!! $errors->first('idgerencia','<span class="help-block">:message</span>') !!}
-                    </div>
-
                 </div>
                 <div class="box-footer">
                     <button type="submit" class="btn btn-primary">Guardar</button>

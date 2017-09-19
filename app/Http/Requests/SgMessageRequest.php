@@ -24,8 +24,7 @@ class SgMessageRequest extends FormRequest
     public function rules()
     {
         return [
-            'subgerencia'=>'required|min:5|regex:/^[a-z A-Z áéíóú ÁÉÍÓÚ]+$/u',
-            'idgerencia' =>'required|integer'
+            'subgerencia'=>'required|min:5|regex:/^[a-z A-Z áéíóú ÁÉÍÓÚ]+$/u'
         ];
     }
 

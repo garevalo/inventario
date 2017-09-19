@@ -23,15 +23,32 @@ class PersonalRequest extends FormRequest
      */
     public function rules()
     {
-        return [
+        $validation = array(
             'nombres' =>'required|regex:/^[a-z A-Z áéíóú ÁÉÍÓÚ]+$/u',
             'apellido_paterno' => 'required|regex:/^[a-z A-Z áéíóú ÁÉÍÓÚ]+$/u',
             'apellido_materno' => 'required|regex:/^[a-z A-Z áéíóú ÁÉÍÓÚ]+$/u',
-            'dni' => 'required|integer|digits:8',
             'idcargo_personal' => 'required|integer',
-            'idsubgerencia_personal' => 'required|integer'
-        ];
+            'idsede_personal' => 'required|integer',
+            'idgerencia_personal' => 'required|integer',
+            'idsubgerencia_personal' => 'integer'
+        );
+
+        if($this->request->has('_method')){
+
+            $validation[] = array(
+                'dni' => 'required|integer|digits:8|unique:personals,dni,'.$this->route('personal').'idpersonal'
+            );
+        }else{
+            $validation[] = array(
+                'dni' => 'required|integer|digits:8|unique:personals,dni'
+            );
+        }
+
+        return $validation;
+
     }
+
+
 
     public function messages()
     {

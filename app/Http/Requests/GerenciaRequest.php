@@ -25,7 +25,6 @@ class GerenciaRequest extends FormRequest
     {
         return [
             'gerencia' => 'required|regex:/^[a-z A-Z áéíóú ÁÉÍÓÚ]+$/u',
-            'idsede'   => 'required'
         ];
     }
 }

@@ -43,7 +43,7 @@
                     <tbody>
                         @foreach($personals as $personal)
                         <tr>
-                            <td>{{$personal->id}}</td>
+                            <td>{{$personal->idpersonal}}</td>
                             <td>{{$personal->nombres}}</td>
                             <td>{{$personal->apellido_paterno .' '.$personal->apellido_materno  }}</td>
                             <td>{{$personal->cargo->cargo}}</td>

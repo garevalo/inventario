@@ -30,7 +30,6 @@ class GerenciaController extends Controller
 
     public function store(GerenciaRequest $request)
     {
-        //dd($request->all());
 
         Gerencia::create($request->all());
         return redirect()->route(self::REDIRECT);

@@ -20,7 +20,7 @@ class CreatePersonalsActivosTable extends Migration
             $table->foreign('activos_id')->references('idactivo')->on('activos');
 
             $table->integer('personals_idpersonal')->unsigned();
-            $table->foreign('personals_idpersonal')->references('id')->on('personals');
+            $table->foreign('personals_idpersonal')->references('idpersonal')->on('personals');
 
             $table->dateTime('fecha_asignacion');
 

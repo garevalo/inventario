@@ -23,8 +23,15 @@ class CargoRequest extends FormRequest
      */
     public function rules()
     {
-        return [
-            'cargo'=>'required|min:5|regex:/^[a-z A-Z áéíóú ÁÉÍÓÚ]+$/u|unique:cargos,cargo,'.$this->route('cargo')
-        ];
+        if($this->request->has('_method')){
+            return [
+                'cargo'=>'required|min:5|regex:/^[a-z A-Z áéíóú ÁÉÍÓÚ]+$/u|unique:cargos,cargo,'.$this->route('cargo').',idcargo'
+            ];
+        }else{
+            return [
+                'cargo'=>'required|min:5|regex:/^[a-z A-Z áéíóú ÁÉÍÓÚ]+$/u|unique:cargos,cargo'
+            ];
+        }
+
     }
 }

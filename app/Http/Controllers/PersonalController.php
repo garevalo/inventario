@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Gerencia;
 use App\Http\Requests\PersonalRequest;
 use App\Personal;
 use App\Cargo;
@@ -37,10 +38,12 @@ class PersonalController extends Controller
     public function create()
     {
         $cargos = Cargo::all();
+        $sedes = Sede::all();
+        $gerencias = Gerencia::all();
         $subgerencias = Subgerencia::all();
         $modulo = "Personal";
 
-        return view('personal.create',compact('modulo','cargos','subgerencias'));
+        return view('personal.create',compact('modulo','cargos','subgerencias','sedes','gerencias'));
     }
 
     /**

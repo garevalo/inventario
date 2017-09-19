@@ -14,7 +14,7 @@ class CreatePersonalsTable extends Migration
     public function up()
     {
         Schema::create('personals', function (Blueprint $table) {
-            $table->increments('id');
+            $table->increments('idpersonal');
             $table->string("nombres",50);
             $table->string('apellido_paterno',50);
             $table->string('apellido_materno',50);
@@ -22,6 +22,12 @@ class CreatePersonalsTable extends Migration
 
             $table->integer('idcargo_personal')->unsigned();
             $table->foreign('idcargo_personal')->references('idcargo')->on('cargos');
+
+            $table->integer('idsede_personal')->unsigned();
+            $table->foreign('idsede_personal')->references('idsede')->on('sedes');
+
+            $table->integer('idgerencia_personal')->unsigned();
+            $table->foreign('idgerencia_personal')->references('idgerencia')->on('gerencias');
 
             $table->integer('idsubgerencia_personal')->unsigned();
             $table->foreign('idsubgerencia_personal')->references('idsubgerencia')->on('subgerencias');
