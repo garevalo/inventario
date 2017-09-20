@@ -12,7 +12,7 @@
                 <h3 class="box-title">Editar {{$modulo}}</h3>
             </div>
 
-            <form method="POST" action="{{route('personal.update',$personal->id)}}">
+            <form method="POST" action="{{route('personal.update',$personal->idpersonal)}}">
 
                 {{csrf_field()}}
                 {!! method_field('PUT') !!}
@@ -52,6 +52,28 @@
                             @endforeach
                         </select>
                         {!! $errors->first('idcargo_personal','<span class="help-block">:message</span>') !!}
+                    </div>
+
+                    <div class="form-group {{ $errors->has('idsede_personal') ? 'has-error' : '' }}">
+                        <label>Sede:</label>
+                        <select class="form-control" name="idsede_personal" id="idsede_personal">
+                            <option value="">Seleccione Sede</option>
+                            @foreach($sedes as $sede)
+                                <option value="{{$sede->idsede}}" @if($sede->idsede == $personal->idsede_personal) selected @endif>{{$sede->sede}}</option>
+                            @endforeach
+                        </select>
+                        {!! $errors->first('idsede_personal','<span class="help-block">:message</span>') !!}
+                    </div>
+
+                    <div class="form-group {{ $errors->has('idgerencia_personal') ? 'has-error' : '' }}">
+                        <label>Gerencia:</label>
+                        <select class="form-control" name="idgerencia_personal" id="idgerencia_personal">
+                            <option value="">Seleccione Gerencia</option>
+                            @foreach($gerencias as $gerencia)
+                                <option value="{{$gerencia->idgerencia}}" @if($gerencia->idgerencia == $personal->idgerencia_personal) selected @endif>{{$gerencia->gerencia}}</option>
+                            @endforeach
+                        </select>
+                        {!! $errors->first('idsubgerencia_personal','<span class="help-block">:message</span>') !!}
                     </div>
 
                     <div class="form-group {{ $errors->has('idsubgerencia_personal') ? 'has-error' : '' }}">

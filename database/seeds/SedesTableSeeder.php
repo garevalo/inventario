@@ -1,9 +1,9 @@
 <?php
 
-use App\Cargo;
+use App\Sede;
 use Illuminate\Database\Seeder;
 
-class CargosTableSeeder extends Seeder
+class SedesTableSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -13,11 +13,8 @@ class CargosTableSeeder extends Seeder
     public function run()
     {
 
-        ///Cargo::truncate();
-
         for ($i=1; $i<20;$i++){
-            Cargo::create(['cargo'=>str_random(10)]);
+            Sede::create(['cargo'=>str_random(10)]);
         }
-
     }
 }

@@ -38,7 +38,6 @@
                     <tr>
                         <th>ID</th>
                         <th>Subgerencia</th>
-                        <th>Gerencia</th>
                         <th>Editar</th>
                         <th>Eliminar</th>
                     </tr>
@@ -48,7 +47,6 @@
                     <tr>
                         <td><a href="{{route('subgerencia.show',$subgerencia->idsubgerencia)}}">{{$subgerencia->idsubgerencia}}</a></td>
                         <td>{{$subgerencia->subgerencia}}</td>
-                        <td> {{ $gerencias[$subgerencia->idgerencia] }}</td>
                         <td><a href="{{route('subgerencia.edit',$subgerencia->idsubgerencia)}}" class="btn btn-primary btn-sm">Editar</a></td>
                         <td>
                             <form method="post" action="{{route('subgerencia.destroy',$subgerencia->idsubgerencia)}}">

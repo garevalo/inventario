@@ -24,7 +24,7 @@ class PersonalController extends Controller
     public function index()
     {
 
-        $personals = Personal::with('cargo','subgerencia')->get();
+        $personals = Personal::with('cargo','subgerencia','gerencia','sede')->get();
         $modulo = "Personal";
 
         return view('personal.index',compact('modulo','personals'));
@@ -81,9 +81,11 @@ class PersonalController extends Controller
         $sedes = Sede::all();
         $cargos = Cargo::all();
         $subgerencias = Subgerencia::all();
+        $gerencias = Gerencia::all();
         return view("personal.edit",['personal'=>$personal,
                                             'sedes'=>$sedes,
                                             'subgerencias'=>$subgerencias,
+                                            'gerencias'=>$gerencias,
                                             'cargos'=>$cargos,
                                             'modulo'=>self::MODULO]);
     }

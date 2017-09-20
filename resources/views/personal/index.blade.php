@@ -35,6 +35,8 @@
                         <th>Nombres</th>
                         <th>Apellidos</th>
                         <th>Cargo</th>
+                        <th>Sede</th>
+                        <th>Gerencia</th>
                         <th>Subgerencia</th>
                         <th>Editar</th>
                         <th>Eliminar</th>
@@ -47,14 +49,15 @@
                             <td>{{$personal->nombres}}</td>
                             <td>{{$personal->apellido_paterno .' '.$personal->apellido_materno  }}</td>
                             <td>{{$personal->cargo->cargo}}</td>
+                            <td>{{$personal->sede->sede}}</td>
+                            <td>{{$personal->gerencia->gerencia}}</td>
                             <td>{{$personal->subgerencia->subgerencia}}</td>
-                            <td><a href="{{route('personal.edit',$personal->id)}}" class="btn btn-primary btn-sm">Editar</a></td>
+                            <td><a href="{{route('personal.edit',$personal->idpersonal)}}" class="btn btn-primary btn-sm">Editar</a></td>
                             <td>
-                                <form method="post" action="{{route('personal.destroy',$personal->id)}}">
+                                <form method="post" action="{{ route('personal.destroy',$personal->idpersonal) }}">
                                     {!! csrf_field() !!}
                                     {!! method_field('DELETE') !!}
                                     <input type="submit" value="Eliminar" class="btn btn-danger btn-sm">
-
                                 </form>
                             </td>
                         </tr>

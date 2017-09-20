@@ -24,7 +24,16 @@ class HardwareRequest extends FormRequest
     public function rules()
     {
         return [
-            //
+            'marca' => 'required',
+            'modelo' => 'required',
+            'num_serie' => 'required',
+            'cod_inventario' => 'required',
+            'estado' => 'required|integer',
+            'capacidad' => 'required',
+            'interfaz' => 'required',
+            'fecha_adquisicion' => 'required|date',
+            'idtipo_hardware' => 'required',
+            'id_activo_hardware' => 'required'
         ];
     }
 }

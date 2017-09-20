@@ -18,10 +18,10 @@ class CreateHardwaresTable extends Migration
             $table->string('marca',50);
             $table->string('modelo',50);
             $table->string('num_serie',50);
-            $table->string('cod_inventario',50);
+            $table->string('cod_inventario',50)->nullable();
             $table->integer('estado');
-            $table->string('capacidad',50);
-            $table->string('interfaz',50);
+            $table->string('capacidad',50)->nullable();
+            $table->string('interfaz',50)->nullable();
             $table->dateTime('fecha_adquision');
 
             $table->integer('idtipo_hardware')->unsigned();

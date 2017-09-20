@@ -6,7 +6,8 @@ use Illuminate\Database\Eloquent\Model;
 
 class Personal extends Model
 {
-    protected $fillable = ['nombres','apellido_paterno','apellido_materno','dni','idgerencia_personal','idcargo_personal','idsubgerencia_personal'];
+    protected $fillable = ['nombres','apellido_paterno','apellido_materno','dni','idgerencia_personal','idcargo_personal','idsubgerencia_personal','idsede_personal'];
+    protected $primaryKey = 'idpersonal';
 
     public function sede()
     {
