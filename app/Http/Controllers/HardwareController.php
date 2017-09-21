@@ -39,8 +39,6 @@ class HardwareController extends Controller
     public function store(HardwareRequest $request)
     {
         dd($request->all());
-
-
         return redirect()->route('hardware.index');
     }
 
