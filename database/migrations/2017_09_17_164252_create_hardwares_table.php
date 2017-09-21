@@ -23,11 +23,12 @@ class CreateHardwaresTable extends Migration
             $table->string('capacidad',50)->nullable();
             $table->string('interfaz',50)->nullable();
             $table->dateTime('fecha_adquision');
+            $table->string('tipo',80);
 
             $table->integer('idtipo_hardware')->unsigned();
             $table->foreign('idtipo_hardware')->references('id_tipo_hardware')->on('tipo_hardwares');
 
-            $table->integer('id_activo_hardware')->unsigned();
+            $table->integer('id_activo_hardware')->unique()->unsigned();
             $table->foreign('id_activo_hardware')->references('idactivo')->on('activos');
 
             $table->timestamps();

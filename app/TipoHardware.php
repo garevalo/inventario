@@ -10,4 +10,8 @@ class TipoHardware extends Model
     protected $primaryKey = 'id_tipo_hardware';
 
 
+    public function hardware()
+    {
+        return $this->hasMany('App\Hardware');
+    }
 }

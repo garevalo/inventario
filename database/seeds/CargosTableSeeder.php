@@ -15,9 +15,13 @@ class CargosTableSeeder extends Seeder
 
         ///Cargo::truncate();
 
-        for ($i=1; $i<20;$i++){
-            Cargo::create(['cargo'=>str_random(10)]);
-        }
+        //for ($i=1; $i<20;$i++){
+        Cargo::create(['cargo'=>'Alcalde']);
+        Cargo::create(['cargo'=>'Gerente']);
+        Cargo::create(['cargo'=>'Sub Gerente']);
+        Cargo::create(['cargo'=>'Contador']);
+        Cargo::create(['cargo'=>'Regidor']);
+        //}
 
     }
 }

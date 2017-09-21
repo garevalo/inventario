@@ -2,7 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
+use App\Http\Requests\HardwareRequest;
+use App\TipoHardware;
+use App\Hardware;
+use App\Activo;
 
 class HardwareController extends Controller
 {
@@ -23,7 +26,8 @@ class HardwareController extends Controller
      */
     public function create()
     {
-        return view('hardware.create');
+        $tipohardware = TipoHardware::all();
+        return view('hardware.create',compact('tipohardware'));
     }
 
     /**
@@ -32,9 +36,12 @@ class HardwareController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(HardwareRequest $request)
     {
-        //
+        dd($request->all());
+
+
+        return redirect()->route('hardware.index');
     }
 
     /**

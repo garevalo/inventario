@@ -9,9 +9,9 @@ class Sede extends Model
     protected $fillable = ['idsede','sede','direccion'];
     protected $primaryKey = 'idsede';
 
-    public function gerencias()
+    /*public function gerencias()
     {
         return $this->hasMany('App\Gerencia');
-    }
+    }*/
 
 }

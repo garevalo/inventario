@@ -11,20 +11,18 @@
                 <h3 class="box-title">Registrar Hardware</h3>
             </div>
 
-
             <form method="POST" action="{{route('hardware.store')}}">
-
                 {{csrf_field()}}
                 <div class="box-body">
-
                     <div class="form-group {{ $errors->has('sede') ? ' has-error' : '' }}">
                         <label>Tipo:</label>
-                        <select name="tipo_hardware" id="tipo_hardware" class="form-control">
-                            <option>CPU</option>
-                            <option value="">Monitor</option>
-                            <option value="">Mouse</option>
-                            <option value="">Teclado</option>
+                        <select name="id_tipo_hardware" id="id_tipo_hardware" class="form-control" required>
+                            <option value="">Seleccione</option>
+                            @foreach($tipohardware as $hardware)
+                                <option value="{{$hardware->id_tipo_hardware}}">{{$hardware->tipo_hardware}}</option>
+                            @endforeach
                         </select>
+                        {!! $errors->first('id_tipo_hardware','<span class="help-block">:message</span>') !!}
                     </div>
 
                     <div class="form-group {{ $errors->has('marca') ? ' has-error' : '' }}">
@@ -40,50 +38,48 @@
                         {!! $errors->first('modelo','<span class="help-block">:message</span>') !!}
                     </div>
 
-                    <div class="form-group {{ $errors->has('numserie') ? ' has-error' : '' }}">
+                    <div class="form-group {{ $errors->has('num_serie') ? ' has-error' : '' }}">
                         <label>Número Serie:</label>
 
-                        <input type="text" class="form-control" name="numserie" id="numserie" value="{{old('numserie')}}" required>
-                        {!! $errors->first('numserie','<span class="help-block">:message</span>') !!}
+                        <input type="text" class="form-control" name="num_serie" id="num_serie" value="{{old('num_serie')}}">
+                        {!! $errors->first('num_serie','<span class="help-block">:message</span>') !!}
                     </div>
                     <div class="form-group {{ $errors->has('cod_inventario') ? ' has-error' : '' }}">
                         <label>Código Inventario:</label>
 
-                        <input type="text" class="form-control" name="cod_inventario" id="cod_inventario" value="{{old('cod_inventario')}}" required>
+                        <input type="text" class="form-control" name="cod_inventario" id="cod_inventario" value="{{old('cod_inventario')}}">
                         {!! $errors->first('cod_inventario','<span class="help-block">:message</span>') !!}
                     </div>
                     <div class="form-group {{ $errors->has('estado') ? ' has-error' : '' }}">
                         <label>Estado:</label>
 
-                        <select name="estado_hardware" id="" class="form-control">
+                        <select name="estado" id="" class="form-control">
                             <option value="">Estado</option>
-                            <option value="bueno">Bueno</option>
-                            <option value="regular">Regular</option>
-                            <option value="malo">Malo</option>
+                            <option value="1">Bueno</option>
+                            <option value="2">Regular</option>
+                            <option value="3">Malo</option>
                         </select>
+                        {!! $errors->first('estado','<span class="help-block">:message</span>') !!}
                     </div>
-
                     <div class="form-group {{ $errors->has('capacidad') ? ' has-error' : '' }}">
                         <label>Capacidad:</label>
 
-                        <input type="text" class="form-control" name="capacidad" id="capacidad" value="{{old('capacidad')}}" required>
+                        <input type="text" class="form-control" name="capacidad" id="capacidad" value="{{old('capacidad')}}">
                         {!! $errors->first('capacidad','<span class="help-block">:message</span>') !!}
                     </div>
                     <div class="form-group {{ $errors->has('interfaz') ? ' has-error' : '' }}">
                         <label>Interfaz:</label>
 
-                        <input type="text" class="form-control" name="interfaz" id="interfaz" value="{{old('interfaz')}}" required>
+                        <input type="text" class="form-control" name="interfaz" id="interfaz" value="{{old('interfaz')}}" >
                         {!! $errors->first('interfaz','<span class="help-block">:message</span>') !!}
                     </div>
 
                     <div class="form-group {{ $errors->has('tipocomponente') ? ' has-error' : '' }}">
                         <label>Tipo Componente:</label>
 
-                        <input type="text" class="form-control" name="tipo_componente" id="tipo_componente" value="{{old('tipo_componente')}}" required>
+                        <input type="text" class="form-control" name="tipo_componente" id="tipo_componente" value="{{old('tipo_componente')}}" >
                         {!! $errors->first('tipo_componente','<span class="help-block">:message</span>') !!}
                     </div>
-
-
 
                 </div>
                 <div class="box-footer">

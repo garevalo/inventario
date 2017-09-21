@@ -13,7 +13,7 @@ class HardwareRequest extends FormRequest
      */
     public function authorize()
     {
-        return false;
+        return true;
     }
 
     /**
@@ -26,14 +26,12 @@ class HardwareRequest extends FormRequest
         return [
             'marca' => 'required',
             'modelo' => 'required',
-            'num_serie' => 'required',
-            'cod_inventario' => 'required',
+             'num_serie' => 'required',
+            //'cod_inventario' => 'required',
             'estado' => 'required|integer',
-            'capacidad' => 'required',
-            'interfaz' => 'required',
-            'fecha_adquisicion' => 'required|date',
-            'idtipo_hardware' => 'required',
-            'id_activo_hardware' => 'required'
+            //'capacidad' => 'required',
+            //'interfaz' => 'required',
+            'idtipo_hardware' => 'required'
         ];
     }
 }

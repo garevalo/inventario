@@ -15,7 +15,7 @@ class CreateTipoSoftwaresTable extends Migration
     {
         Schema::create('tipo_softwares', function (Blueprint $table) {
             $table->increments('id_tipo_software');
-            $table->string('tipo_sofware',50);
+            $table->string('tipo_software',50);
             $table->timestamps();
         });
     }
