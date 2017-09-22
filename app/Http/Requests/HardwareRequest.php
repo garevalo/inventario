@@ -27,11 +27,11 @@ class HardwareRequest extends FormRequest
             'marca' => 'required',
             'modelo' => 'required',
              'num_serie' => 'required',
-            //'cod_inventario' => 'required',
+            'fecha_adquisicion' => 'required|date_format:d/m/Y',
             'estado' => 'required|integer',
             //'capacidad' => 'required',
             //'interfaz' => 'required',
-            'idtipo_hardware' => 'required'
+            'idtipo_hardware' => 'required|integer'
         ];
     }
 }

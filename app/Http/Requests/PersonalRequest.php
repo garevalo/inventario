@@ -30,7 +30,7 @@ class PersonalRequest extends FormRequest
             'idcargo_personal' => 'required|integer',
             'idsede_personal' => 'required|integer',
             'idgerencia_personal' => 'required|integer',
-            'idsubgerencia_personal' => 'integer'
+            //'idsubgerencia_personal' => 'integer'
         );
 
         if($this->request->has('_method')){

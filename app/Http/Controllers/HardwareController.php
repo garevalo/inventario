@@ -6,6 +6,7 @@ use App\Http\Requests\HardwareRequest;
 use App\TipoHardware;
 use App\Hardware;
 use App\Activo;
+use Carbon\Carbon;
 
 class HardwareController extends Controller
 {
@@ -27,7 +28,8 @@ class HardwareController extends Controller
     public function create()
     {
         $tipohardware = TipoHardware::all();
-        return view('hardware.create',compact('tipohardware'));
+        $estados = array(1=>'Bueno',2=>'Regular',3=>'Malo');
+        return view('hardware.create',compact('tipohardware','estados'));
     }
 
     /**
@@ -38,7 +40,22 @@ class HardwareController extends Controller
      */
     public function store(HardwareRequest $request)
     {
-        dd($request->all());
+        $activo = Activo::create(['fecha_adquisicion'=> Carbon::createFromFormat('d/m/Y', $request->fecha_adquisicion),
+                                  'estado'=> $request->estado ]);
+        
+        $hardware = Hardware::create([
+                "id_activo_hardware" => $activo->idactivo,
+                "idtipo_hardware" => $request->idtipo_hardware,
+                "marca" => $request->marca,
+                "modelo" => $request->modelo,
+                "num_serie" => $request->num_serie,
+                "cod_inventario" => $request->cod_inventario,
+                "estado" => $request->estado,
+                "fecha_adquisicion" => Carbon::createFromFormat('d/m/Y', $request->fecha_adquisicion),
+                "capacidad" => $request->capacidad,
+                "interfaz" => $request->interfaz,
+                "tipo_componente" => $request->tipo_componente ]);
+
         return redirect()->route('hardware.index');
     }
 

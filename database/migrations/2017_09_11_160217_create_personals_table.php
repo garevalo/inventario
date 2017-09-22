@@ -29,7 +29,7 @@ class CreatePersonalsTable extends Migration
             $table->integer('idgerencia_personal')->unsigned();
             $table->foreign('idgerencia_personal')->references('idgerencia')->on('gerencias');
 
-            $table->integer('idsubgerencia_personal')->unsigned();
+            $table->integer('idsubgerencia_personal')->unsigned()->nullable();
             $table->foreign('idsubgerencia_personal')->references('idsubgerencia')->on('subgerencias');
 
             $table->timestamps();

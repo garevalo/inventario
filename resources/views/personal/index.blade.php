@@ -51,7 +51,7 @@
                             <td>{{$personal->cargo->cargo}}</td>
                             <td>{{$personal->sede->sede}}</td>
                             <td>{{$personal->gerencia->gerencia}}</td>
-                            <td>{{$personal->subgerencia->subgerencia}}</td>
+                            <td> @if(isset($personal->subgerencia->subgerencia) && !empty($personal->subgerencia->subgerencia))  {{$personal->subgerencia->subgerencia }}@endif</td>
                             <td><a href="{{route('personal.edit',$personal->idpersonal)}}" class="btn btn-primary btn-sm">Editar</a></td>
                             <td>
                                 <form method="post" action="{{ route('personal.destroy',$personal->idpersonal) }}">

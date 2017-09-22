@@ -6,6 +6,10 @@ use Illuminate\Database\Eloquent\Model;
 
 class Activo extends Model
 {
-    protected $fillable = ['idactivo','fecha_adquision','estado'];
+    protected $fillable = ['fecha_adquisicion','estado'];
     protected $primaryKey = "idactivo";
+
+    protected $dates = ['fecha_adquisicion'];
+
+
 }
