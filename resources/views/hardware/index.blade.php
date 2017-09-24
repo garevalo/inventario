@@ -27,19 +27,35 @@
             </div>
             <!-- /.box-header -->
             <div class="box-body">
-                <table id="example1" class="table table-bordered table-hover">
+                <table id="example1" class="table table-condensed table-bordered table-responsive table-hover">
                     <thead>
                     <tr>
                         <th>ID</th>
-                        <th>Sede</th>
-                        <th>Dirección</th>
+                        <td>Tipo</td>
+                        <th>Marca</th>
+                        <th>Modelo</th>
+                        <th>Num.Serie</th>
+                        <th>Cod. Inventario</th>
+                        <th>Fec. Adquision</th>
+                        <th>Activo</th>
                         <th>Editar</th>
-                        <th>Eliminar</th>
                     </tr>
                     </thead>
                     <tbody>
+                    @foreach($hardwares as $hardware)
+                    <tr>
+                        <td>{{$hardware->idhardware}}</td>
+                        <td>{{$hardware->tipohardware->tipo_hardware}}</td>
+                        <td>{{$hardware->marca}}</td>
+                        <td>{{$hardware->modelo}}</td>
+                        <td>{{$hardware->num_serie}}</td>
+                        <td>{{$hardware->cod_inventario}}</td>
+                        <td>{{$hardware->fecha_adquisicion}}</td>
+                        <td>{{$hardware->id_activo_hardware}}</td>
+                        <td><a href="{{route('hardware.edit',$hardware->idhardware)}}" class="btn btn-primary btn-sm">Editar</a></td>
 
-
+                    </tr>
+                    @endforeach
                     </tbody>
                 </table>
             </div>

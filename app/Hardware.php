@@ -12,6 +12,6 @@ class Hardware extends Model
 
     public function tipohardware()
     {
-       return $this->belongsTo('App\Hardware', 'idtipo_hardware', 'id_tipo_hardware');
+       return $this->belongsTo('App\TipoHardware', 'idtipo_hardware', 'id_tipo_hardware');
     }
 }

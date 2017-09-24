@@ -18,52 +18,46 @@
             </div>
 
 
-            <form method="POST" action="{{route('hardware.store')}}">
+            <form method="POST" action="{{route('software.store')}}">
 
                 {{csrf_field()}}
                 <div class="box-body">
 
-                    <div class="form-group {{ $errors->has('sede') ? ' has-error' : '' }}">
+                    <div class="form-group {{ $errors->has('idtipo_software') ? ' has-error' : '' }}">
                         <label>Tipo Sftware:</label>
-                        <select name="tipo_hardware" id="tipo_hardware" class="form-control">
+                        <select name="idtipo_software" id="idtipo_software" class="form-control input-sm">
                             <option>Seleccione Tipo</option>
-                            <option value="">Sistema Operativo</option>
-                            <option value="">Antivirus</option>
-                            <option value="">Diseño</option>
+                            @foreach($tiposoftwares as $tiposoftware)
+                                <option value="{{$tiposoftware->id_tipo_software}}">{{$tiposoftware->tipo_software}}</option>
+                            @endforeach
                         </select>
+                        {!! $errors->first('idtipo_software','<span class="help-block">:message</span>') !!}
                     </div>
 
-                    <div class="form-group {{ $errors->has('marca') ? ' has-error' : '' }}">
-                        <label>Nombre Software:</label>
-
-                        <input type="text" class="form-control" name="software" id="software" value="{{old('software')}}" required>
-                        {!! $errors->first('software','<span class="help-block">:message</span>') !!}
-                    </div>
 
                     <div class="form-group {{ $errors->has('arquitectura') ? ' has-error' : '' }}">
                         <label>Arquitectura:</label>
 
-                        <input type="text" class="form-control" name="arquitectura" id="arquitectura" value="{{old('arquitectura')}}" required>
+                        <input type="text" class="form-control input-sm" name="arquitectura" id="arquitectura" value="{{old('arquitectura')}}" required>
                         {!! $errors->first('arquitectura','<span class="help-block">:message</span>') !!}
                     </div>
 
                     <div class="form-group {{ $errors->has('service_pack') ? ' has-error' : '' }}">
                         <label>Service Pack:</label>
 
-                        <input type="text" class="form-control" name="service_pack" id="service_pack" value="{{old('service_pack')}}" required>
+                        <input type="text" class="form-control input-sm" name="service_pack" id="service_pack" value="{{old('service_pack')}}" required>
                         {!! $errors->first('service_pack','<span class="help-block">:message</span>') !!}
                     </div>
 
                     <div class="form-group {{ $errors->has('service_pack') ? ' has-error' : '' }}">
                         <label>Fecha Adquisición:</label>
-
-                        <input type="text" class="form-control datepicker" name="fecha_adquisicion" id="fecha_adquisicion" value="{{old('fecha_adquisicion')}}" required>
+                        <input type="text" class="form-control input-sm" data-inputmask="'alias': 'dd/mm/yyyy'" data-mask="" name="fecha_adquisicion" id="fecha_adquisicion" required>
                         {!! $errors->first('fecha_adquisicion','<span class="help-block">:message</span>') !!}
                     </div>
 
                 </div>
                 <div class="box-footer">
-                    <button type="submit" class="btn btn-primary">Guardar</button>
+                    <button type="submit" class="btn btn-primary btn-sm">Guardar</button>
                 </div>
             </form>
             <!-- /.box-body -->
@@ -75,11 +69,21 @@
 
 @section('javascript')
     @parent()
-    <script src="{{asset('plugins/datepicker/bootstrap-datepicker.js')}}"></script>
+    <!-- InputMask -->
+    <script src="{{asset('plugins/input-mask/jquery.inputmask.js')}}"></script>
+    <script src="{{asset('plugins/input-mask/jquery.inputmask.date.extensions.js')}}"></script>
+    <script src="{{asset('plugins/input-mask/jquery.inputmask.extensions.js')}}"></script>
+
+    <link rel="stylesheet" href="{{asset('plugins/bootstrap-wysihtml5/bootstrap3-wysihtml5.min.css')}}">
+
     <script>
-        //Date picker
-        $('.datepicker').datepicker({
-            autoclose: true
-        })
+        $(function () {
+            //Datemask dd/mm/yyyy
+            $("#datemask").inputmask("dd/mm/yyyy", {"placeholder": "dd/mm/yyyy"});
+            //Datemask2 mm/dd/yyyy
+            $("#datemask2").inputmask("mm/dd/yyyy", {"placeholder": "mm/dd/yyyy"});
+            //Money Euro
+            $("[data-mask]").inputmask();
+        });
     </script>
 @endsection

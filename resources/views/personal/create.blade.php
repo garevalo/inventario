@@ -22,31 +22,31 @@
         {{csrf_field()}}
         <div class="box-body">
 
-            <div class="form-group {{ $errors->has('nombres') ? ' has-error' : '' }}">
+            <div class="form-group-sm {{ $errors->has('nombres') ? ' has-error' : '' }}">
                 <label>Nombres:</label>
                 <input type="text" class="form-control" name="nombres" id="nombres" value="{{old('nombres')}}" required>
                 {!! $errors->first('nombres','<span class="help-block">:message</span>') !!}
             </div>
 
-            <div class="form-group {{ $errors->has('apellido_paterno') ? ' has-error' : '' }}">
+            <div class="form-group-sm {{ $errors->has('apellido_paterno') ? ' has-error' : '' }}">
                 <label>Apellido Paterno:</label>
                 <input type="text" class="form-control" name="apellido_paterno" id="apellido_paterno" value="{{old('apellido_paterno')}}" required>
                 {!! $errors->first('apellido_paterno','<span class="help-block">:message</span>') !!}
             </div>
 
-            <div class="form-group {{ $errors->has('apellido_materno') ? ' has-error' : '' }}">
+            <div class="form-group-sm {{ $errors->has('apellido_materno') ? ' has-error' : '' }}">
                 <label>Apellido Materno:</label>
                 <input type="text" class="form-control" name="apellido_materno" id="apellido_materno" value="{{old('apellido_materno')}}" required>
                 {!! $errors->first('apellido_materno','<span class="help-block">:message</span>') !!}
             </div>
 
-            <div class="form-group {{ $errors->has('dni') ? ' has-error' : '' }}">
+            <div class="form-group-sm {{ $errors->has('dni') ? ' has-error' : '' }}">
                 <label>DNI:</label>
                 <input type="text" class="form-control" name="dni" id="dni" value="{{old('dni')}}" required>
                 {!! $errors->first('dni','<span class="help-block">:message</span>') !!}
             </div>
 
-            <div class="form-group {{ $errors->has('idcargo_personal') ? 'has-error' : '' }}">
+            <div class="form-group-sm {{ $errors->has('idcargo_personal') ? 'has-error' : '' }}">
                 <label>Cargo:</label>
                 <select class="form-control" name="idcargo_personal" id="idcargo_personal">
                     <option value="">Seleccione Cargo</option>
@@ -57,7 +57,7 @@
                 {!! $errors->first('idcargo_personal','<span class="help-block">:message</span>') !!}
             </div>
 
-            <div class="form-group {{ $errors->has('idsede_personal') ? 'has-error' : '' }}">
+            <div class="form-group-sm {{ $errors->has('idsede_personal') ? 'has-error' : '' }}">
                 <label>Sede:</label>
                 <select class="form-control" name="idsede_personal" id="idsede_personal">
                     <option value="">Seleccione Sede</option>
@@ -68,7 +68,7 @@
                 {!! $errors->first('idsede_personal','<span class="help-block">:message</span>') !!}
             </div>
 
-            <div class="form-group {{ $errors->has('idgerencia_personal') ? 'has-error' : '' }}">
+            <div class="form-group-sm {{ $errors->has('idgerencia_personal') ? 'has-error' : '' }}">
                 <label>Gerencia:</label>
                 <select class="form-control" name="idgerencia_personal" id="idgerencia_personal">
                     <option value="">Seleccione Gerencia</option>
@@ -79,7 +79,7 @@
                 {!! $errors->first('idsubgerencia_personal','<span class="help-block">:message</span>') !!}
             </div>
 
-            <div class="form-group {{ $errors->has('idsubgerencia_personal') ? 'has-error' : '' }}">
+            <div class="form-group-sm {{ $errors->has('idsubgerencia_personal') ? 'has-error' : '' }}">
                 <label>Sub Gerencia:</label>
                 <select class="form-control" name="idsubgerencia_personal" id="idsubgerencia_personal">
                     <option value="">Seleccione Subgerencia</option>

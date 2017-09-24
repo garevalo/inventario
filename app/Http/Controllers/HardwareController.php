@@ -17,7 +17,8 @@ class HardwareController extends Controller
      */
     public function index()
     {
-        return view('hardware.index');
+        $hardwares = Hardware::with('tipohardware')->get();
+        return view('hardware.index',compact('hardwares'));
     }
 
     /**
@@ -54,7 +55,7 @@ class HardwareController extends Controller
                 "fecha_adquisicion" => Carbon::createFromFormat('d/m/Y', $request->fecha_adquisicion),
                 "capacidad" => $request->capacidad,
                 "interfaz" => $request->interfaz,
-                "tipo_componente" => $request->tipo_componente ]);
+                "tipo" => $request->tipo ]);
 
         return redirect()->route('hardware.index');
     }
@@ -78,7 +79,11 @@ class HardwareController extends Controller
      */
     public function edit($id)
     {
-        //
+        $hardware = Hardware::FindOrFail($id);
+        $tipohardwares = TipoHardware::all();
+
+        $estados = array(1=>'Bueno',2=>'Regular',3=>'Malo');
+        return view('hardware.edit',compact('tipohardwares','estados','hardware'));
     }
 
     /**
@@ -88,9 +93,23 @@ class HardwareController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(HardwareRequest $request, $id)
     {
-        //
+        Hardware::FindOrFail($id)->update(
+            [
+                "idtipo_hardware" => $request->idtipo_hardware,
+                "marca" => $request->marca,
+                "modelo" => $request->modelo,
+                "num_serie" => $request->num_serie,
+                "cod_inventario" => $request->cod_inventario,
+                "estado" => $request->estado,
+                "fecha_adquisicion" => Carbon::createFromFormat('d/m/Y', $request->fecha_adquisicion),
+                "capacidad" => $request->capacidad,
+                "interfaz" => $request->interfaz,
+                "tipo" => $request->tipo ]
+        );
+
+        return redirect()->route('hardware.index');
     }
 
     /**

@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Software;
+use App\TipoSoftware;
 
 class SoftwareController extends Controller
 {
@@ -13,7 +15,8 @@ class SoftwareController extends Controller
      */
     public function index()
     {
-        return view("software.index");
+        $softwares = Software::with('tiposoftware');
+        return view("software.index",compact('softwares'));
     }
 
     /**
@@ -23,7 +26,8 @@ class SoftwareController extends Controller
      */
     public function create()
     {
-        return view("software.create");
+        $tiposoftwares = TipoSoftware::all();
+        return view("software.create",compact('tiposoftwares'));
     }
 
     /**
