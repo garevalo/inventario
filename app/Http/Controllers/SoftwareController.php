@@ -63,11 +63,11 @@ class SoftwareController extends Controller
 
     public function edit($id)
     {
-        $software = Software::FindOrFail($id);
-        $tiposoftwares = TipoSofware::all();
+        $softwares = Software::FindOrFail($id);
+        $tiposoftwares = TipoSoftware::all();
         $estados = array(1=>'Bueno',2=>'Regular',3=>'Malo');
 
-        return view('sofware.edit',compact('tiposoftwares','estados','software'));
+        return view('software.edit',compact('tiposoftwares','estados','softwares'));
     }
 
     /**
