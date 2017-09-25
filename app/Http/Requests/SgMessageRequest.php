@@ -23,9 +23,17 @@ class SgMessageRequest extends FormRequest
      */
     public function rules()
     {
-        return [
-            'subgerencia'=>'required|min:5|regex:/^[a-z A-Z áéíóú ÁÉÍÓÚ]+$/u'
-        ];
+
+
+        if($this->request->has('_method')){
+            return [
+                'subgerencia'=>'required|min:5|regex:/^[a-z A-Z áéíóú ÁÉÍÓÚ]+$/u|unique:subgerencias,subgerencia,'.$this->route('subgerencia').',idsubgerencia'
+            ];
+        }else{
+            return [
+                'subgerencia' => 'required|regex:/^[a-z A-Z áéíóú ÁÉÍÓÚ]+$/u|unique:subgerencias,subgerencia'
+            ];
+        }
     }
 
     public function messages()

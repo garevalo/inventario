@@ -23,8 +23,15 @@ class GerenciaRequest extends FormRequest
      */
     public function rules()
     {
-        return [
-            'gerencia' => 'required|regex:/^[a-z A-Z áéíóú ÁÉÍÓÚ]+$/u',
-        ];
+
+        if($this->request->has('_method')){
+            return [
+                'cargo'=>'required|min:5|regex:/^[a-z A-Z áéíóú ÁÉÍÓÚ]+$/u|unique:cargos,cargo,'.$this->route('gerencia').',idgerencia'
+            ];
+        }else{
+            return [
+                'gerencia' => 'required|regex:/^[a-z A-Z áéíóú ÁÉÍÓÚ]+$/u|unique:gerencias,gerencia'
+            ];
+        }
     }
 }
