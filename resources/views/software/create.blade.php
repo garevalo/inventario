@@ -27,7 +27,7 @@
                         <select name="idtipo_software" id="idtipo_software" class="form-control input-sm">
                             <option>Seleccione Tipo</option>
                             @foreach($tiposoftwares as $tiposoftware)
-                                <option value="{{$tiposoftware->id_tipo_software}}">{{$tiposoftware->tipo_software}}</option>
+                                <option value="{{$tiposoftware->id_tipo_software}}" @if( old('idtipo_software')== $tiposoftware->id_tipo_software ) selected @endif() >{{$tiposoftware->tipo_software}}</option>
                             @endforeach
                         </select>
                         {!! $errors->first('idtipo_software','<span class="help-block">:message</span>') !!}
@@ -50,7 +50,7 @@
 
                     <div class="form-group {{ $errors->has('fecha_adquisicion') ? ' has-error' : '' }}">
                         <label>Fecha Adquisición:</label>
-                        <input type="text" class="form-control input-sm" data-inputmask="'alias': 'dd/mm/yyyy'" data-mask="" name="fecha_adquisicion" id="fecha_adquisicion" required>
+                        <input type="text" class="form-control input-sm" data-inputmask="'alias': 'dd/mm/yyyy'" data-mask="" name="fecha_adquisicion" value="{{old('fecha_adquisicion')}}" id="fecha_adquisicion" required>
                         {!! $errors->first('fecha_adquisicion','<span class="help-block">:message</span>') !!}
                     </div>
 

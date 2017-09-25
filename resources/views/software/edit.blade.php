@@ -17,19 +17,19 @@
                 <h3 class="box-title">Registrar Software</h3>
             </div>
 
-            <form method="POST" action="{{route('software.update',$softwares->idsoftware)}}">
+            <form method="POST" action="{{route('software.update',$software->idsoftware)}}">
 
                 {{csrf_field()}}
                 {!! method_field('PUT') !!}
 
                 <div class="box-body">
-
+         
                     <div class="form-group {{ $errors->has('idtipo_software') ? ' has-error' : '' }}">
                         <label>Tipo Sftware:</label>
                         <select name="idtipo_software" id="idtipo_software" class="form-control input-sm">
                             <option>Seleccione Tipo</option>
                             @foreach($tiposoftwares as $tiposoftware)
-                                <option value="{{$tiposoftware->id_tipo_software}}">{{$tiposoftware->tipo_software}}</option>
+                                <option value="{{$tiposoftware->id_tipo_software}}" @if($software->idtipo_software==$tiposoftware->id_tipo_software)  selected @endif() >{{$tiposoftware->tipo_software}}</option>
                             @endforeach
                         </select>
                         {!! $errors->first('idtipo_software','<span class="help-block">:message</span>') !!}
@@ -39,20 +39,20 @@
                     <div class="form-group {{ $errors->has('arquitectura') ? ' has-error' : '' }}">
                         <label>Arquitectura:</label>
 
-                        <input type="text" class="form-control input-sm" name="arquitectura" id="arquitectura" value="{{old('arquitectura')}}" required>
+                        <input type="text" class="form-control input-sm" name="arquitectura" id="arquitectura" value="{{ $software->arquitectura }}" required>
                         {!! $errors->first('arquitectura','<span class="help-block">:message</span>') !!}
                     </div>
 
                     <div class="form-group {{ $errors->has('service_pack') ? ' has-error' : '' }}">
                         <label>Service Pack:</label>
 
-                        <input type="text" class="form-control input-sm" name="service_pack" id="service_pack" value="{{old('service_pack')}}" required>
+                        <input type="text" class="form-control input-sm" name="service_pack" id="service_pack" value="{{$software->service_pack }}" required>
                         {!! $errors->first('service_pack','<span class="help-block">:message</span>') !!}
                     </div>
 
                     <div class="form-group {{ $errors->has('fecha_adquisicion') ? ' has-error' : '' }}">
                         <label>Fecha Adquisición:</label>
-                        <input type="text" class="form-control input-sm" data-inputmask="'alias': 'dd/mm/yyyy'" data-mask="" name="fecha_adquisicion" id="fecha_adquisicion" required>
+                        <input type="text" class="form-control input-sm" data-inputmask="'alias': 'dd/mm/yyyy'" data-mask="" name="fecha_adquisicion" id="fecha_adquisicion" required value="{{$software->fecha_adquisicion->format('d/m/Y')}}">
                         {!! $errors->first('fecha_adquisicion','<span class="help-block">:message</span>') !!}
                     </div>
 
@@ -62,7 +62,7 @@
                         <select name="estado" id="estado" class="form-control">
                             <option value="">Estado</option>
                             @foreach($estados as $key => $estado)
-                                <option value="{{$key}}" @if($key==old('estado')) selected @endif >{{$estado}}</option>
+                                <option value="{{$key}}" @if($key== $software->estado ) selected @endif >{{$estado}}</option>
                             @endforeach
                         </select>
                         {!! $errors->first('estado','<span class="help-block">:message</span>') !!}

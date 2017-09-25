@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Activo;
 
 class ActivoController extends Controller
 {
@@ -13,6 +14,8 @@ class ActivoController extends Controller
      */
     public function index()
     {
+        $activos = Activo::with('hardware','software')->get();
+        dd($activos);
         return view('activo.index');
     }
 

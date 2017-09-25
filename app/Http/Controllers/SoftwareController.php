@@ -18,7 +18,6 @@ class SoftwareController extends Controller
     public function index()
     {
         $softwares = Software::with('tiposoftware')->get();
-        //dd($softwares);
         return view("software.index",compact('softwares'));
     }
 
@@ -37,15 +36,18 @@ class SoftwareController extends Controller
 
     public function store(SoftwareRequest $request)
     {
-        $activo = Activo::create(['fecha_adquisicion'=> Carbon::createFromFormat('d/m/Y', $request->fecha_adquisicion),
+        $idactivo = Activo::insertGetId(['fecha_adquisicion'=> Carbon::createFromFormat('d/m/Y', $request->fecha_adquisicion),
             'estado'=> $request->estado ]);
 
-        $software = Software::create([
-            "id_activo_software" => $activo->idactivo,
+        if($idactivo){
+            $software = Software::create([
+            "id_activo_software" => $idactivo,
             "idtipo_software" => $request->idtipo_software,
             "arquitectura" => $request->arquitectura,
             "service_pack" => $request->service_pack,
-            "fecha_adquision" => Carbon::createFromFormat('d/m/Y', $request->fecha_adquisicion)]);
+            "fecha_adquisicion" => Carbon::createFromFormat('d/m/Y', $request->fecha_adquisicion)]);
+        }
+       
 
         return redirect()->route('software.index');
     }
@@ -63,11 +65,11 @@ class SoftwareController extends Controller
 
     public function edit($id)
     {
-        $softwares = Software::FindOrFail($id);
+        $software = Software::FindOrFail($id);
         $tiposoftwares = TipoSoftware::all();
         $estados = array(1=>'Bueno',2=>'Regular',3=>'Malo');
 
-        return view('software.edit',compact('tiposoftwares','estados','softwares'));
+        return view('software.edit',compact('tiposoftwares','estados','software'));
     }
 
     /**
@@ -77,14 +79,16 @@ class SoftwareController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(HardwareRequest $request, $id)
+    public function update(SoftwareRequest $request, $id)
     {
-        Hardware::FindOrFail($id)->update(
+        Software::FindOrFail($id)->update(
             [
                 "idtipo_software" => $request->idtipo_software,
                 "arquitectura" => $request->arquitectura,
                 "service_pack" => $request->service_pack,
-                "fecha_adquision" => Carbon::createFromFormat('d/m/Y', $request->fecha_adquisicion)]
+                "fecha_adquisicion" => Carbon::createFromFormat('d/m/Y', $request->fecha_adquisicion)
+            ]
+
         );
 
         return redirect()->route('software.index');

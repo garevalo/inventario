@@ -6,13 +6,18 @@ use Illuminate\Database\Eloquent\Model;
 
 class Software extends Model
 {
-    protected $fillable=['idtipo_software','arquitectura','service_pack','fecha_adquision','id_activo_software'];
+    protected $fillable=['idtipo_software','arquitectura','service_pack','fecha_adquisicion','id_activo_software'];
     protected  $primaryKey = 'idsoftware';
 
-    protected $dates = ['fecha_adquision'];
+    protected $dates = ['fecha_adquisicion'];
 
     public function tiposoftware()
     {
         return $this->belongsTo('App\TipoSoftware', 'idtipo_software', 'id_tipo_software');
     }
+
+     public function activo()
+	{
+	    return $this->belongsTo('App\Activo', 'id_activo_software','idactivo');
+	}
 }

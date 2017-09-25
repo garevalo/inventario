@@ -41,10 +41,11 @@ class HardwareController extends Controller
      */
     public function store(HardwareRequest $request)
     {
-        $activo = Activo::create(['fecha_adquisicion'=> Carbon::createFromFormat('d/m/Y', $request->fecha_adquisicion),
+        $idactivo = Activo::insertGetId(['fecha_adquisicion'=> Carbon::createFromFormat('d/m/Y', $request->fecha_adquisicion),
                                   'estado'=> $request->estado ]);
-        
-        $hardware = Hardware::create([
+
+        if($idactivo){
+            $hardware = Hardware::create([
                 "id_activo_hardware" => $activo->idactivo,
                 "idtipo_hardware" => $request->idtipo_hardware,
                 "marca" => $request->marca,
@@ -56,7 +57,8 @@ class HardwareController extends Controller
                 "capacidad" => $request->capacidad,
                 "interfaz" => $request->interfaz,
                 "tipo" => $request->tipo ]);
-
+        }
+        
         return redirect()->route('hardware.index');
     }
 

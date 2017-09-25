@@ -34,13 +34,25 @@
             <li></li>
             <li>
                 <a href="/hardware">
-                    <i class="fa fa-microchip"></i> <span>Módulo de Hardware</span>
+                    <i class="fa fa-laptop"></i> <span>Módulo de Hardware</span>
                     <span class="pull-right-container"></span>
                 </a>
             </li>
             <li>
                 <a href="/software">
-                    <i class="fa fa-th"></i> <span>Módulo de Software</span>
+                    <i class="fa fa-terminal on fa-square"></i> <span>Módulo de Software</span>
+                    <span class="pull-right-container"></span>
+                </a>
+            </li>
+            <li>
+                <a href="/activo">
+                    <i class="fa fa-th"></i> <span>Activos</span>
+                    <span class="pull-right-container"></span>
+                </a>
+            </li>
+            <li>
+                <a href="/activo">
+                    <i class="fa fa-pie-chart"></i> <span>Reportes</span>
                     <span class="pull-right-container"></span>
                 </a>
             </li>
@@ -48,7 +60,7 @@
 
                 @if(in_array(request()->getRequestUri(),['/cargo','/sede','/gerencia','/subgerencia','/personal'])) active @endif ">
                 <a href="#">
-                    <i class="fa fa-pie-chart"></i>
+                    <i class="fa fa-pencil-square-o"></i>
                     <span>Mantenimiento</span>
                     <span class="pull-right-container">
                         <i class="fa fa-angle-left pull-right"></i>
