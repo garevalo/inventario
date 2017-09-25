@@ -17,9 +17,11 @@
                 <h3 class="box-title">Registrar Software</h3>
             </div>
 
-            <form method="POST" action="{{route('software.store')}}">
+            <form method="POST" action="{{route('software.update',$softwares->idsoftware)}}">
 
                 {{csrf_field()}}
+                {!! method_field('PUT') !!}
+
                 <div class="box-body">
 
                     <div class="form-group {{ $errors->has('idtipo_software') ? ' has-error' : '' }}">

@@ -35,18 +35,18 @@
                         <th>Arquitectura</th>
                         <th>Service Pack</th>
                         <th>Fecha Adquisición</th>
+                        <th>Activo</th>
                         <th>Editar</th>
-                        <th>Eliminar</th>
                     </tr>
                     </thead>
                     <tbody>
                     @foreach($softwares as $software)
                         <tr>
-                            <td>{{$software->idhardware}}</td>
+                            <td>{{$software->idsoftware}}</td>
                             <td>{{$software->tiposoftware->tipo_software}}</td>
                             <td>{{$software->arquitectura}}</td>
                             <td>{{$software->service_pack}}</td>
-                            <td>{{$software->fecha_adquisicion}}</td>
+                            <td>{{$software->fecha_adquision}}</td>
                             <td>{{$software->id_activo_software}}</td>
                             <td><a href="{{route('software.edit',$software->idsoftware)}}" class="btn btn-primary btn-sm">Editar</a></td>
                         </tr>

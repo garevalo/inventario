@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Software extends Model
 {
-    protected $fillable=['idtipo_software','arquitectura','service_pack','fecha_adquision','idactivo'];
+    protected $fillable=['idtipo_software','arquitectura','service_pack','fecha_adquision','id_activo_software'];
     protected  $primaryKey = 'idsoftware';
 
     protected $dates = ['fecha_adquision'];
