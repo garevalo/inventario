@@ -29,7 +29,7 @@ class CreateHardwaresTable extends Migration
             $table->foreign('idtipo_hardware')->references('id_tipo_hardware')->on('tipo_hardwares');
 
             $table->integer('id_activo_hardware')->unique()->unsigned();
-            $table->foreign('id_activo_hardware')->references('idactivo')->on('activos');
+            $table->foreign('id_activo_hardware')->references('idactivo')->on('activos')->onDelete('cascade');;
 
             $table->timestamps();
         });

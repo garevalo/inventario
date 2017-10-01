@@ -33,20 +33,16 @@ class HardwareController extends Controller
         return view('hardware.create',compact('tipohardware','estados'));
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
     public function store(HardwareRequest $request)
     {
         $idactivo = Activo::insertGetId(['fecha_adquisicion'=> Carbon::createFromFormat('d/m/Y', $request->fecha_adquisicion),
-                                  'estado'=> $request->estado ]);
+            'tipo_activo'=>'1',
+            'estado'=> $request->estado ])
+        ;
 
         if($idactivo){
             $hardware = Hardware::create([
-                "id_activo_hardware" => $activo->idactivo,
+                "id_activo_hardware" => $idactivo,
                 "idtipo_hardware" => $request->idtipo_hardware,
                 "marca" => $request->marca,
                 "modelo" => $request->modelo,

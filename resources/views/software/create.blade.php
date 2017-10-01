@@ -33,6 +33,12 @@
                         {!! $errors->first('idtipo_software','<span class="help-block">:message</span>') !!}
                     </div>
 
+                    <div class="form-group {{ $errors->has('nombre_software') ? ' has-error' : '' }}">
+                        <label>Nombre Software:</label>
+
+                        <input type="text" class="form-control input-sm" name="nombre_software" id="nombre_software" value="{{old('nombre_software')}}" required>
+                        {!! $errors->first('nombre_software','<span class="help-block">:message</span>') !!}
+                    </div>
 
                     <div class="form-group {{ $errors->has('arquitectura') ? ' has-error' : '' }}">
                         <label>Arquitectura:</label>
@@ -57,7 +63,7 @@
                     <div class="form-group-sm {{ $errors->has('estado') ? ' has-error' : '' }}">
                         <label>Estado:</label>
 
-                        <select name="estado" id="estado" class="form-control">
+                        <select name="estado" id="estado" class="form-control" required>
                             <option value="">Estado</option>
                             @foreach($estados as $key => $estado)
                                 <option value="{{$key}}" @if($key==old('estado')) selected @endif >{{$estado}}</option>

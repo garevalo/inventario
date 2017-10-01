@@ -50,7 +50,7 @@
                         <td>{{$hardware->modelo}}</td>
                         <td>{{$hardware->num_serie}}</td>
                         <td>{{$hardware->cod_inventario}}</td>
-                        <td>{{$hardware->fecha_adquisicion}}</td>
+                        <td>{{$hardware->fecha_adquisicion->format('d-m-Y')}}</td>
                         <td>{{$hardware->id_activo_hardware}}</td>
                         <td><a href="{{route('hardware.edit',$hardware->idhardware)}}" class="btn btn-primary btn-sm">Editar</a></td>
 

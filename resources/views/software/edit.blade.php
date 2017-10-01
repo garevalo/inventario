@@ -35,6 +35,13 @@
                         {!! $errors->first('idtipo_software','<span class="help-block">:message</span>') !!}
                     </div>
 
+                    <div class="form-group {{ $errors->has('nombre_software') ? ' has-error' : '' }}">
+                        <label>Nombre Software:</label>
+
+                        <input type="text" class="form-control input-sm" name="nombre_software" id="nombre_software" value="{{$software->nombre_software or old('nombre_software')}}" required>
+                        {!! $errors->first('nombre_software','<span class="help-block">:message</span>') !!}
+                    </div>
+
 
                     <div class="form-group {{ $errors->has('arquitectura') ? ' has-error' : '' }}">
                         <label>Arquitectura:</label>
@@ -55,7 +62,7 @@
                         <input type="text" class="form-control input-sm" data-inputmask="'alias': 'dd/mm/yyyy'" data-mask="" name="fecha_adquisicion" id="fecha_adquisicion" required value="{{$software->fecha_adquisicion->format('d/m/Y')}}">
                         {!! $errors->first('fecha_adquisicion','<span class="help-block">:message</span>') !!}
                     </div>
-
+                    {{--
                     <div class="form-group-sm {{ $errors->has('estado') ? ' has-error' : '' }}">
                         <label>Estado:</label>
 
@@ -66,7 +73,7 @@
                             @endforeach
                         </select>
                         {!! $errors->first('estado','<span class="help-block">:message</span>') !!}
-                    </div>
+                    </div> --}}
 
                 </div>
                 <div class="box-footer">

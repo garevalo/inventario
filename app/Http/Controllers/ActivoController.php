@@ -15,8 +15,8 @@ class ActivoController extends Controller
     public function index()
     {
         $activos = Activo::with('hardware','software')->get();
-        dd($activos);
-        return view('activo.index');
+        //dd($activos);
+        return view('activo.index',compact('activos'));
     }
 
     /**
@@ -24,6 +24,11 @@ class ActivoController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+
+    public function asignar(){
+        return view('activo.asignar');
+    }
+
     public function create()
     {
         //

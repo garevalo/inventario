@@ -25,6 +25,7 @@ class SoftwareRequest extends FormRequest
     {
         return [
             'idtipo_software' => 'required|integer',
+            'nombre_software' => 'required',
             'arquitectura' => 'required',
             //'service_pack' => 'required',
             'fecha_adquisicion'=> 'required|date_format:d/m/Y',

@@ -32,6 +32,7 @@
                     <tr>
                         <th>ID</th>
                         <th>Tipo Software</th>
+                        <th>Nombre</th>
                         <th>Arquitectura</th>
                         <th>Service Pack</th>
                         <th>Fecha Adquisición</th>
@@ -43,10 +44,11 @@
                     @foreach($softwares as $software)
                         <tr>
                             <td>{{$software->idsoftware}}</td>
+                            <td>{{$software->nombre_software}}</td>
                             <td>{{$software->tiposoftware->tipo_software}}</td>
                             <td>{{$software->arquitectura}}</td>
                             <td>{{$software->service_pack}}</td>
-                            <td>{{$software->fecha_adquision}}</td>
+                            <td>{{$software->fecha_adquisicion->format('d-m-Y')}}</td>
                             <td>{{$software->id_activo_software}}</td>
                             <td><a href="{{route('software.edit',$software->idsoftware)}}" class="btn btn-primary btn-sm">Editar</a></td>
                         </tr>

@@ -15,15 +15,16 @@ class CreateSoftwaresTable extends Migration
     {
         Schema::create('softwares', function (Blueprint $table) {
             $table->increments('idsoftware');
+            $table->string('nombre_software',100);
             $table->string('arquitectura',50);
-            $table->string('service_pack',50);
+            $table->string('service_pack',50)->nullable();
             $table->dateTime('fecha_adquisicion');
 
             $table->integer('idtipo_software')->unsigned();
             $table->foreign('idtipo_software')->references('id_tipo_software')->on('tipo_softwares');
 
             $table->integer('id_activo_software')->unsigned();
-            $table->foreign('id_activo_software')->references('idactivo')->on('activos');
+            $table->foreign('id_activo_software')->references('idactivo')->on('activos')->onDelete('cascade');
 
             $table->timestamps();
         });
