@@ -1,3 +1,5 @@
+<!-- Select2 -->
+<link rel="stylesheet" href="{{asset('plugins/select2/select2.css')}}">
 <!-- Bootstrap 3.3.6 -->
 <link rel="stylesheet" href="{{asset('bootstrap/css/bootstrap.min.css')}}">
 <!-- Font Awesome -->

@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Activo;
+use App\Personal;
+use Datatables;
 
 class ActivoController extends Controller
 {
@@ -26,7 +28,9 @@ class ActivoController extends Controller
      */
 
     public function asignar(){
-        return view('activo.asignar');
+        $personals = Personal::all();
+        //dd($personals);
+        return view('activo.asignar',compact('personals'));
     }
 
     public function create()

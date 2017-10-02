@@ -19,7 +19,9 @@
         <a href="{{route('software.create')}}" class="btn btn-sm btn-success" title="Add Data">
             <i class="fa fa-plus-circle"></i> Registrar Sofware
         </a>
-
+        <a href="{{route('asignar')}}" class="btn btn-sm btn-primary" title="Asignar Activos">
+            <i class="fa fa-plus-circle"></i> Asignar Activos
+        </a>
     </h1>
 @endsection
 
@@ -38,7 +40,7 @@
                         <th>ID</th>
                         <th>Tipo</th>
                         <th>Fecha de adquision</th>
-                        <th>Asignar</th>
+                        <th>Personal</th>
                     </tr>
                     </thead>
                     <tbody>
