@@ -5,7 +5,9 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Activo;
 use App\Personal;
+
 use Datatables;
+use Carbon\Carbon;
 
 class ActivoController extends Controller
 {
@@ -35,7 +37,7 @@ class ActivoController extends Controller
 
     public function create()
     {
-        //
+
     }
 
     /**
@@ -46,7 +48,7 @@ class ActivoController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        dd($request->all());
     }
 
     /**
@@ -92,5 +94,33 @@ class ActivoController extends Controller
     public function destroy($id)
     {
         //
+    }
+
+    public function getRowDetails()
+    {
+        return view('activo.eloquent.row-details');
+    }
+
+    public function getRowDetailsData()
+    {
+        $activos = Activo::with('hardware','software')->get();
+
+
+        /*
+         * return Datatables::of(Cliente::where('estado_cliente','=',1))
+            ->addColumn('check',function($cliente){
+                return '<label class="pos-rel"><input type="checkbox" class="ace"><span class="lbl" id="'.$cliente->idcliente.'"></span></label>';
+            })
+            ->addColumn('edit',function($cliente){
+                return '<a href="javascript:void(0)" ng-click="modalCliente(2,'.$cliente->idcliente.')" class="blue"><i class="ace-icon fa fa-pencil bigger-130"></i></a>
+                        <a href="javascript:void(0)" ng-click="delete(2,'.$cliente->idcliente.')" class="red"><i class="glyphicon glyphicon-trash"></i></a>';
+            })
+            ->make(true);*/
+
+        return Datatables::of($activos)
+            ->addColumn('check',function($activo){
+                return '<label class="pos-rel"><input type="checkbox" class="ace"><span class="lbl" id="'.$activo->idactivo.'"></span></label>';
+            })
+            ->make(true);
     }
 }

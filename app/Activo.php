@@ -8,8 +8,6 @@ class Activo extends Model
 {
 protected $fillable = ['fecha_adquisicion','estado','tipo_activo'];
     protected $primaryKey = "idactivo";
-    protected $dateFormat = ['fecha_adquisicion'];
-
     protected $dates = ['fecha_adquisicion'];
 
     public function hardware()

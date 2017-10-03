@@ -27,6 +27,7 @@ Route::middleware(['auth'])->group(function () {
     Route::resource('hardware','HardwareController');
     Route::resource('software','SoftwareController');
     Route::get('activo/asignar','ActivoController@asignar')->name('asignar');
+    Route::get('activo/getdata','ActivoController@getRowDetailsData')->name('getdataactivo');
     Route::resource('activo','ActivoController');
     Route::get('/home', 'HomeController@index')->name('home');
 });
