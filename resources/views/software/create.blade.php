@@ -72,10 +72,11 @@
                         {!! $errors->first('estado','<span class="help-block">:message</span>') !!}
                     </div>
 
-                    <div class="form-group {{ $errors->has('fecha_adquisicion') ? ' has-error' : '' }}">
-                        <label>Licencia Pagada:</label>
-                        <input type="checkbox" value="lincencia" class="input-sm">
-                        {!! $errors->first('fecha_adquisicion','<span class="help-block">:message</span>') !!}
+                    <div class="checkbox {{ $errors->has('licencia') ? ' has-error' : '' }}">
+                        <label>
+                            <input type="checkbox" name="licencia"> Licencia Pagada
+                        </label>
+                        {!! $errors->first('licencia','<span class="help-block">:message</span>') !!}
                     </div>
 
                 </div>
