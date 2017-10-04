@@ -116,10 +116,10 @@ class ActivoController extends Controller
                         <a href="javascript:void(0)" ng-click="delete(2,'.$cliente->idcliente.')" class="red"><i class="glyphicon glyphicon-trash"></i></a>';
             })
             ->make(true);*/
-
+        dump($activos);
         return Datatables::of($activos)
             ->addColumn('check',function($activo){
-                return '<label class="pos-rel"><input type="checkbox" class="ace"><span class="lbl" id="'.$activo->idactivo.'"></span></label>';
+                return '<label class="pos-rel"><input type="checkbox" name=""><span class="lbl" id="'.$activo->idactivo.'"></span></label>';
             })
             ->make(true);
     }

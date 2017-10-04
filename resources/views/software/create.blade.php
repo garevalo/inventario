@@ -74,7 +74,7 @@
 
                     <div class="checkbox {{ $errors->has('licencia') ? ' has-error' : '' }}">
                         <label>
-                            <input type="checkbox" name="licencia"> Licencia Pagada
+                            <input type="checkbox" name="licencia" value="1" @if(old('licencia')) checked @endif()> Licencia Pagada
                         </label>
                         {!! $errors->first('licencia','<span class="help-block">:message</span>') !!}
                     </div>

@@ -62,18 +62,13 @@
                         <input type="text" class="form-control input-sm" data-inputmask="'alias': 'dd/mm/yyyy'" data-mask="" name="fecha_adquisicion" id="fecha_adquisicion" required value="{{$software->fecha_adquisicion->format('d/m/Y')}}">
                         {!! $errors->first('fecha_adquisicion','<span class="help-block">:message</span>') !!}
                     </div>
-                    {{--
-                    <div class="form-group-sm {{ $errors->has('estado') ? ' has-error' : '' }}">
-                        <label>Estado:</label>
+                    <div class="checkbox {{ $errors->has('licencia') ? ' has-error' : '' }}">
+                        <label>
+                            <input type="checkbox" name="licencia" value="1" @if($software->licencia==1) checked @endif() > Licencia Pagada
+                        </label>
+                        {!! $errors->first('licencia','<span class="help-block">:message</span>') !!}
+                    </div>
 
-                        <select name="estado" id="estado" class="form-control">
-                            <option value="">Estado</option>
-                            @foreach($estados as $key => $estado)
-                                <option value="{{$key}}" @if($key== $software->estado ) selected @endif >{{$estado}}</option>
-                            @endforeach
-                        </select>
-                        {!! $errors->first('estado','<span class="help-block">:message</span>') !!}
-                    </div> --}}
 
                 </div>
                 <div class="box-footer">

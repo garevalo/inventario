@@ -47,7 +47,8 @@ class SoftwareController extends Controller
             "idtipo_software" => $request->idtipo_software,
             "arquitectura" => $request->arquitectura,
             "service_pack" => $request->service_pack,
-            "fecha_adquisicion" => Carbon::createFromFormat('d/m/Y', $request->fecha_adquisicion)]);
+            "fecha_adquisicion" => Carbon::createFromFormat('d/m/Y', $request->fecha_adquisicion),
+            "licencia"=> $request->licencia]);
         }
        
 
@@ -89,7 +90,8 @@ class SoftwareController extends Controller
                 "nombre_software" => $request->nombre_software,
                 "arquitectura" => $request->arquitectura,
                 "service_pack" => $request->service_pack,
-                "fecha_adquisicion" => Carbon::createFromFormat('d/m/Y', $request->fecha_adquisicion)
+                "fecha_adquisicion" => Carbon::createFromFormat('d/m/Y', $request->fecha_adquisicion),
+                "licencia"=> $request->licencia
             ]
 
         );

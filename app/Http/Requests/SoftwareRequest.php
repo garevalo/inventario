@@ -23,13 +23,21 @@ class SoftwareRequest extends FormRequest
      */
     public function rules()
     {
-        return [
-            'idtipo_software' => 'required|integer',
-            'nombre_software' => 'required',
-            'arquitectura' => 'required',
-            //'service_pack' => 'required',
-            'fecha_adquisicion'=> 'required|date_format:d/m/Y',
-            'estado'=>'required'
-        ];
+        if($this->request->has('_method')){
+            $validations = array('idtipo_software' => 'required|integer',
+                'nombre_software' => 'required',
+                'arquitectura' => 'required',
+                'fecha_adquisicion'=> 'required|date_format:d/m/Y',
+                'licencia' => 'integer');
+        }else{
+            $validations = array('idtipo_software' => 'required|integer',
+                'nombre_software' => 'required',
+                'arquitectura' => 'required',
+                'fecha_adquisicion'=> 'required|date_format:d/m/Y',
+                'estado'=>'required',
+                'licencia' => 'integer');
+        }
+
+        return $validations;
     }
 }
