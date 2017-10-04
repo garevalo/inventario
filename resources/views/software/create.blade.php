@@ -72,6 +72,12 @@
                         {!! $errors->first('estado','<span class="help-block">:message</span>') !!}
                     </div>
 
+                    <div class="form-group {{ $errors->has('fecha_adquisicion') ? ' has-error' : '' }}">
+                        <label>Licencia:</label>
+                        <input type="checkbox" value="lincencia">
+                        {!! $errors->first('fecha_adquisicion','<span class="help-block">:message</span>') !!}
+                    </div>
+
                 </div>
                 <div class="box-footer">
                     <button type="submit" class="btn btn-primary btn-sm">Guardar</button>
