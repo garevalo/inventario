@@ -20,5 +20,10 @@ protected $fillable = ['fecha_adquisicion','estado','tipo_activo'];
         return $this->hasOne('App\Software','id_activo_software', 'idactivo');
     }
 
+    public function personals_activos()
+    {
+        return $this->hasMany('App\personals_activos','activos_id', 'idactivo');
+    }
+
 
 }

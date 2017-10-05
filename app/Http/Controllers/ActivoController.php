@@ -2,9 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use App\TipoHardware;
 use Illuminate\Http\Request;
 use App\Activo;
 use App\Personal;
+use App\Personals_activos;
 
 use Datatables;
 use Carbon\Carbon;
@@ -48,7 +50,16 @@ class ActivoController extends Controller
      */
     public function store(Request $request)
     {
-        dd($request->all());
+        foreach ($request->activo as $activo){
+            Personals_activos::create(['activos_id'=>$activo->activo,
+                                       'personals_idpersonal'=>$request->personal,
+                                        'fecha_asignacion'=> date('Y-m-d') ]);
+
+            Activo::FindOrFail($activo->activo)->update('asignado',1);
+        }
+
+        return redirect()->route('activo.index');
+
     }
 
     /**
@@ -105,21 +116,43 @@ class ActivoController extends Controller
     {
         $activos = Activo::with('hardware','software')->get();
 
-
-        /*
-         * return Datatables::of(Cliente::where('estado_cliente','=',1))
-            ->addColumn('check',function($cliente){
-                return '<label class="pos-rel"><input type="checkbox" class="ace"><span class="lbl" id="'.$cliente->idcliente.'"></span></label>';
-            })
-            ->addColumn('edit',function($cliente){
-                return '<a href="javascript:void(0)" ng-click="modalCliente(2,'.$cliente->idcliente.')" class="blue"><i class="ace-icon fa fa-pencil bigger-130"></i></a>
-                        <a href="javascript:void(0)" ng-click="delete(2,'.$cliente->idcliente.')" class="red"><i class="glyphicon glyphicon-trash"></i></a>';
-            })
-            ->make(true);*/
-        dump($activos);
         return Datatables::of($activos)
-            ->addColumn('check',function($activo){
-                return '<label class="pos-rel"><input type="checkbox" name=""><span class="lbl" id="'.$activo->idactivo.'"></span></label>';
+
+            ->addColumn('campo1',function($activo){
+                if($activo->software){
+                    return $activo->software->nombre_software;
+                }else{
+                    return $activo->hardware->marca;
+                }
+
+            })
+            ->addColumn('campo2',function($activo){
+                if($activo->software){
+                    return $activo->software->arquitectura;
+                }else{
+                    return $activo->hardware->modelo;
+                }
+            })
+            ->addColumn('campo3',function($activo){
+                if($activo->software){
+                    return $activo->software->service_pack;
+                }else{
+                    return $activo->hardware->num_serie;
+                }
+            })
+            ->addColumn('campo4',function($activo){
+                if($activo->software){
+                    return $activo->software->service_pack;
+                }else{
+                    return $activo->hardware->num_serie;
+                }
+            })
+            ->addColumn('tipoactivo',function($activo){
+                if($activo->software){
+                    return 'Software';
+                }else{
+                    return 'Hardware';
+                }
             })
             ->make(true);
     }

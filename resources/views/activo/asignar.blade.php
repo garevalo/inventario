@@ -32,13 +32,15 @@
                             <h3 class="box-title">Activos</h3>
                         </div>
                         <div class="box-body">
-                            <table id="table-activos" class="table table-condensed table-bordered">
+                            <table id="table-activos" class="table table-condensed table-striped">
                                 <thead>
                                 <tr>
                                     <th></th>
-                                    <th>ID</th>
-                                    <th>Tipo</th>
-                                    <th>Fecha de adquision</th>
+                                    <th>Tipo Activo</th>
+                                    <th>SOftware/Marca</th>
+                                    <th>Arquitecura / Modelo</th>
+                                    <th>Service Pack / Num. Serie</th>
+
                                 </tr>
                                 </thead>
                                 <tbody>
@@ -84,12 +86,25 @@
             serverSide: true,
             ajax: '{{route('getdataactivo')}}',
             columns: [
-                { data: 'check',  name: 'check',orderable:false,searchable:false },
-                {data: 'idactivo', name: 'idactivo'},
-                {data: 'tipo_activo', name: 'tipo_activo'},
-                {data: 'fecha_adquisicion', name: 'fecha_adquisicion'}
+                {
+                    data:'idactivo',
+                    render: function(data, type, row){
+
+                            return '<input type="checkbox" id="inputUnchecked" name="activo[]" value="'+data+'"/>';
+                    },
+                    orderable:false,
+                    searchable:false
+                },
+                //{ data: 'idactivo',"defaultContent": "<input type='checkbox' name='activo[]' >",orderable:false,searchable:false },
+                {data: 'tipoactivo', name: 'tipoactivo'},
+                {data: 'campo1', name: 'campo1'},
+                {data: 'campo2', name: 'campo2'},
+                {data: 'campo3', name: 'campo3'}
             ],
-            order: [[1, 'desc']]
+            order: [[0, 'desc']],
+            "language": {
+                "url": "{{asset("plugins/datatables/Spanish.json")}}"
+            }
         });
 
         // Add event listener for opening and closing details
