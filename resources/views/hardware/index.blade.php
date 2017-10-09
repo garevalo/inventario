@@ -10,7 +10,7 @@
 
 @section('menu-h1')
     <h1>
-        <i class="fa fa-microchip"></i>  Hardware &nbsp;&nbsp;
+        <i class="fa fa-microchip"></i>  Listado de Activos Hardware &nbsp;&nbsp;
         <a href="{{route('hardware.create')}}" class="btn btn-sm btn-success" title="Add Data">
             <i class="fa fa-plus-circle"></i> Nuevo Hardware
         </a>
@@ -23,7 +23,7 @@
     <div class="col-xs-12">
         <div class="box">
             <div class="box-header">
-                <h3 class="box-title">Sedes</h3>
+                <h3 class="box-title">Hardware</h3>
             </div>
             <!-- /.box-header -->
             <div class="box-body">
