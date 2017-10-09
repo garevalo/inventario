@@ -40,7 +40,7 @@
             </li>
             <li>
                 <a href="/software">
-                    <i class="fa fa-terminal on fa-square"></i> <span>Módulo de Software</span>
+                    <i class="fa fa-windows"></i> <span>Módulo de Software</span>
                     <span class="pull-right-container"></span>
                 </a>
             </li>
@@ -52,7 +52,7 @@
             </li>
             <li>
                 <a href="/activo">
-                    <i class="fa fa-pie-chart"></i> <span>Reportes</span>
+                    <i class="fa fa-pie-chart"></i> <span>Módulo de Reportes</span>
                     <span class="pull-right-container"></span>
                 </a>
             </li>
@@ -61,7 +61,7 @@
                 @if(in_array(request()->getRequestUri(),['/cargo','/sede','/gerencia','/subgerencia','/personal'])) active @endif ">
                 <a href="#">
                     <i class="fa fa-pencil-square-o"></i>
-                    <span>Mantenimiento</span>
+                    <span>Módulo de Mantenimientos</span>
                     <span class="pull-right-container">
                         <i class="fa fa-angle-left pull-right"></i>
                     </span>

@@ -30,10 +30,11 @@
 
     <div class="login-box">
         <div class="login-logo">
-            <a href="../../index2.html"><b>{{config('app.name')}}</b></a>
+            <a href="../../index2.html"><b>Gestión de {{config('app.name')}}</b></a>
         </div>
         <!-- /.login-logo -->
         <div class="login-box-body">
+            <img src="http://www.municomas.gob.pe/wp-content/uploads/2017/06/logo-municomas.png" />
             <p class="login-box-msg">Logeate para iniciar sesión</p>
 
             <form method="POST" action="{{ route('login') }}">

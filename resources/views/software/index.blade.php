@@ -10,7 +10,7 @@
 
 @section('menu-h1')
     <h1>
-        <i class="fa fa-users"></i>  Software &nbsp;&nbsp;
+        <i class="fa fa-users"></i>  Listado de Activos Software &nbsp;&nbsp;
         <a href="{{route('software.create')}}" class="btn btn-sm btn-success" title="Add Data">
             <i class="fa fa-plus-circle"></i> Nuevo Software
         </a>
