@@ -46,7 +46,7 @@
             </li>
             <li>
                 <a href="/activo">
-                    <i class="fa fa-th"></i> <span>Activos</span>
+                    <i class="fa fa-th"></i> <span>Módulo de Asignación</span>
                     <span class="pull-right-container"></span>
                 </a>
             </li>
