@@ -34,13 +34,15 @@
             </div>
             <!-- /.box-header -->
             <div class="box-body">
-                <table id="example1" class="table table-bordered table-hover">
+                <table id="table-activos" class="table table-condensed table-striped table-bordered">
                     <thead>
                     <tr>
-                        <th>ID</th>
-                        <th>Tipo</th>
-                        <th>Fecha de adquision</th>
-                        <th>Personal</th>
+                        <th>ID Activo</th>
+                        <th>Descripción</th>
+                        <th>Nombre Personal</th>
+                        <th>Sede</th>
+                        <th>Gerencia</th>
+                        <th>Sub Gerencia</th>
                     </tr>
                     </thead>
                     <tbody>
@@ -75,8 +77,25 @@
     <!-- page script -->
 
     <script>
-        $(function () {
-            $("#example1").DataTable();
+        //var template = Handlebars.compile($("#details-template").html());
+
+        var table = $('#table-activos').DataTable({
+            processing: true,
+            serverSide: true,
+            ajax: '{{route('allgetdataactivo')}}',
+            columns: [
+
+                {data: 'idactivo', name: 'idactivo'},
+                {data: 'tipo_activo', name: 'tipo_activo'},
+                {data: 'nombres_personal', name: 'nombres_personal'},
+                {data: 'sede',name:'sede'},
+                {data: 'gerencia', name: 'gerencia'},
+                {data: 'subgerencia', name: 'subgerencia'}
+            ],
+            order: [[0, 'desc']],
+            "language": {
+                "url": "{{asset("plugins/datatables/Spanish.json")}}"
+            }
         });
     </script>
 

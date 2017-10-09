@@ -9,6 +9,7 @@ use App\Personal;
 use App\Personals_activos;
 
 use Datatables;
+use DB;
 use Carbon\Carbon;
 
 class ActivoController extends Controller
@@ -50,12 +51,14 @@ class ActivoController extends Controller
      */
     public function store(Request $request)
     {
+
+        //dd($request->activo);
         foreach ($request->activo as $activo){
-            Personals_activos::create(['activos_id'=>$activo->activo,
+            Personals_activos::create(['activos_id'=>$activo,
                                        'personals_idpersonal'=>$request->personal,
                                         'fecha_asignacion'=> date('Y-m-d') ]);
 
-            Activo::FindOrFail($activo->activo)->update('asignado',1);
+            Activo::FindOrFail($activo)->update(['asignado'=> 1]);
         }
 
         return redirect()->route('activo.index');
@@ -107,44 +110,49 @@ class ActivoController extends Controller
         //
     }
 
-    public function getRowDetails()
-    {
-        return view('activo.eloquent.row-details');
-    }
 
-    public function getRowDetailsData()
+    public function getRowDetailsDataActivo()
     {
-        $activos = Activo::with('hardware','software')->get();
+        $activos = Activo::leftjoin('hardwares', 'activos.idactivo', '=', 'hardwares.id_activo_hardware')
+            ->leftjoin('softwares', 'activos.idactivo', '=', 'softwares.id_activo_software')
+            ->select('*',
+                DB::raw('(select tipo_software from tipo_softwares ts where ts.id_tipo_software=softwares.idtipo_software) as tipo_software'),
+                DB::raw('(select tipo_hardware from tipo_hardwares th where th.id_tipo_hardware=hardwares.idtipo_hardware) tipo_hardware')
+            )
+
+            ->whereNull('asignado')
+            ->orWhere('asignado','0')
+            ->get();
+
 
         return Datatables::of($activos)
 
             ->addColumn('campo1',function($activo){
-                if($activo->software){
-                    return $activo->software->nombre_software;
+                if($activo->idsoftware){
+                    return $activo->nombre_software;
                 }else{
-                    return $activo->hardware->marca;
+                    return $activo->marca;
                 }
-
             })
             ->addColumn('campo2',function($activo){
-                if($activo->software){
-                    return $activo->software->arquitectura;
+                if($activo->idsoftware){
+                    return $activo->arquitectura;
                 }else{
-                    return $activo->hardware->modelo;
+                    return $activo->modelo;
                 }
             })
             ->addColumn('campo3',function($activo){
-                if($activo->software){
-                    return $activo->software->service_pack;
+                if($activo->idsoftware){
+                    return $activo->service_pack;
                 }else{
-                    return $activo->hardware->num_serie;
+                    return $activo->num_serie;
                 }
             })
             ->addColumn('campo4',function($activo){
-                if($activo->software){
-                    return $activo->software->service_pack;
+                if($activo->idsoftware){
+                    return $activo->tipo_software;
                 }else{
-                    return $activo->hardware->num_serie;
+                    return $activo->tipo_hardware;
                 }
             })
             ->addColumn('tipoactivo',function($activo){
@@ -153,6 +161,35 @@ class ActivoController extends Controller
                 }else{
                     return 'Hardware';
                 }
+            })
+            ->make(true);
+    }
+
+
+    public function getRowDetailsDataAll()
+    {
+        $activos = Personals_activos::leftjoin('activos', 'personals_activos.activos_id', '=', 'activos.idactivo')
+            ->leftjoin('personals', 'personals_activos.personals_idpersonal', '=', 'personals.idpersonal')
+            ->select(
+                DB::raw('distinct(personals_activos.activos_id)'),
+                'personals.*','activos.*',
+                DB::raw('(select gerencia from gerencias g where g.idgerencia=personals.idgerencia_personal ) as gerencia'),
+                DB::raw('(select subgerencia from subgerencias sg where sg.idsubgerencia=personals.idsubgerencia_personal) subgerencia'),
+                DB::raw('(select sede from sedes  where sedes.idsede=personals.idsede_personal) sede'),
+                DB::raw('(select concat("Nombre: ",softwares.nombre_software,", Arquitectura: ",softwares.arquitectura,", Service Pack: ",softwares.service_pack) from softwares  where softwares.id_activo_software=activos.idactivo) software'),
+                DB::raw('(select concat("Marca: ",hardwares.marca,", Modelo: ",hardwares.modelo,", Num. Serie: ",hardwares.num_serie,", Inventario: ",hardwares.cod_inventario) from hardwares  where hardwares.id_activo_hardware=activos.idactivo) hardware')
+            )
+            ->get();
+
+        return Datatables::of($activos)
+            ->addColumn('nombres_personal',function($activo){
+                return $activo->nombres.' '.$activo->apellido_paterno.' '.$activo->apellido_materno;
+            })
+            ->addColumn('tipo_activo',function($activo){
+                if($activo->software)
+                    return $activo->software;
+                else
+                    return $activo->hardware;
             })
             ->make(true);
     }

@@ -27,9 +27,24 @@ Route::middleware(['auth'])->group(function () {
     Route::resource('hardware','HardwareController');
     Route::resource('software','SoftwareController');
     Route::get('activo/asignar','ActivoController@asignar')->name('asignar');
-    Route::get('activo/getdata','ActivoController@getRowDetailsData')->name('getdataactivo');
+    Route::get('activo/getdata','ActivoController@getRowDetailsDataActivo')->name('getdataactivo');
+    Route::get('activo/allgetdata','ActivoController@getRowDetailsDataAll')->name('allgetdataactivo');
     Route::resource('activo','ActivoController');
     Route::get('/home', 'HomeController@index')->name('home');
+
+    Route::get('/reporte/activosobsoletos', function () {
+        $pdf = PDF::loadView('reportes.pruebaparapdf');
+        //return $pdf->download('pruebapdf.pdf');
+
+        return $pdf->stream();
+    });
+
+    Route::get('/reporte/licenciaspagadas', function () {
+        $pdf = PDF::loadView('reportes.licenciapagadas');
+        //return $pdf->download('pruebapdf.pdf');
+
+        return $pdf->stream();
+    });
 });
 
 

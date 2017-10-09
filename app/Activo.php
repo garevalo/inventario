@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Activo extends Model
 {
-protected $fillable = ['fecha_adquisicion','estado','tipo_activo'];
+    protected $fillable = ['fecha_adquisicion','estado','tipo_activo','asignado'];
     protected $primaryKey = "idactivo";
     protected $dates = ['fecha_adquisicion'];
 

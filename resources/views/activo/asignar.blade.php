@@ -32,9 +32,10 @@
                             <h3 class="box-title">Activos</h3>
                         </div>
                         <div class="box-body">
-                            <table id="table-activos" class="table table-condensed table-striped">
+                            <table id="table-activos" class="table table-condensed table-striped table-bordered">
                                 <thead>
                                 <tr>
+                                    <th></th>
                                     <th></th>
                                     <th>Tipo Activo</th>
                                     <th>SOftware/Marca</th>
@@ -95,8 +96,8 @@
                     orderable:false,
                     searchable:false
                 },
-                //{ data: 'idactivo',"defaultContent": "<input type='checkbox' name='activo[]' >",orderable:false,searchable:false },
                 {data: 'tipoactivo', name: 'tipoactivo'},
+                {data: 'campo4', name: 'campo4'},
                 {data: 'campo1', name: 'campo1'},
                 {data: 'campo2', name: 'campo2'},
                 {data: 'campo3', name: 'campo3'}
@@ -106,23 +107,6 @@
                 "url": "{{asset("plugins/datatables/Spanish.json")}}"
             }
         });
-
-        // Add event listener for opening and closing details
-       /* $('#users-table tbody').on('click', 'td.details-control', function () {
-            var tr = $(this).closest('tr');
-            var row = table.row( tr );
-
-            if ( row.child.isShown() ) {
-                // This row is already open - close it
-                row.child.hide();
-                tr.removeClass('shown');
-            }
-            else {
-                // Open this row
-                row.child( template(row.data()) ).show();
-                tr.addClass('shown');
-            }
-        });*/
     </script>
 
 @endsection
