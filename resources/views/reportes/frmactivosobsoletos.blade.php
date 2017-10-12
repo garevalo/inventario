@@ -9,7 +9,7 @@
                 <h3 class="box-title">Reporte Licencias Pagadas</h3>
             </div>
 
-            <form method="POST" action="{{route('personal.store')}}">
+            <form method="POST" action="{{url('reporte/veractivosobsoletos')}}">
 
                 {{csrf_field()}}
                 <div class="box-body">

@@ -12,7 +12,7 @@
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return redirect()->route('login');
 });
 
 Auth::routes();
@@ -34,8 +34,8 @@ Route::middleware(['auth'])->group(function () {
 
     Route::get('reporte/activosobsoletos', 'ReporteController@ActivosObsoletos');
     Route::get('reporte/licenciaspagadas', 'ReporteController@LicenciasPagadas');
-    Route::post('reporte/veractivosobsoletos','ReporteController@LicenciasPagadas');
-    Route::post('reporte/verlicenciaspagadas','ReporteController@LicenciasPagadas');
+    Route::post('reporte/veractivosobsoletos','ReporteController@ActivosObsoletosPdf');
+    Route::post('reporte/verlicenciaspagadas','ReporteController@LicenciasPagadasPdf');
 
 });
 
