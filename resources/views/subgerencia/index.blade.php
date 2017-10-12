@@ -11,12 +11,6 @@
 @section('menu-h1')
     <h1>
         <i class="fa fa-users"></i>  Subgerencias &nbsp;&nbsp;
-
-        <a href="http://crudbooster.app/admin/customers?m=3" id="btn_show_data" class="btn btn-sm btn-primary" title="Show Data">
-            <i class="fa fa-table"></i> Ver
-        </a>
-
-
         <a href="{{route('subgerencia.create')}}" class="btn btn-sm btn-success" title="Add Data">
             <i class="fa fa-plus-circle"></i> Agregar Subgerencia
         </a>

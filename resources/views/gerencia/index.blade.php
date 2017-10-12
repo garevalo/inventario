@@ -11,12 +11,6 @@
 @section('menu-h1')
     <h1>
         <i class="fa fa-users"></i>  Gerencias &nbsp;&nbsp;
-
-        <a href="" id="btn_show_data" class="btn btn-sm btn-primary" title="Show Data">
-            <i class="fa fa-table"></i> Ver
-        </a>
-
-
         <a href="{{route('gerencia.create')}}" class="btn btn-sm btn-success" title="Add Data">
             <i class="fa fa-plus-circle"></i> Nueva Gerencia
         </a>

@@ -32,19 +32,11 @@ Route::middleware(['auth'])->group(function () {
     Route::resource('activo','ActivoController');
     Route::get('/home', 'HomeController@index')->name('home');
 
-    Route::get('/reporte/activosobsoletos', function () {
-        $pdf = PDF::loadView('reportes.pruebaparapdf');
-        //return $pdf->download('pruebapdf.pdf');
+    Route::get('reporte/activosobsoletos', 'ReporteController@ActivosObsoletos');
+    Route::get('reporte/licenciaspagadas', 'ReporteController@LicenciasPagadas');
+    Route::post('reporte/veractivosobsoletos','ReporteController@LicenciasPagadas');
+    Route::post('reporte/verlicenciaspagadas','ReporteController@LicenciasPagadas');
 
-        return $pdf->stream();
-    });
-
-    Route::get('/reporte/licenciaspagadas', function () {
-        $pdf = PDF::loadView('reportes.licenciapagadas');
-        //return $pdf->download('pruebapdf.pdf');
-
-        return $pdf->stream();
-    });
 });
 
 

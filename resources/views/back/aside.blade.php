@@ -50,18 +50,20 @@
                     <span class="pull-right-container"></span>
                 </a>
             </li>
-            <li>
+            <li class="treeview">
                 <a href="/activo">
                     <i class="fa fa-pie-chart"></i> <span>Módulo de Reportes</span>
-                    <span class="pull-right-container"></span>
+                    <span class="pull-right-container"><i class="fa fa-angle-left pull-right"></i></span>
                 </a>
+                <ul class="treeview-menu">
+                    <li class="@if(request()->getRequestUri()=='/cargo') active @endif" ><a href="{{url('reporte/licenciaspagadas')}}"><i class="fa fa-file-pdf-o"></i> Licencias Pagadas</a></li>
+                    <li class="@if(request()->getRequestUri()=='/sede') active @endif"><a href="{{url('reporte/activosobsoletos')}}"><i class="fa fa-file-pdf-o"></i> Activos Obsoletos</a></li>
+                </ul>
             </li>
-            <li class="treeview
-
-                @if(in_array(request()->getRequestUri(),['/cargo','/sede','/gerencia','/subgerencia','/personal'])) active @endif ">
+            <li class="treeview @if(in_array(request()->getRequestUri(),['/cargo','/sede','/gerencia','/subgerencia','/personal'])) active @endif ">
                 <a href="#">
                     <i class="fa fa-pencil-square-o"></i>
-                    <span>Módulo de Mantenimientos</span>
+                    <span>Módulo Mantenimientos</span>
                     <span class="pull-right-container">
                         <i class="fa fa-angle-left pull-right"></i>
                     </span>
