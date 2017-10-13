@@ -23,7 +23,7 @@
                         <label>Seleccione Personal</label>
                         <select class="input-sm form-control select2" name="personal">
                             @foreach($personals as $personal)
-                                <option value="{{$personal->idpersonal}}">{{$personal->nombres}}</option>
+                                <option value="{{$personal->idpersonal}}">{{$personal->nombres.' '.$personal->apellido_paterno.' '.$personal->apellido_materno }}</option>
                             @endforeach
                         </select>
                     </div>

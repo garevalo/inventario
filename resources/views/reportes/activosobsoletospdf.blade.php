@@ -107,24 +107,35 @@
             <p style="margin: 0cm; margin-bottom: .0001pt; text-align: center; text-indent: 0cm; line-height: normal;"><strong><span style="font-size: 9.0pt; color: black;">PAO</span></strong></p>
         </td>
     </tr>
+    @php
+    $total_activos_obsoletos = 0;
+    $total_activos           = 0;
+    @endphp
+    @foreach($activos as $key=>$activo)
+    @php
+        $total_activos_obsoletos += $activo->activos_obsoletos;
+        $total_activos           += $activo->total_activos;
+    @endphp
+        <tr style="height:10pt;font-size: 12px;text-align: center">
+            <td style="border: solid black 1.0pt; border-top: none; background: white; padding: 0 0 0 0; height: 15.5pt;" width="">
+                <p style="">
+                    <span style="">{{$key+1}}</span></p>
+            </td>
+            <td style="border: solid black 1.0pt; border-top: none; background: white; padding: 0 0 0 0; height: 15.5pt;" colspan="6" width="">
+                <p><span style="">{{$activo->gerencia}}</span></p>
+            </td>
+            <td style="border: solid black 1.0pt; border-top: none; background: white; padding: 0 0 0 0; height: 15.5pt;" width="">
+                <p style=""><span style="font-size: 9.0pt; font-family: 'Arial',sans-serif; color: black;">{{$activo->activos_obsoletos}}</span></p>
+            </td>
+            <td style="border: solid black 1.0pt; border-top: none; background: white; padding: 0 0 0 0; height: 15.5pt;" colspan="2" width="66">
+                <p style=""><span style="font-size: 9.0pt; font-family: 'Arial',sans-serif; color: black;">{{$activo->total_activos}}</span></p>
+            </td>
+            <td style="border: solid black 1.0pt; border-top: none; background: white; padding: 0 0 0 0; height: 15.5pt;" width="">
+                <p style=""><span style="font-size: 9.0pt; font-family: 'Arial',sans-serif; color: black;">{{ ($activo->activos_obsoletos/$activo->total_activos)*100 }}</span></p>
+            </td>
+        </tr>
+    @endforeach
 
-    <tr style="height: 15.5pt;">
-        <td style="width: 34.95pt; border-top: none; border-left: solid black 1.0pt; border-bottom: solid black 1.0pt; border-right: none; background: white; padding: 0cm 5.4pt 0cm 5.4pt; height: 15.5pt;" width="47">
-            <p style="margin: 0cm; margin-bottom: .0001pt; text-align: center; text-indent: 0cm; line-height: normal; tab-stops: 35.4pt;"><span style="font-size: 9.0pt; color: black;">18</span></p>
-        </td>
-        <td style="width: 9.0cm; border: solid black 1.0pt; border-top: none; background: white; padding: 0cm 5.4pt 0cm 5.4pt; height: 15.5pt;" colspan="6" width="340">
-            <p><span style="font-size: 9.0pt; font-family: 'Arial',sans-serif; color: black;">G. DE SERVICIOS A LA CIUDAD Y GESTI&Oacute;N AMBIENTAL</span></p>
-        </td>
-        <td style="width: 2.0cm; border-top: none; border-left: none; border-bottom: solid black 1.0pt; border-right: solid black 1.0pt; background: white; padding: 0cm 5.4pt 0cm 5.4pt; height: 15.5pt;" width="76">
-            <p style="text-align: center;"><span style="font-size: 9.0pt; font-family: 'Arial',sans-serif; color: black;">0</span></p>
-        </td>
-        <td style="width: 49.6pt; border-top: none; border-left: none; border-bottom: solid black 1.0pt; border-right: solid black 1.0pt; background: white; padding: 0cm 5.4pt 0cm 5.4pt; height: 15.5pt;" colspan="2" width="66">
-            <p style="text-align: center;"><span style="font-size: 9.0pt; font-family: 'Arial',sans-serif; color: black;">76</span></p>
-        </td>
-        <td style="width: 43.35pt; border-top: none; border-left: none; border-bottom: solid black 1.0pt; border-right: solid black 1.0pt; background: white; padding: 0cm 5.4pt 0cm 5.4pt; height: 15.5pt;" width="58">
-            <p style="text-align: right;"><span style="font-size: 9.0pt; font-family: 'Arial',sans-serif; color: black;">0.00%</span></p>
-        </td>
-    </tr>
     <tr style="height: 15.5pt;">
         <td style="width: 34.95pt; border-top: none; border-left: solid black 1.0pt; border-bottom: solid black 1.0pt; border-right: none; background: white; padding: 0cm 5.4pt 0cm 5.4pt; height: 15.5pt;" width="47">
             <p style="margin: 0cm; margin-bottom: .0001pt; text-align: center; text-indent: 0cm; line-height: normal; tab-stops: 35.4pt;"><span style="font-size: 9.0pt; color: black;">&nbsp;</span></p>
@@ -133,13 +144,13 @@
             <p style="text-align: right;"><strong><span style="font-size: 9.0pt; font-family: 'Arial',sans-serif; color: black;">Total</span></strong></p>
         </td>
         <td style="width: 2.0cm; border-top: none; border-left: none; border-bottom: solid black 1.0pt; border-right: solid black 1.0pt; background: white; padding: 0cm 5.4pt 0cm 5.4pt; height: 15.5pt;" width="76">
-            <p style="text-align: center;"><strong><span style="font-size: 9.0pt; font-family: 'Arial',sans-serif; color: black;">296</span></strong></p>
+            <p style="text-align: center;"><strong><span style="font-size: 9.0pt; font-family: 'Arial',sans-serif; color: black;">{{$total_activos_obsoletos}}</span></strong></p>
         </td>
         <td style="width: 49.6pt; border-top: none; border-left: none; border-bottom: solid black 1.0pt; border-right: solid black 1.0pt; background: white; padding: 0cm 5.4pt 0cm 5.4pt; height: 15.5pt;" colspan="2" width="66">
-            <p style="text-align: center;"><strong><span style="font-size: 9.0pt; font-family: 'Arial',sans-serif; color: black;">1315</span></strong></p>
+            <p style="text-align: center;"><strong><span style="font-size: 9.0pt; font-family: 'Arial',sans-serif; color: black;">{{$total_activos}}</span></strong></p>
         </td>
         <td style="width: 43.35pt; border-top: none; border-left: none; border-bottom: solid black 1.0pt; border-right: solid black 1.0pt; background: white; padding: 0cm 5.4pt 0cm 5.4pt; height: 15.5pt;" width="58">
-            <p style="text-align: right;"><strong><span style="font-size: 9.0pt; font-family: 'Arial',sans-serif; color: black;">27.71%</span></strong></p>
+            <p style="text-align: right;"><strong><span style="font-size: 9.0pt; font-family: 'Arial',sans-serif; color: black;">{{  round( (($total_activos_obsoletos/$total_activos)*100),2) }} %</span></strong></p>
         </td>
     </tr>
     <tr style="height: 15.5pt;">
@@ -149,7 +160,7 @@
     </tr>
     <tr style="height: 15.5pt;">
         <td style="width: 439.75pt; border: solid black 1.0pt; border-top: none; background: white; padding: 0cm 5.4pt 0cm 5.4pt; height: 15.5pt;" colspan="11" width="586">
-            <p style="text-align: left; text-indent: 0cm; line-height: normal; tab-stops: 35.4pt; margin: 0cm 0cm .0001pt 30.55pt;"><strong><span style="font-size: 9.0pt; color: black;">Promedio de activos obsoletos = </span></strong><strong><span style="font-size: 9.0pt; color: black;">27.71%</span></strong></p>
+            <p style="text-align: left; text-indent: 0cm; line-height: normal; tab-stops: 35.4pt; margin: 0cm 0cm .0001pt 30.55pt;"><strong><span style="font-size: 9.0pt; color: black;">Promedio de activos obsoletos = </span></strong><strong><span style="font-size: 9.0pt; color: black;">{{ round((($total_activos_obsoletos/$total_activos)*100),2) }} %</span></strong></p>
         </td>
     </tr>
     </tbody>

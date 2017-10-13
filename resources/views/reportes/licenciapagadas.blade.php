@@ -41,13 +41,13 @@
             <p><strong><span style="font-size: 9.0pt; font-family: 'Arial',sans-serif; color: black;">Fecha de Inicio</span></strong></p>
         </td>
         <td style="width: 106.3pt; border-top: none; border-left: none; border-bottom: solid black 1.0pt; border-right: solid black 1.0pt; padding: 0cm 5.4pt 0cm 5.4pt; height: 17.25pt;" colspan="2" width="142">
-            <p><span style="font-size: 9.0pt; font-family: 'Arial',sans-serif; color: black;">27-03-2017</span></p>
+            <p><span style="font-size: 9.0pt; font-family: 'Arial',sans-serif; color: black;">{{$desde}}</span></p>
         </td>
         <td style="width: 106.25pt; border-top: none; border-left: none; border-bottom: solid black 1.0pt; border-right: solid black 1.0pt; padding: 0cm 5.4pt 0cm 5.4pt; height: 17.25pt;" colspan="4" width="142">
             <p><strong><span style="font-size: 9.0pt; font-family: 'Arial',sans-serif; color: black;">Fecha Fin</span></strong></p>
         </td>
         <td style="width: 100.05pt; border-top: none; border-left: none; border-bottom: solid black 1.0pt; border-right: solid black 1.0pt; padding: 0cm 5.4pt 0cm 5.4pt; height: 17.25pt;" colspan="3" width="133">
-            <p><span style="font-size: 9.0pt; font-family: 'Arial',sans-serif; color: black;">03-03-2017</span></p>
+            <p><span style="font-size: 9.0pt; font-family: 'Arial',sans-serif; color: black;">{{$hasta}}</span></p>
         </td>
     </tr>
     <tr style="height: 17.25pt;">
@@ -111,324 +111,46 @@
             <p style="margin: 0cm; margin-bottom: .0001pt; text-align: center; text-indent: 0cm; line-height: normal;"><strong><span style="font-size: 9.0pt; color: black;">PLP</span></strong></p>
         </td>
     </tr>
-    <tr style="height: 15.5pt;">
-        <td style="width: 34.9pt; border: solid black 1.0pt; border-top: none; background: white; padding: 0cm 5.4pt 0cm 5.4pt; height: 15.5pt;" width="47">
-            <p style="margin: 0cm; margin-bottom: .0001pt; text-align: center; text-indent: 0cm; line-height: normal; tab-stops: 35.4pt;"><span style="font-size: 9.0pt; color: black;">1</span></p>
-        </td>
-        <td style="width: 248.1pt; border-top: none; border-left: none; border-bottom: solid black 1.0pt; border-right: solid black 1.0pt; background: white; padding: 0cm 5.4pt 0cm 5.4pt; height: 15.5pt;" colspan="6" width="331">
-            <p style="margin: 0cm; margin-bottom: .0001pt; text-align: left; text-indent: 0cm; line-height: normal; tab-stops: 35.4pt;"><span style="font-size: 9.0pt; color: black;">ALCALD&Iacute;A</span></p>
-        </td>
-        <td style="width: 2.0cm; border-top: none; border-left: none; border-bottom: solid black 1.0pt; border-right: solid black 1.0pt; background: white; padding: 0cm 5.4pt 0cm 5.4pt; height: 15.5pt;" colspan="2" width="76">
-            <p style="text-align: center;"><span style="font-size: 9.0pt; font-family: 'Arial',sans-serif; color: black;">5</span></p>
-        </td>
-        <td style="width: 2.0cm; border-top: none; border-left: none; border-bottom: solid black 1.0pt; border-right: solid black 1.0pt; background: white; padding: 0cm 5.4pt 0cm 5.4pt; height: 15.5pt;" colspan="2" width="76">
-            <p style="text-align: center;"><span style="font-size: 9.0pt; font-family: 'Arial',sans-serif; color: black;">9</span></p>
-        </td>
-        <td style="width: 43.35pt; border-top: none; border-left: none; border-bottom: solid black 1.0pt; border-right: solid black 1.0pt; background: white; padding: 0cm 5.4pt 0cm 5.4pt; height: 15.5pt;" width="58">
-            <p style="margin-left: -6.25pt; text-align: center; text-indent: 6.25pt;"><span style="font-size: 9.0pt; font-family: 'Arial',sans-serif; color: black;">55.56%</span></p>
-        </td>
-    </tr>
-    <tr style="height: 15.5pt;">
-        <td style="width: 34.9pt; border: solid black 1.0pt; border-top: none; background: white; padding: 0cm 5.4pt 0cm 5.4pt; height: 15.5pt;" width="47">
-            <p style="margin: 0cm; margin-bottom: .0001pt; text-align: center; text-indent: 0cm; line-height: normal; tab-stops: 35.4pt;"><span style="font-size: 9.0pt; color: black;">2</span></p>
-        </td>
-        <td style="width: 248.1pt; border-top: none; border-left: none; border-bottom: solid black 1.0pt; border-right: solid black 1.0pt; background: white; padding: 0cm 5.4pt 0cm 5.4pt; height: 15.5pt;" colspan="6" width="331">
-            <p style="margin: 0cm; margin-bottom: .0001pt; text-align: left; text-indent: 0cm; line-height: normal; tab-stops: 35.4pt;"><span style="font-size: 9.0pt; color: black;">COMISI&Oacute;N DE REGIDORES</span></p>
-        </td>
-        <td style="width: 2.0cm; border-top: none; border-left: none; border-bottom: solid black 1.0pt; border-right: solid black 1.0pt; background: white; padding: 0cm 5.4pt 0cm 5.4pt; height: 15.5pt;" colspan="2" width="76">
-            <p style="text-align: center;"><span style="font-size: 9.0pt; font-family: 'Arial',sans-serif; color: black;">3</span></p>
-        </td>
-        <td style="width: 2.0cm; border-top: none; border-left: none; border-bottom: solid black 1.0pt; border-right: solid black 1.0pt; background: white; padding: 0cm 5.4pt 0cm 5.4pt; height: 15.5pt;" colspan="2" width="76">
-            <p style="text-align: center;"><span style="font-size: 9.0pt; font-family: 'Arial',sans-serif; color: black;">6</span></p>
-        </td>
-        <td style="width: 43.35pt; border-top: none; border-left: none; border-bottom: solid black 1.0pt; border-right: solid black 1.0pt; background: white; padding: 0cm 5.4pt 0cm 5.4pt; height: 15.5pt;" width="58">
-            <p style="margin-left: -6.25pt; text-align: center; text-indent: 6.25pt;"><span style="font-size: 9.0pt; font-family: 'Arial',sans-serif; color: black;">50.00%</span></p>
-        </td>
-    </tr>
-    <tr style="height: 15.5pt;">
-        <td style="width: 34.9pt; border: solid black 1.0pt; border-top: none; background: white; padding: 0cm 5.4pt 0cm 5.4pt; height: 15.5pt;" width="47">
-            <p style="margin: 0cm; margin-bottom: .0001pt; text-align: center; text-indent: 0cm; line-height: normal; tab-stops: 35.4pt;"><span style="font-size: 9.0pt; color: black;">3</span></p>
-        </td>
-        <td style="width: 248.1pt; border-top: none; border-left: none; border-bottom: solid black 1.0pt; border-right: solid black 1.0pt; background: white; padding: 0cm 5.4pt 0cm 5.4pt; height: 15.5pt;" colspan="6" width="331">
-            <p style="margin: 0cm; margin-bottom: .0001pt; text-align: left; text-indent: 0cm; line-height: normal; tab-stops: 35.4pt;"><span style="font-size: 9.0pt; color: black;">&Oacute;RGANO DE CONTROL INSTITUCIONAL</span></p>
-        </td>
-        <td style="width: 2.0cm; border-top: none; border-left: none; border-bottom: solid black 1.0pt; border-right: solid black 1.0pt; background: white; padding: 0cm 5.4pt 0cm 5.4pt; height: 15.5pt;" colspan="2" width="76">
-            <p style="text-align: center;"><span style="font-size: 9.0pt; font-family: 'Arial',sans-serif; color: black;">15</span></p>
-        </td>
-        <td style="width: 2.0cm; border-top: none; border-left: none; border-bottom: solid black 1.0pt; border-right: solid black 1.0pt; background: white; padding: 0cm 5.4pt 0cm 5.4pt; height: 15.5pt;" colspan="2" width="76">
-            <p style="text-align: center;"><span style="font-size: 9.0pt; font-family: 'Arial',sans-serif; color: black;">24</span></p>
-        </td>
-        <td style="width: 43.35pt; border-top: none; border-left: none; border-bottom: solid black 1.0pt; border-right: solid black 1.0pt; background: white; padding: 0cm 5.4pt 0cm 5.4pt; height: 15.5pt;" width="58">
-            <p style="margin-left: -6.25pt; text-align: center; text-indent: 6.25pt;"><span style="font-size: 9.0pt; font-family: 'Arial',sans-serif; color: black;">62.50%</span></p>
-        </td>
-    </tr>
-    <tr style="height: 15.5pt;">
-        <td style="width: 34.9pt; border: solid black 1.0pt; border-top: none; background: white; padding: 0cm 5.4pt 0cm 5.4pt; height: 15.5pt;" width="47">
-            <p style="margin: 0cm; margin-bottom: .0001pt; text-align: center; text-indent: 0cm; line-height: normal; tab-stops: 35.4pt;"><span style="font-size: 9.0pt; color: black;">4</span></p>
-        </td>
-        <td style="width: 248.1pt; border-top: none; border-left: none; border-bottom: solid black 1.0pt; border-right: solid black 1.0pt; background: white; padding: 0cm 5.4pt 0cm 5.4pt; height: 15.5pt;" colspan="6" width="331">
-            <p><span style="font-size: 9.0pt; font-family: 'Arial',sans-serif; color: black;">PROCURADUR&Iacute;A P&Uacute;BLICA MUNICIPAL</span></p>
-        </td>
-        <td style="width: 2.0cm; border-top: none; border-left: none; border-bottom: solid black 1.0pt; border-right: solid black 1.0pt; background: white; padding: 0cm 5.4pt 0cm 5.4pt; height: 15.5pt;" colspan="2" width="76">
-            <p style="text-align: center;"><span style="font-size: 9.0pt; font-family: 'Arial',sans-serif; color: black;">10</span></p>
-        </td>
-        <td style="width: 2.0cm; border-top: none; border-left: none; border-bottom: solid black 1.0pt; border-right: solid black 1.0pt; background: white; padding: 0cm 5.4pt 0cm 5.4pt; height: 15.5pt;" colspan="2" width="76">
-            <p style="text-align: center;"><span style="font-size: 9.0pt; font-family: 'Arial',sans-serif; color: black;">18</span></p>
-        </td>
-        <td style="width: 43.35pt; border-top: none; border-left: none; border-bottom: solid black 1.0pt; border-right: solid black 1.0pt; background: white; padding: 0cm 5.4pt 0cm 5.4pt; height: 15.5pt;" width="58">
-            <p style="margin-left: -6.25pt; text-align: center; text-indent: 6.25pt;"><span style="font-size: 9.0pt; font-family: 'Arial',sans-serif; color: black;">55.56%</span></p>
-        </td>
-    </tr>
-    <tr style="height: 15.5pt;">
-        <td style="width: 34.9pt; border: solid black 1.0pt; border-top: none; background: white; padding: 0cm 5.4pt 0cm 5.4pt; height: 15.5pt;" width="47">
-            <p style="margin: 0cm; margin-bottom: .0001pt; text-align: center; text-indent: 0cm; line-height: normal; tab-stops: 35.4pt;"><span style="font-size: 9.0pt; color: black;">5</span></p>
-        </td>
-        <td style="width: 248.1pt; border-top: none; border-left: none; border-bottom: solid black 1.0pt; border-right: solid black 1.0pt; background: white; padding: 0cm 5.4pt 0cm 5.4pt; height: 15.5pt;" colspan="6" width="331">
-            <p><span style="font-size: 9.0pt; font-family: 'Arial',sans-serif; color: black;">SECRETAR&Iacute;A GENERAL</span></p>
-        </td>
-        <td style="width: 2.0cm; border-top: none; border-left: none; border-bottom: solid black 1.0pt; border-right: solid black 1.0pt; background: white; padding: 0cm 5.4pt 0cm 5.4pt; height: 15.5pt;" colspan="2" width="76">
-            <p style="text-align: center;"><span style="font-size: 9.0pt; font-family: 'Arial',sans-serif; color: black;">43</span></p>
-        </td>
-        <td style="width: 2.0cm; border-top: none; border-left: none; border-bottom: solid black 1.0pt; border-right: solid black 1.0pt; background: white; padding: 0cm 5.4pt 0cm 5.4pt; height: 15.5pt;" colspan="2" width="76">
-            <p style="text-align: center;"><span style="font-size: 9.0pt; font-family: 'Arial',sans-serif; color: black;">66</span></p>
-        </td>
-        <td style="width: 43.35pt; border-top: none; border-left: none; border-bottom: solid black 1.0pt; border-right: solid black 1.0pt; background: white; padding: 0cm 5.4pt 0cm 5.4pt; height: 15.5pt;" width="58">
-            <p style="margin-left: -6.25pt; text-align: center; text-indent: 6.25pt;"><span style="font-size: 9.0pt; font-family: 'Arial',sans-serif; color: black;">65.15%</span></p>
-        </td>
-    </tr>
-    <tr style="height: 15.5pt;">
-        <td style="width: 34.9pt; border: solid black 1.0pt; border-top: none; background: white; padding: 0cm 5.4pt 0cm 5.4pt; height: 15.5pt;" width="47">
-            <p style="margin: 0cm; margin-bottom: .0001pt; text-align: center; text-indent: 0cm; line-height: normal; tab-stops: 35.4pt;"><span style="font-size: 9.0pt; color: black;">6</span></p>
-        </td>
-        <td style="width: 248.1pt; border-top: none; border-left: none; border-bottom: solid black 1.0pt; border-right: solid black 1.0pt; background: white; padding: 0cm 5.4pt 0cm 5.4pt; height: 15.5pt;" colspan="6" width="331">
-            <p><span style="font-size: 9.0pt; font-family: 'Arial',sans-serif; color: black;">GERENCIA MUNICIPAL</span></p>
-        </td>
-        <td style="width: 2.0cm; border-top: none; border-left: none; border-bottom: solid black 1.0pt; border-right: solid black 1.0pt; background: white; padding: 0cm 5.4pt 0cm 5.4pt; height: 15.5pt;" colspan="2" width="76">
-            <p style="text-align: center;"><span style="font-size: 9.0pt; font-family: 'Arial',sans-serif; color: black;">34</span></p>
-        </td>
-        <td style="width: 2.0cm; border-top: none; border-left: none; border-bottom: solid black 1.0pt; border-right: solid black 1.0pt; background: white; padding: 0cm 5.4pt 0cm 5.4pt; height: 15.5pt;" colspan="2" width="76">
-            <p style="text-align: center;"><span style="font-size: 9.0pt; font-family: 'Arial',sans-serif; color: black;">51</span></p>
-        </td>
-        <td style="width: 43.35pt; border-top: none; border-left: none; border-bottom: solid black 1.0pt; border-right: solid black 1.0pt; background: white; padding: 0cm 5.4pt 0cm 5.4pt; height: 15.5pt;" width="58">
-            <p style="margin-left: -6.25pt; text-align: center; text-indent: 6.25pt;"><span style="font-size: 9.0pt; font-family: 'Arial',sans-serif; color: black;">66.67%</span></p>
-        </td>
-    </tr>
-    <tr style="height: 15.5pt;">
-        <td style="width: 34.9pt; border: solid black 1.0pt; border-top: none; background: white; padding: 0cm 5.4pt 0cm 5.4pt; height: 15.5pt;" width="47">
-            <p style="margin: 0cm; margin-bottom: .0001pt; text-align: center; text-indent: 0cm; line-height: normal; tab-stops: 35.4pt;"><span style="font-size: 9.0pt; color: black;">7</span></p>
-        </td>
-        <td style="width: 248.1pt; border-top: none; border-left: none; border-bottom: solid black 1.0pt; border-right: solid black 1.0pt; background: white; padding: 0cm 5.4pt 0cm 5.4pt; height: 15.5pt;" colspan="6" width="331">
-            <p><span style="font-size: 9.0pt; font-family: 'Arial',sans-serif; color: black;">GERENCIA DE COMUNICACI&Oacute;N MUNICIPAL</span></p>
-        </td>
-        <td style="width: 2.0cm; border-top: none; border-left: none; border-bottom: solid black 1.0pt; border-right: solid black 1.0pt; background: white; padding: 0cm 5.4pt 0cm 5.4pt; height: 15.5pt;" colspan="2" width="76">
-            <p style="text-align: center;"><span style="font-size: 9.0pt; font-family: 'Arial',sans-serif; color: black;">17</span></p>
-        </td>
-        <td style="width: 2.0cm; border-top: none; border-left: none; border-bottom: solid black 1.0pt; border-right: solid black 1.0pt; background: white; padding: 0cm 5.4pt 0cm 5.4pt; height: 15.5pt;" colspan="2" width="76">
-            <p style="text-align: center;"><span style="font-size: 9.0pt; font-family: 'Arial',sans-serif; color: black;">27</span></p>
-        </td>
-        <td style="width: 43.35pt; border-top: none; border-left: none; border-bottom: solid black 1.0pt; border-right: solid black 1.0pt; background: white; padding: 0cm 5.4pt 0cm 5.4pt; height: 15.5pt;" width="58">
-            <p style="margin-left: -6.25pt; text-align: center; text-indent: 6.25pt;"><span style="font-size: 9.0pt; font-family: 'Arial',sans-serif; color: black;">62.96%</span></p>
-        </td>
-    </tr>
-    <tr style="height: 15.5pt;">
-        <td style="width: 34.9pt; border: solid black 1.0pt; border-top: none; background: white; padding: 0cm 5.4pt 0cm 5.4pt; height: 15.5pt;" width="47">
-            <p style="margin: 0cm; margin-bottom: .0001pt; text-align: center; text-indent: 0cm; line-height: normal; tab-stops: 35.4pt;"><span style="font-size: 9.0pt; color: black;">8</span></p>
-        </td>
-        <td style="width: 248.1pt; border-top: none; border-left: none; border-bottom: solid black 1.0pt; border-right: solid black 1.0pt; background: white; padding: 0cm 5.4pt 0cm 5.4pt; height: 15.5pt;" colspan="6" width="331">
-            <p><span style="font-size: 9.0pt; font-family: 'Arial',sans-serif; color: black;">G. DE ADMINISTRACI&Oacute;N Y FINANZAS</span></p>
-        </td>
-        <td style="width: 2.0cm; border-top: none; border-left: none; border-bottom: solid black 1.0pt; border-right: solid black 1.0pt; background: white; padding: 0cm 5.4pt 0cm 5.4pt; height: 15.5pt;" colspan="2" width="76">
-            <p style="text-align: center;"><span style="font-size: 9.0pt; font-family: 'Arial',sans-serif; color: black;">127</span></p>
-        </td>
-        <td style="width: 2.0cm; border-top: none; border-left: none; border-bottom: solid black 1.0pt; border-right: solid black 1.0pt; background: white; padding: 0cm 5.4pt 0cm 5.4pt; height: 15.5pt;" colspan="2" width="76">
-            <p style="text-align: center;"><span style="font-size: 9.0pt; font-family: 'Arial',sans-serif; color: black;">192</span></p>
-        </td>
-        <td style="width: 43.35pt; border-top: none; border-left: none; border-bottom: solid black 1.0pt; border-right: solid black 1.0pt; background: white; padding: 0cm 5.4pt 0cm 5.4pt; height: 15.5pt;" width="58">
-            <p style="margin-left: -6.25pt; text-align: center; text-indent: 6.25pt;"><span style="font-size: 9.0pt; font-family: 'Arial',sans-serif; color: black;">66.15%</span></p>
-        </td>
-    </tr>
-    <tr style="height: 15.5pt;">
-        <td style="width: 34.9pt; border: solid black 1.0pt; border-top: none; background: white; padding: 0cm 5.4pt 0cm 5.4pt; height: 15.5pt;" width="47">
-            <p style="margin: 0cm; margin-bottom: .0001pt; text-align: center; text-indent: 0cm; line-height: normal; tab-stops: 35.4pt;"><span style="font-size: 9.0pt; color: black;">9</span></p>
-        </td>
-        <td style="width: 248.1pt; border-top: none; border-left: none; border-bottom: solid black 1.0pt; border-right: solid black 1.0pt; background: white; padding: 0cm 5.4pt 0cm 5.4pt; height: 15.5pt;" colspan="6" width="331">
-            <p><span style="font-size: 9.0pt; font-family: 'Arial',sans-serif; color: black;">G. INFORM&Aacute;TICA, ESTAD&Iacute;STICA Y GOB. ELECTR&Oacute;NICO</span></p>
-        </td>
-        <td style="width: 2.0cm; border-top: none; border-left: none; border-bottom: solid black 1.0pt; border-right: solid black 1.0pt; background: white; padding: 0cm 5.4pt 0cm 5.4pt; height: 15.5pt;" colspan="2" width="76">
-            <p style="text-align: center;"><span style="font-size: 9.0pt; font-family: 'Arial',sans-serif; color: black;">29</span></p>
-        </td>
-        <td style="width: 2.0cm; border-top: none; border-left: none; border-bottom: solid black 1.0pt; border-right: solid black 1.0pt; background: white; padding: 0cm 5.4pt 0cm 5.4pt; height: 15.5pt;" colspan="2" width="76">
-            <p style="text-align: center;"><span style="font-size: 9.0pt; font-family: 'Arial',sans-serif; color: black;">45</span></p>
-        </td>
-        <td style="width: 43.35pt; border-top: none; border-left: none; border-bottom: solid black 1.0pt; border-right: solid black 1.0pt; background: white; padding: 0cm 5.4pt 0cm 5.4pt; height: 15.5pt;" width="58">
-            <p style="margin-left: -6.25pt; text-align: center; text-indent: 6.25pt;"><span style="font-size: 9.0pt; font-family: 'Arial',sans-serif; color: black;">64.44%</span></p>
-        </td>
-    </tr>
-    <tr style="height: 15.5pt;">
-        <td style="width: 34.9pt; border: solid black 1.0pt; border-top: none; background: white; padding: 0cm 5.4pt 0cm 5.4pt; height: 15.5pt;" width="47">
-            <p style="margin: 0cm; margin-bottom: .0001pt; text-align: center; text-indent: 0cm; line-height: normal; tab-stops: 35.4pt;"><span style="font-size: 9.0pt; color: black;">10</span></p>
-        </td>
-        <td style="width: 248.1pt; border-top: none; border-left: none; border-bottom: solid black 1.0pt; border-right: solid black 1.0pt; background: white; padding: 0cm 5.4pt 0cm 5.4pt; height: 15.5pt;" colspan="6" width="331">
-            <p><span style="font-size: 9.0pt; font-family: 'Arial',sans-serif; color: black;">G. PLANIFICACILD&Oacute;N, PRESUPUESTO, Y RACIONALIZACI&Oacute;N</span></p>
-        </td>
-        <td style="width: 2.0cm; border-top: none; border-left: none; border-bottom: solid black 1.0pt; border-right: solid black 1.0pt; background: white; padding: 0cm 5.4pt 0cm 5.4pt; height: 15.5pt;" colspan="2" width="76">
-            <p style="text-align: center;"><span style="font-size: 9.0pt; font-family: 'Arial',sans-serif; color: black;">25</span></p>
-        </td>
-        <td style="width: 2.0cm; border-top: none; border-left: none; border-bottom: solid black 1.0pt; border-right: solid black 1.0pt; background: white; padding: 0cm 5.4pt 0cm 5.4pt; height: 15.5pt;" colspan="2" width="76">
-            <p style="text-align: center;"><span style="font-size: 9.0pt; font-family: 'Arial',sans-serif; color: black;">39</span></p>
-        </td>
-        <td style="width: 43.35pt; border-top: none; border-left: none; border-bottom: solid black 1.0pt; border-right: solid black 1.0pt; background: white; padding: 0cm 5.4pt 0cm 5.4pt; height: 15.5pt;" width="58">
-            <p style="margin-left: -6.25pt; text-align: center; text-indent: 6.25pt;"><span style="font-size: 9.0pt; font-family: 'Arial',sans-serif; color: black;">64.10%</span></p>
-        </td>
-    </tr>
-    <tr style="height: 15.5pt;">
-        <td style="width: 34.9pt; border: solid black 1.0pt; border-top: none; background: white; padding: 0cm 5.4pt 0cm 5.4pt; height: 15.5pt;" width="47">
-            <p style="margin: 0cm; margin-bottom: .0001pt; text-align: center; text-indent: 0cm; line-height: normal; tab-stops: 35.4pt;"><span style="font-size: 9.0pt; color: black;">11</span></p>
-        </td>
-        <td style="width: 248.1pt; border-top: none; border-left: none; border-bottom: solid black 1.0pt; border-right: solid black 1.0pt; background: white; padding: 0cm 5.4pt 0cm 5.4pt; height: 15.5pt;" colspan="6" width="331">
-            <p><span style="font-size: 9.0pt; font-family: 'Arial',sans-serif; color: black;">GERENCIA&nbsp; DE ASUNTOS JUR&Iacute;DICOS</span></p>
-        </td>
-        <td style="width: 2.0cm; border-top: none; border-left: none; border-bottom: solid black 1.0pt; border-right: solid black 1.0pt; background: white; padding: 0cm 5.4pt 0cm 5.4pt; height: 15.5pt;" colspan="2" width="76">
-            <p style="text-align: center;"><span style="font-size: 9.0pt; font-family: 'Arial',sans-serif; color: black;">10</span></p>
-        </td>
-        <td style="width: 2.0cm; border-top: none; border-left: none; border-bottom: solid black 1.0pt; border-right: solid black 1.0pt; background: white; padding: 0cm 5.4pt 0cm 5.4pt; height: 15.5pt;" colspan="2" width="76">
-            <p style="text-align: center;"><span style="font-size: 9.0pt; font-family: 'Arial',sans-serif; color: black;">15</span></p>
-        </td>
-        <td style="width: 43.35pt; border-top: none; border-left: none; border-bottom: solid black 1.0pt; border-right: solid black 1.0pt; background: white; padding: 0cm 5.4pt 0cm 5.4pt; height: 15.5pt;" width="58">
-            <p style="margin-left: -6.25pt; text-align: center; text-indent: 6.25pt;"><span style="font-size: 9.0pt; font-family: 'Arial',sans-serif; color: black;">66.67%</span></p>
-        </td>
-    </tr>
-    <tr style="height: 15.5pt;">
-        <td style="width: 34.9pt; border: solid black 1.0pt; border-top: none; background: white; padding: 0cm 5.4pt 0cm 5.4pt; height: 15.5pt;" width="47">
-            <p style="margin: 0cm; margin-bottom: .0001pt; text-align: center; text-indent: 0cm; line-height: normal; tab-stops: 35.4pt;"><span style="font-size: 9.0pt; color: black;">12</span></p>
-        </td>
-        <td style="width: 248.1pt; border-top: none; border-left: none; border-bottom: solid black 1.0pt; border-right: solid black 1.0pt; background: white; padding: 0cm 5.4pt 0cm 5.4pt; height: 15.5pt;" colspan="6" width="331">
-            <p><span style="font-size: 9.0pt; font-family: 'Arial',sans-serif; color: black;">GERENCIA&nbsp; DE DESARROLLO URBANO</span></p>
-        </td>
-        <td style="width: 2.0cm; border-top: none; border-left: none; border-bottom: solid black 1.0pt; border-right: solid black 1.0pt; background: white; padding: 0cm 5.4pt 0cm 5.4pt; height: 15.5pt;" colspan="2" width="76">
-            <p style="text-align: center;"><span style="font-size: 9.0pt; font-family: 'Arial',sans-serif; color: black;">75</span></p>
-        </td>
-        <td style="width: 2.0cm; border-top: none; border-left: none; border-bottom: solid black 1.0pt; border-right: solid black 1.0pt; background: white; padding: 0cm 5.4pt 0cm 5.4pt; height: 15.5pt;" colspan="2" width="76">
-            <p style="text-align: center;"><span style="font-size: 9.0pt; font-family: 'Arial',sans-serif; color: black;">114</span></p>
-        </td>
-        <td style="width: 43.35pt; border-top: none; border-left: none; border-bottom: solid black 1.0pt; border-right: solid black 1.0pt; background: white; padding: 0cm 5.4pt 0cm 5.4pt; height: 15.5pt;" width="58">
-            <p style="margin-left: -6.25pt; text-align: center; text-indent: 6.25pt;"><span style="font-size: 9.0pt; font-family: 'Arial',sans-serif; color: black;">65.79%</span></p>
-        </td>
-    </tr>
-    <tr style="height: 15.5pt;">
-        <td style="width: 34.9pt; border: solid black 1.0pt; border-top: none; background: white; padding: 0cm 5.4pt 0cm 5.4pt; height: 15.5pt;" width="47">
-            <p style="margin: 0cm; margin-bottom: .0001pt; text-align: center; text-indent: 0cm; line-height: normal; tab-stops: 35.4pt;"><span style="font-size: 9.0pt; color: black;">13</span></p>
-        </td>
-        <td style="width: 248.1pt; border-top: none; border-left: none; border-bottom: solid black 1.0pt; border-right: solid black 1.0pt; background: white; padding: 0cm 5.4pt 0cm 5.4pt; height: 15.5pt;" colspan="6" width="331">
-            <p><span style="font-size: 9.0pt; font-family: 'Arial',sans-serif; color: black;">GERENCIA&nbsp; DE RENTAS</span></p>
-        </td>
-        <td style="width: 2.0cm; border-top: none; border-left: none; border-bottom: solid black 1.0pt; border-right: solid black 1.0pt; background: white; padding: 0cm 5.4pt 0cm 5.4pt; height: 15.5pt;" colspan="2" width="76">
-            <p style="text-align: center;"><span style="font-size: 9.0pt; font-family: 'Arial',sans-serif; color: black;">115</span></p>
-        </td>
-        <td style="width: 2.0cm; border-top: none; border-left: none; border-bottom: solid black 1.0pt; border-right: solid black 1.0pt; background: white; padding: 0cm 5.4pt 0cm 5.4pt; height: 15.5pt;" colspan="2" width="76">
-            <p style="text-align: center;"><span style="font-size: 9.0pt; font-family: 'Arial',sans-serif; color: black;">168</span></p>
-        </td>
-        <td style="width: 43.35pt; border-top: none; border-left: none; border-bottom: solid black 1.0pt; border-right: solid black 1.0pt; background: white; padding: 0cm 5.4pt 0cm 5.4pt; height: 15.5pt;" width="58">
-            <p style="margin-left: -6.25pt; text-align: center; text-indent: 6.25pt;"><span style="font-size: 9.0pt; font-family: 'Arial',sans-serif; color: black;">68.45%</span></p>
-        </td>
-    </tr>
+
+    @php
+        $total_licencias_pagadas = 0;
+        $total_licencias_usadas  = 0;
+    @endphp
+    @foreach($activos as $key=>$activo)
+        @php
+            $total_licencias_pagadas += $activo->licencias_pagadas;
+            $total_licencias_usadas  += $activo->licencias_usadas;
+        @endphp
     <tr style="height: 15.5pt;">
         <td style="width: 34.9pt; border: solid black 1.0pt; border-top: none; background: white; padding: 0cm 5.4pt 0cm 5.4pt; height: 15.5pt;" width="47">
             <p style="margin: 0cm; margin-bottom: .0001pt; text-align: center; text-indent: 0cm; line-height: normal; tab-stops: 35.4pt;"><span style="font-size: 9.0pt; color: black;">14</span></p>
         </td>
         <td style="width: 248.1pt; border-top: none; border-left: none; border-bottom: solid black 1.0pt; border-right: solid black 1.0pt; background: white; padding: 0cm 5.4pt 0cm 5.4pt; height: 15.5pt;" colspan="6" width="331">
-            <p><span style="font-size: 9.0pt; font-family: 'Arial',sans-serif; color: black;">GERENCIA&nbsp; DE DESARROLLO HUMANO</span></p>
+            <p><span style="font-size: 9.0pt; font-family: 'Arial',sans-serif; color: black;">{{$activo->gerencia}}</span></p>
         </td>
         <td style="width: 2.0cm; border-top: none; border-left: none; border-bottom: solid black 1.0pt; border-right: solid black 1.0pt; background: white; padding: 0cm 5.4pt 0cm 5.4pt; height: 15.5pt;" colspan="2" width="76">
-            <p style="text-align: center;"><span style="font-size: 9.0pt; font-family: 'Arial',sans-serif; color: black;">53</span></p>
+            <p style="text-align: center;"><span style="font-size: 9.0pt; font-family: 'Arial',sans-serif; color: black;">{{  $activo->licencias_pagadas }}</span></p>
         </td>
         <td style="width: 2.0cm; border-top: none; border-left: none; border-bottom: solid black 1.0pt; border-right: solid black 1.0pt; background: white; padding: 0cm 5.4pt 0cm 5.4pt; height: 15.5pt;" colspan="2" width="76">
-            <p style="text-align: center;"><span style="font-size: 9.0pt; font-family: 'Arial',sans-serif; color: black;">75</span></p>
+            <p style="text-align: center;"><span style="font-size: 9.0pt; font-family: 'Arial',sans-serif; color: black;">{{  $activo->licencias_usadas }}</span></p>
         </td>
         <td style="width: 43.35pt; border-top: none; border-left: none; border-bottom: solid black 1.0pt; border-right: solid black 1.0pt; background: white; padding: 0cm 5.4pt 0cm 5.4pt; height: 15.5pt;" width="58">
-            <p style="margin-left: -6.25pt; text-align: center; text-indent: 6.25pt;"><span style="font-size: 9.0pt; font-family: 'Arial',sans-serif; color: black;">70.67%</span></p>
+            <p style="margin-left: -6.25pt; text-align: center; text-indent: 6.25pt;"><span style="font-size: 9.0pt; font-family: 'Arial',sans-serif; color: black;">{{ round((($activo->licencias_pagadas/$activo->licencias_usadas)*100),2)  }} %</span></p>
         </td>
     </tr>
-    <tr style="height: 15.5pt;">
-        <td style="width: 34.9pt; border: solid black 1.0pt; border-top: none; background: white; padding: 0cm 5.4pt 0cm 5.4pt; height: 15.5pt;" width="47">
-            <p style="margin: 0cm; margin-bottom: .0001pt; text-align: center; text-indent: 0cm; line-height: normal; tab-stops: 35.4pt;"><span style="font-size: 9.0pt; color: black;">15</span></p>
-        </td>
-        <td style="width: 248.1pt; border-top: none; border-left: none; border-bottom: solid black 1.0pt; border-right: solid black 1.0pt; background: white; padding: 0cm 5.4pt 0cm 5.4pt; height: 15.5pt;" colspan="6" width="331">
-            <p><span style="font-size: 9.0pt; font-family: 'Arial',sans-serif; color: black;">GERENCIA&nbsp; DE PARTICIPACI&Oacute;N VECINAL</span></p>
-        </td>
-        <td style="width: 2.0cm; border-top: none; border-left: none; border-bottom: solid black 1.0pt; border-right: solid black 1.0pt; background: white; padding: 0cm 5.4pt 0cm 5.4pt; height: 15.5pt;" colspan="2" width="76">
-            <p style="text-align: center;"><span style="font-size: 9.0pt; font-family: 'Arial',sans-serif; color: black;">25</span></p>
-        </td>
-        <td style="width: 2.0cm; border-top: none; border-left: none; border-bottom: solid black 1.0pt; border-right: solid black 1.0pt; background: white; padding: 0cm 5.4pt 0cm 5.4pt; height: 15.5pt;" colspan="2" width="76">
-            <p style="text-align: center;"><span style="font-size: 9.0pt; font-family: 'Arial',sans-serif; color: black;">39</span></p>
-        </td>
-        <td style="width: 43.35pt; border-top: none; border-left: none; border-bottom: solid black 1.0pt; border-right: solid black 1.0pt; background: white; padding: 0cm 5.4pt 0cm 5.4pt; height: 15.5pt;" width="58">
-            <p style="margin-left: -6.25pt; text-align: center; text-indent: 6.25pt;"><span style="font-size: 9.0pt; font-family: 'Arial',sans-serif; color: black;">64.10%</span></p>
-        </td>
-    </tr>
-    <tr style="height: 15.5pt;">
-        <td style="width: 34.9pt; border: solid black 1.0pt; border-top: none; background: white; padding: 0cm 5.4pt 0cm 5.4pt; height: 15.5pt;" width="47">
-            <p style="margin: 0cm; margin-bottom: .0001pt; text-align: center; text-indent: 0cm; line-height: normal; tab-stops: 35.4pt;"><span style="font-size: 9.0pt; color: black;">16</span></p>
-        </td>
-        <td style="width: 248.1pt; border-top: none; border-left: none; border-bottom: solid black 1.0pt; border-right: solid black 1.0pt; background: white; padding: 0cm 5.4pt 0cm 5.4pt; height: 15.5pt;" colspan="6" width="331">
-            <p><span style="font-size: 9.0pt; font-family: 'Arial',sans-serif; color: black;">GERENCIA&nbsp; DE DESARROLLO ECON&Oacute;MICO</span></p>
-        </td>
-        <td style="width: 2.0cm; border-top: none; border-left: none; border-bottom: solid black 1.0pt; border-right: solid black 1.0pt; background: white; padding: 0cm 5.4pt 0cm 5.4pt; height: 15.5pt;" colspan="2" width="76">
-            <p style="text-align: center;"><span style="font-size: 9.0pt; font-family: 'Arial',sans-serif; color: black;">36</span></p>
-        </td>
-        <td style="width: 2.0cm; border-top: none; border-left: none; border-bottom: solid black 1.0pt; border-right: solid black 1.0pt; background: white; padding: 0cm 5.4pt 0cm 5.4pt; height: 15.5pt;" colspan="2" width="76">
-            <p style="text-align: center;"><span style="font-size: 9.0pt; font-family: 'Arial',sans-serif; color: black;">51</span></p>
-        </td>
-        <td style="width: 43.35pt; border-top: none; border-left: none; border-bottom: solid black 1.0pt; border-right: solid black 1.0pt; background: white; padding: 0cm 5.4pt 0cm 5.4pt; height: 15.5pt;" width="58">
-            <p style="margin-left: -6.25pt; text-align: center; text-indent: 6.25pt;"><span style="font-size: 9.0pt; font-family: 'Arial',sans-serif; color: black;">70.59%</span></p>
-        </td>
-    </tr>
-    <tr style="height: 15.5pt;">
-        <td style="width: 34.9pt; border: solid black 1.0pt; border-top: none; background: white; padding: 0cm 5.4pt 0cm 5.4pt; height: 15.5pt;" width="47">
-            <p style="margin: 0cm; margin-bottom: .0001pt; text-align: center; text-indent: 0cm; line-height: normal; tab-stops: 35.4pt;"><span style="font-size: 9.0pt; color: black;">17</span></p>
-        </td>
-        <td style="width: 248.1pt; border-top: none; border-left: none; border-bottom: solid black 1.0pt; border-right: solid black 1.0pt; background: white; padding: 0cm 5.4pt 0cm 5.4pt; height: 15.5pt;" colspan="6" width="331">
-            <p><span style="font-size: 9.0pt; font-family: 'Arial',sans-serif; color: black;">G. DE SEGURIDAD CIUDADANA Y CONTROL MUNICIPAL</span></p>
-        </td>
-        <td style="width: 2.0cm; border-top: none; border-left: none; border-bottom: solid black 1.0pt; border-right: solid black 1.0pt; background: white; padding: 0cm 5.4pt 0cm 5.4pt; height: 15.5pt;" colspan="2" width="76">
-            <p style="text-align: center;"><span style="font-size: 9.0pt; font-family: 'Arial',sans-serif; color: black;">30</span></p>
-        </td>
-        <td style="width: 2.0cm; border-top: none; border-left: none; border-bottom: solid black 1.0pt; border-right: solid black 1.0pt; background: white; padding: 0cm 5.4pt 0cm 5.4pt; height: 15.5pt;" colspan="2" width="76">
-            <p style="text-align: center;"><span style="font-size: 9.0pt; font-family: 'Arial',sans-serif; color: black;">48</span></p>
-        </td>
-        <td style="width: 43.35pt; border-top: none; border-left: none; border-bottom: solid black 1.0pt; border-right: solid black 1.0pt; background: white; padding: 0cm 5.4pt 0cm 5.4pt; height: 15.5pt;" width="58">
-            <p style="margin-left: -6.25pt; text-align: center; text-indent: 6.25pt;"><span style="font-size: 9.0pt; font-family: 'Arial',sans-serif; color: black;">62.50%</span></p>
-        </td>
-    </tr>
-    <tr style="height: 15.5pt;">
-        <td style="width: 34.9pt; border: solid black 1.0pt; border-top: none; background: white; padding: 0cm 5.4pt 0cm 5.4pt; height: 15.5pt;" width="47">
-            <p style="margin: 0cm; margin-bottom: .0001pt; text-align: center; text-indent: 0cm; line-height: normal; tab-stops: 35.4pt;"><span style="font-size: 9.0pt; color: black;">18</span></p>
-        </td>
-        <td style="width: 248.1pt; border-top: none; border-left: none; border-bottom: solid black 1.0pt; border-right: solid black 1.0pt; background: white; padding: 0cm 5.4pt 0cm 5.4pt; height: 15.5pt;" colspan="6" width="331">
-            <p><span style="font-size: 9.0pt; font-family: 'Arial',sans-serif; color: black;">G. DE SERVICIOS A LA CIUDAD Y GESTI&Oacute;N AMBIENTAL</span></p>
-        </td>
-        <td style="width: 2.0cm; border-top: none; border-left: none; border-bottom: solid black 1.0pt; border-right: solid black 1.0pt; background: white; padding: 0cm 5.4pt 0cm 5.4pt; height: 15.5pt;" colspan="2" width="76">
-            <p style="text-align: center;"><span style="font-size: 9.0pt; font-family: 'Arial',sans-serif; color: black;">35</span></p>
-        </td>
-        <td style="width: 2.0cm; border-top: none; border-left: none; border-bottom: solid black 1.0pt; border-right: solid black 1.0pt; background: white; padding: 0cm 5.4pt 0cm 5.4pt; height: 15.5pt;" colspan="2" width="76">
-            <p style="text-align: center;"><span style="font-size: 9.0pt; font-family: 'Arial',sans-serif; color: black;">57</span></p>
-        </td>
-        <td style="width: 43.35pt; border-top: none; border-left: none; border-bottom: solid black 1.0pt; border-right: solid black 1.0pt; background: white; padding: 0cm 5.4pt 0cm 5.4pt; height: 15.5pt;" width="58">
-            <p style="margin-left: -6.25pt; text-align: center; text-indent: 6.25pt;"><span style="font-size: 9.0pt; font-family: 'Arial',sans-serif; color: black;">61.40%</span></p>
-        </td>
-    </tr>
+    @endforeach
     <tr style="height: 15.5pt;">
         <td style="width: 283.0pt; border: solid black 1.0pt; border-top: none; background: white; padding: 0cm 5.4pt 0cm 5.4pt; height: 15.5pt;" colspan="7" width="377">
             <p style="text-align: right;"><strong><span style="font-size: 9.0pt; font-family: 'Arial',sans-serif; color: black;">Total</span></strong></p>
         </td>
         <td style="width: 2.0cm; border-top: none; border-left: none; border-bottom: solid black 1.0pt; border-right: solid black 1.0pt; background: white; padding: 0cm 5.4pt 0cm 5.4pt; height: 15.5pt;" colspan="2" width="76">
-            <p style="text-align: center;"><strong><span style="font-size: 9.0pt; font-family: 'Arial',sans-serif; color: black;">687</span></strong></p>
+            <p style="text-align: center;"><strong><span style="font-size: 9.0pt; font-family: 'Arial',sans-serif; color: black;">{{$total_licencias_pagadas}}</span></strong></p>
         </td>
         <td style="width: 2.0cm; border-top: none; border-left: none; border-bottom: solid black 1.0pt; border-right: solid black 1.0pt; background: white; padding: 0cm 5.4pt 0cm 5.4pt; height: 15.5pt;" colspan="2" width="76">
-            <p style="text-align: center;"><strong><span style="font-size: 9.0pt; font-family: 'Arial',sans-serif; color: black;">1044</span></strong></p>
+            <p style="text-align: center;"><strong><span style="font-size: 9.0pt; font-family: 'Arial',sans-serif; color: black;">{{$total_licencias_usadas}}</span></strong></p>
         </td>
         <td style="width: 43.35pt; border-top: none; border-left: none; border-bottom: solid black 1.0pt; border-right: solid black 1.0pt; background: white; padding: 0cm 5.4pt 0cm 5.4pt; height: 15.5pt;" width="58">
-            <p style="text-align: center;"><strong><span style="font-size: 9.0pt; font-family: 'Arial',sans-serif; color: black;">64%</span></strong></p>
+            <p style="text-align: center;"><strong><span style="font-size: 9.0pt; font-family: 'Arial',sans-serif; color: black;"> {{ round((($total_licencias_pagadas/$total_licencias_usadas)*100),2) }} </span></strong></p>
         </td>
     </tr>
     <tr style="height: 15.5pt;">
@@ -438,7 +160,7 @@
     </tr>
     <tr style="height: 15.5pt;">
         <td style="width: 439.75pt; border: solid black 1.0pt; border-top: none; background: white; padding: 0cm 5.4pt 0cm 5.4pt; height: 15.5pt;" colspan="12" width="586">
-            <p style="text-align: left; text-indent: 0cm; line-height: normal; tab-stops: 35.4pt; margin: 0cm 0cm .0001pt 30.55pt;"><strong><span style="font-size: 9.0pt; color: black;">Promedio de licencias pagadas = 64 %</span></strong></p>
+            <p style="text-align: left; text-indent: 0cm; line-height: normal; tab-stops: 35.4pt; margin: 0cm 0cm .0001pt 30.55pt;"><strong><span style="font-size: 9.0pt; color: black;">Promedio de licencias pagadas = {{ round((($total_licencias_pagadas/$total_licencias_usadas)*100),2) }} %</span></strong></p>
         </td>
     </tr>
 
