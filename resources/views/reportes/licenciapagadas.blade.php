@@ -123,7 +123,7 @@
         @endphp
     <tr style="height: 15.5pt;">
         <td style="width: 34.9pt; border: solid black 1.0pt; border-top: none; background: white; padding: 0cm 5.4pt 0cm 5.4pt; height: 15.5pt;" width="47">
-            <p style="margin: 0cm; margin-bottom: .0001pt; text-align: center; text-indent: 0cm; line-height: normal; tab-stops: 35.4pt;"><span style="font-size: 9.0pt; color: black;">14</span></p>
+            <p style="margin: 0cm; margin-bottom: .0001pt; text-align: center; text-indent: 0cm; line-height: normal; tab-stops: 35.4pt;"><span style="font-size: 9.0pt; color: black;">{{$key}}</span></p>
         </td>
         <td style="width: 248.1pt; border-top: none; border-left: none; border-bottom: solid black 1.0pt; border-right: solid black 1.0pt; background: white; padding: 0cm 5.4pt 0cm 5.4pt; height: 15.5pt;" colspan="6" width="331">
             <p><span style="font-size: 9.0pt; font-family: 'Arial',sans-serif; color: black;">{{$activo->gerencia}}</span></p>
