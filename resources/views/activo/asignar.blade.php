@@ -10,7 +10,7 @@
 @endsection
 @section('menu-h1')
     <h1>
-        <i class="fa fa-microchip"></i>  Asignación &nbsp;&nbsp;
+        <i class="fa fa-microchip"></i>  Módulo de Asignación &nbsp;&nbsp;
 
         <a href="{{route('hardware.create')}}" class="btn btn-sm btn-success" title="Add Data">
             <i class="fa fa-plus-circle"></i> Registrar Hardware

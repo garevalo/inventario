@@ -1,5 +1,5 @@
 @extends('back.app')
-
+@section('title')Reporte Activos Obsoletos @endsection
 @section('content')
 
     <div class="col-xs-12">
