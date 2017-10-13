@@ -24,7 +24,7 @@ class PersonalController extends Controller
     public function index()
     {
 
-        $personal = Personal::with('cargo','subgerencia','gerencia','sede')->get();
+        $personals = Personal::with('cargo','subgerencia','gerencia','sede')->get();
         $modulo = "Personal";
 
         return view('personal.index',compact('modulo','personals'));
