@@ -1,6 +1,6 @@
 @extends('back.app')
 
-@section('title')Módulo de Activos @endsection
+@section('title')Módulo de Asignación @endsection
 
 @section('head')
     @parent
@@ -8,7 +8,22 @@
     <link rel="stylesheet" href="{{asset('plugins/datatables/dataTables.bootstrap.css')}}">
 
 @endsection
+@section('menu-h1')
+    <h1>
+        <i class="fa fa-microchip"></i>  Asignación &nbsp;&nbsp;
 
+        <a href="{{route('hardware.create')}}" class="btn btn-sm btn-success" title="Add Data">
+            <i class="fa fa-plus-circle"></i> Registrar Hardware
+        </a>
+
+        <a href="{{route('software.create')}}" class="btn btn-sm btn-success" title="Add Data">
+            <i class="fa fa-plus-circle"></i> Registrar Sofware
+        </a>
+        <a href="{{route('asignar')}}" class="btn btn-sm btn-primary" title="Asignar Activos">
+            <i class="fa fa-plus-circle"></i> Asignar Activos
+        </a>
+    </h1>
+@endsection
 
 @section('content')
 
