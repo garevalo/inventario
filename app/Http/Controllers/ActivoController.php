@@ -177,7 +177,7 @@ class ActivoController extends Controller
                 DB::raw('(select subgerencia from subgerencias sg where sg.idsubgerencia=personals.idsubgerencia_personal) subgerencia'),
                 DB::raw('(select sede from sedes  where sedes.idsede=personals.idsede_personal) sede'),
                 DB::raw('(select concat("Nombre: ",softwares.nombre_software,", Arquitectura: ",softwares.arquitectura,", Service Pack: ",softwares.service_pack) from softwares  where softwares.id_activo_software=activos.idactivo) software'),
-                DB::raw('(select concat("Marca: ",hardwares.marca,", Modelo: ",hardwares.modelo,", Num. Serie: ",hardwares.num_serie,", Inventario: ",hardwares.cod_inventario) from hardwares  where hardwares.id_activo_hardware=activos.idactivo) hardware')
+                DB::raw('(select concat("Marca: ",hardwares.marca,", Modelo: ",hardwares.modelo,", Num. Serie: ",hardwares.num_serie,", Cod. Inventario: ",ifnull(hardwares.cod_inventario,"--")) from hardwares  where hardwares.id_activo_hardware=activos.idactivo) hardware')
             )
             ->get();
 
