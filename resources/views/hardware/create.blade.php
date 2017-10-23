@@ -26,6 +26,13 @@
                         {!! $errors->first('idtipo_hardware','<span class="help-block">:message</span>') !!}
                     </div>
 
+                    <div class="form-group-sm {{ $errors->has('orden_compra') ? ' has-error' : '' }}">
+                        <label>Orden de Compra:</label>
+
+                        <input type="text" class="form-control" name="orden_compra" id="orden_compra" value="{{old('orden_compra')}}" required>
+                        {!! $errors->first('orden_compra','<span class="help-block">:message</span>') !!}
+                    </div>
+
                     <div class="form-group-sm {{ $errors->has('marca') ? ' has-error' : '' }}">
                         <label>Marca:</label>
 
@@ -71,9 +78,8 @@
                             <input type="text" class="form-control" data-inputmask="'alias': 'dd/mm/yyyy'" data-mask="" name="fecha_adquisicion" id="fecha_adquisicion">
                         </div>
                         {!! $errors->first('fecha_adquisicion','<span class="help-block">:message</span>') !!}
-                        <!-- /.input group -->
                     </div>
-
+                    {{--
                     <div class="form-group-sm {{ $errors->has('capacidad') ? ' has-error' : '' }}">
                         <label>Capacidad:</label>
 
@@ -92,6 +98,11 @@
 
                         <input type="text" class="form-control" name="tipo" id="tipo" value="{{old('tipo')}}" >
                         {!! $errors->first('tipo','<span class="help-block">:message</span>') !!}
+                    </div> --}}
+                    <div class="form-group-sm {{ $errors->has('descripcion') ? ' has-error' : '' }}">
+                        <label>Descripción:</label>
+                        <textarea name="descripcion" id="descripcion" cols="30" rows="10" class="form-control">{{old('descripcion')}}</textarea>
+                        {!! $errors->first('descripcion','<span class="help-block">:message</span>') !!}
                     </div>
 
                 </div>

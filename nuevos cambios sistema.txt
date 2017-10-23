@@ -1,5 +1,7 @@
 - agregar dar de baja a los activos.
 - Agregar campo con la fecha de orden de compra.
+- Agregar campo descripcion en tabla Hardware.
+
 - Reportes: (excel - pdf)
 	- inventario activos operativos por sede y por área
 	- inventario activos inoperativos por sede y por área
@@ -12,6 +14,7 @@
 	3 Devueltos
 
 * Mantenimiento tipo Hardware.
+
 
 * Nombre de equipo y usuario.
 
