@@ -18,20 +18,6 @@ class ReporteController extends Controller
 
     public function ActivosObsoletosPdf(Request $request)
     {
-        /*$activos = Personals_activos::leftjoin('activos', 'personals_activos.activos_id', '=', 'activos.idactivo')
-            ->leftjoin('personals', 'personals_activos.personals_idpersonal', '=', 'personals.idpersonal')
-            //->groupBy('personals.idgerencia_personal')
-            ->select(
-                DB::raw('distinct(personals_activos.activos_id)'),
-                'personals.*','activos.*',
-                DB::raw('(select gerencia from gerencias g where g.idgerencia=personals.idgerencia_personal ) as gerencia'),
-                DB::raw('(select subgerencia from subgerencias sg where sg.idsubgerencia=personals.idsubgerencia_personal) subgerencia'),
-                DB::raw('(select sede from sedes  where sedes.idsede=personals.idsede_personal) sede'),
-                DB::raw('(select concat("Nombre: ",softwares.nombre_software,", Arquitectura: ",softwares.arquitectura,", Service Pack: ",softwares.service_pack) from softwares  where softwares.id_activo_software=activos.idactivo) software'),
-                DB::raw('(select concat("Marca: ",hardwares.marca,", Modelo: ",hardwares.modelo,", Num. Serie: ",hardwares.num_serie,", Inventario: ",hardwares.cod_inventario) from hardwares  where hardwares.id_activo_hardware=activos.idactivo) hardware')
-            )
-            ->where('activos.tipo_activo','1')
-            ->get();*/
 
        $activos = DB::select(DB::raw('select  idgerencia_personal,
             (select gerencia from gerencias g where g.idgerencia=p1.idgerencia_personal ) as gerencia,
