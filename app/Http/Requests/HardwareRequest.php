@@ -24,12 +24,13 @@ class HardwareRequest extends FormRequest
     public function rules()
     {
         return [
-            'marca' => 'required',
-            'modelo' => 'required',
-             'num_serie' => 'required',
+            'marca'     => 'required',
+            'modelo'    => 'required',
+            'num_serie' => 'required',
             'fecha_adquisicion' => 'required|date_format:d/m/Y',
-            'estado' => 'required|integer',
-            'idtipo_hardware' => 'required|integer'
+            'estado'    => 'required|integer',
+            'idtipo_hardware' => 'required|integer',
+            'descripcion' => 'required'
         ];
     }
 }

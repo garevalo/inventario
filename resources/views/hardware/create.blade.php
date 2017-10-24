@@ -58,6 +58,18 @@
                         <input type="text" class="form-control" name="cod_inventario" id="cod_inventario" value="{{old('cod_inventario')}}">
                         {!! $errors->first('cod_inventario','<span class="help-block">:message</span>') !!}
                     </div>
+                    <div class="form-group-sm {{ $errors->has('estado_activo') ? ' has-error' : '' }}">
+                        <label>Estado del Activo:</label>
+
+                        <select name="estado_activo" id="estado_activo" class="form-control">
+                            <option value="">Estado del Activo</option>
+                            @foreach($estados_activos as $key => $estado_activo)
+                            <option value="{{$key}}" @if($key==old('estado_activo')) selected @endif >{{$estado_activo}}</option>
+                            @endforeach
+                        </select>
+                        {!! $errors->first('estado_activo','<span class="help-block">:message</span>') !!}
+                    </div>
+
                     <div class="form-group-sm {{ $errors->has('estado') ? ' has-error' : '' }}">
                         <label>Estado:</label>
 
@@ -101,7 +113,7 @@
                     </div> --}}
                     <div class="form-group-sm {{ $errors->has('descripcion') ? ' has-error' : '' }}">
                         <label>Descripción:</label>
-                        <textarea name="descripcion" id="descripcion" cols="30" rows="10" class="form-control">{{old('descripcion')}}</textarea>
+                        <textarea name="descripcion" id="descripcion" cols="30" rows="10" class="form-control" required >{{old('descripcion')}}</textarea>
                         {!! $errors->first('descripcion','<span class="help-block">:message</span>') !!}
                     </div>
 

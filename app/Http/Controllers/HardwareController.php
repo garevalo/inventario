@@ -30,7 +30,8 @@ class HardwareController extends Controller
     {
         $tipohardware = TipoHardware::all();
         $estados = array(1=>'Bueno',2=>'Regular',3=>'Malo');
-        return view('hardware.create',compact('tipohardware','estados'));
+        $estados_activos = array(1=>'Activo',2=>'Baja',3=>'Devuelto');
+        return view('hardware.create',compact('tipohardware','estados','estados_activos'));
     }
 
     public function store(HardwareRequest $request)
