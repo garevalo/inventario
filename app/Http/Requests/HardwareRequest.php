@@ -29,6 +29,7 @@ class HardwareRequest extends FormRequest
             'num_serie' => 'required',
             'fecha_adquisicion' => 'required|date_format:d/m/Y',
             'estado'    => 'required|integer',
+            'estado_activo'    => 'required|integer',
             'idtipo_hardware' => 'required|integer',
             'descripcion' => 'required'
         ];

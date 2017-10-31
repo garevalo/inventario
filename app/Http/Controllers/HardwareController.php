@@ -38,8 +38,7 @@ class HardwareController extends Controller
     {
         $idactivo = Activo::insertGetId(['fecha_adquisicion'=> Carbon::createFromFormat('d/m/Y', $request->fecha_adquisicion),
             'tipo_activo'=>'1',
-            'estado'=> $request->estado ])
-        ;
+            'estado_activo'=> $request->estado_activo ]);
 
         if($idactivo){
             $hardware = Hardware::create([
@@ -51,8 +50,6 @@ class HardwareController extends Controller
                 "cod_inventario" => $request->cod_inventario,
                 "estado" => $request->estado,
                 "fecha_adquisicion" => Carbon::createFromFormat('d/m/Y', $request->fecha_adquisicion),
-                "capacidad" => $request->capacidad,
-                "interfaz" => $request->interfaz,
                 "tipo" => $request->tipo ]);
         }
         

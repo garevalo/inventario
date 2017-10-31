@@ -1,6 +1,6 @@
 @extends('back.app')
 
-@section('title','Registrar Subgerencia')
+@section('title','Registrar Hardware')
 
 @section('content')
 
