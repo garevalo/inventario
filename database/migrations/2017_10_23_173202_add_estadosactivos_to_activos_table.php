@@ -15,7 +15,7 @@ class AddEstadosactivosToActivosTable extends Migration
     {
         Schema::table('activos', function (Blueprint $table) {
             $table->integer('estado_activo')->nullable()->comment('1 -> activo, 2 -> baja, 3->devuelto');
-            $table->integer('orden_compra')->nullable();
+            $table->string('orden_compra',12)->nullable();
             $table->dropColumn('estado');
         });
     }
