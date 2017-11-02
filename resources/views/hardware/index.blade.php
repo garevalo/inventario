@@ -36,6 +36,7 @@
                         <th>Modelo</th>
                         <th>Num.Serie</th>
                         <th>Cod. Inventario</th>
+                        <th>Orden Compra</th>
                         <th>Fec. Adquision</th>
                         <th>Estado</th>
                         <th>Estado Activo</th>
@@ -51,8 +52,12 @@
                         <td>{{$hardware->modelo}}</td>
                         <td>{{$hardware->num_serie}}</td>
                         <td>{{$hardware->cod_inventario}}</td>
+                        <td>{{$hardware->activo->orden_compra}}</td>
                         <td>{{$hardware->fecha_adquisicion->format('d-m-Y')}}</td>
-                        <td>{{$hardware->estado}}</td>
+                        <td>
+                            @if($hardware->estado==1) <span class="label label-success">Bueno</span>
+                            @elseif($hardware->estado==2) <span class="label label-danger">Regular</span>
+                            @else <span class="label label-warning">Malo </span>@endif </td>
                         <td>
                             @if($hardware->activo->estado_activo==1) <span class="label label-success">Activo</span>
                             @elseif($hardware->activo->estado_activo==2) <span class="label label-danger">De Baja</span>

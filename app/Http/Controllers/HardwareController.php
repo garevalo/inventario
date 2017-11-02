@@ -100,9 +100,9 @@ class HardwareController extends Controller
      */
     public function update(HardwareRequest $request, $id)
     {
+        //dd($request->all());
         Activo::FindOrFail($request->idactivo)->update([
             'fecha_adquisicion'=> Carbon::createFromFormat('d/m/Y', $request->fecha_adquisicion),
-            'tipo_activo'=>'1',
             'estado_activo'=> $request->estado_activo,
             'orden_compra'=> $request->orden_compra
             ]);
