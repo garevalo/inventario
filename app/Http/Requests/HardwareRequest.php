@@ -31,8 +31,7 @@ class HardwareRequest extends FormRequest
             'orden_compra'  => 'required',
             'estado'    => 'required|integer',
             'estado_activo'    => 'required|integer',
-            'idtipo_hardware' => 'required|integer',
-            'descripcion' => 'required'
+            'idtipo_hardware' => 'required|integer'
         ];
     }
 }
