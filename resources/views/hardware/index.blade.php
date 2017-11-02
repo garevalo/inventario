@@ -37,7 +37,8 @@
                         <th>Num.Serie</th>
                         <th>Cod. Inventario</th>
                         <th>Fec. Adquision</th>
-                        <th>Activo</th>
+                        <th>Estado</th>
+                        <th>Estado Activo</th>
                         <th>Editar</th>
                     </tr>
                     </thead>
@@ -51,7 +52,11 @@
                         <td>{{$hardware->num_serie}}</td>
                         <td>{{$hardware->cod_inventario}}</td>
                         <td>{{$hardware->fecha_adquisicion->format('d-m-Y')}}</td>
-                        <td>{{$hardware->id_activo_hardware}}</td>
+                        <td>{{$hardware->estado}}</td>
+                        <td>
+                            @if($hardware->activo->estado_activo==1) <span class="label label-success">Activo</span>
+                            @elseif($hardware->activo->estado_activo==2) <span class="label label-danger">De Baja</span>
+                            @else <span class="label label-warning">Devuelto </span>@endif </td>
                         <td><a href="{{route('hardware.edit',$hardware->idhardware)}}" class="btn btn-primary btn-sm">Editar</a></td>
 
                     </tr>

@@ -7,6 +7,7 @@ use App\TipoHardware;
 use App\Hardware;
 use App\Activo;
 use Carbon\Carbon;
+use DB;
 
 class HardwareController extends Controller
 {
@@ -17,7 +18,7 @@ class HardwareController extends Controller
      */
     public function index()
     {
-        $hardwares = Hardware::with('tipohardware')->get();
+        $hardwares = Hardware::with('tipohardware','activo')->get();
         return view('hardware.index',compact('hardwares'));
     }
 
@@ -36,9 +37,12 @@ class HardwareController extends Controller
 
     public function store(HardwareRequest $request)
     {
+
         $idactivo = Activo::insertGetId(['fecha_adquisicion'=> Carbon::createFromFormat('d/m/Y', $request->fecha_adquisicion),
             'tipo_activo'=>'1',
-            'estado_activo'=> $request->estado_activo ]);
+            'estado_activo'=> $request->estado_activo,
+            'orden_compra'=> $request->orden_compra
+        ]);
 
         if($idactivo){
             $hardware = Hardware::create([
@@ -50,8 +54,10 @@ class HardwareController extends Controller
                 "cod_inventario" => $request->cod_inventario,
                 "estado" => $request->estado,
                 "fecha_adquisicion" => Carbon::createFromFormat('d/m/Y', $request->fecha_adquisicion),
+                "descripcion"   => $request->descripcion,
                 "tipo" => $request->tipo ]);
         }
+
         
         return redirect()->route('hardware.index');
     }
@@ -75,11 +81,14 @@ class HardwareController extends Controller
      */
     public function edit($id)
     {
-        $hardware = Hardware::FindOrFail($id);
+        $hardware = Hardware::with('activo')->where('idhardware',$id)->get();
+        $hardware = $hardware[0];
+        //dd($hardware);
         $tipohardwares = TipoHardware::all();
 
         $estados = array(1=>'Bueno',2=>'Regular',3=>'Malo');
-        return view('hardware.edit',compact('tipohardwares','estados','hardware'));
+        $estados_activos = array(1=>'Activo',2=>'Baja',3=>'Devuelto');
+        return view('hardware.edit',compact('tipohardwares','estados','hardware','estados_activos'));
     }
 
     /**
@@ -91,8 +100,14 @@ class HardwareController extends Controller
      */
     public function update(HardwareRequest $request, $id)
     {
-        Hardware::FindOrFail($id)->update(
-            [
+        Activo::FindOrFail($request->idactivo)->update([
+            'fecha_adquisicion'=> Carbon::createFromFormat('d/m/Y', $request->fecha_adquisicion),
+            'tipo_activo'=>'1',
+            'estado_activo'=> $request->estado_activo,
+            'orden_compra'=> $request->orden_compra
+            ]);
+
+        Hardware::FindOrFail($id)->update([
                 "idtipo_hardware" => $request->idtipo_hardware,
                 "marca" => $request->marca,
                 "modelo" => $request->modelo,
@@ -100,10 +115,8 @@ class HardwareController extends Controller
                 "cod_inventario" => $request->cod_inventario,
                 "estado" => $request->estado,
                 "fecha_adquisicion" => Carbon::createFromFormat('d/m/Y', $request->fecha_adquisicion),
-                "capacidad" => $request->capacidad,
-                "interfaz" => $request->interfaz,
-                "tipo" => $request->tipo ]
-        );
+                "descripcion" => $request->descripcion
+            ]);
 
         return redirect()->route('hardware.index');
     }

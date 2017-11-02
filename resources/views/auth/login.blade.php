@@ -1,6 +1,6 @@
 @extends('back.app')
 
-@section('title') Inciar Sesión @endsection
+@section('title') Iniciar Sesión @endsection
 @section('head')
     <!-- Bootstrap 3.3.6 -->
     <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
