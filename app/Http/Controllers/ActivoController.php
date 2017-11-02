@@ -198,7 +198,7 @@ class ActivoController extends Controller
                 else
                     return "Software";
             })
-            ->addColumn('adiquisicion',function($activo){
+            ->addColumn('fechaasignacion',function($activo){
                 return $activo->fecha_asignacion;
             })
             ->make(true);

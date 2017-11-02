@@ -44,6 +44,7 @@
                         <th>Gerencia</th>
                         <th>Sub Gerencia</th>
                         <th>Tipo Activo</th>
+                        <th>Fecha Adquisición</th>
                     </tr>
                     </thead>
                     <tbody>
@@ -92,7 +93,9 @@
                 {data: 'sede',name:'sede'},
                 {data: 'gerencia', name: 'gerencia'},
                 {data: 'subgerencia', name: 'subgerencia'},
-                {data: 'nombre_tipo_activo', name: 'nombre_tipo_activo'}
+                {data: 'nombre_tipo_activo', name: 'nombre_tipo_activo'},
+                {data: 'fechaasignacion', name: 'fechaasignacion'}
+
             ],
             order: [[0, 'desc']],
             "language": {
