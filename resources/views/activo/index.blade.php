@@ -43,6 +43,7 @@
                         <th>Sede</th>
                         <th>Gerencia</th>
                         <th>Sub Gerencia</th>
+                        <th>Tipo Activo</th>
                     </tr>
                     </thead>
                     <tbody>
@@ -90,7 +91,8 @@
                 {data: 'nombres_personal', name: 'nombres_personal'},
                 {data: 'sede',name:'sede'},
                 {data: 'gerencia', name: 'gerencia'},
-                {data: 'subgerencia', name: 'subgerencia'}
+                {data: 'subgerencia', name: 'subgerencia'},
+                {data: 'nombre_tipo_activo', name: 'nombre_tipo_activo'}
             ],
             order: [[0, 'desc']],
             "language": {

@@ -191,6 +191,12 @@ class ActivoController extends Controller
                 else
                     return $activo->hardware;
             })
+            ->addColumn('nombre_tipo_activo',function($activo){
+                if($activo->tipo_activo== 1)
+                    return "Hardware";
+                else
+                    return "Software";
+            })
             ->make(true);
     }
 }
