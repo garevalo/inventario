@@ -1,6 +1,6 @@
 @extends('back.app')
 
-@section('title')Módulo de Hardware @endsection
+@section('title')Módulo de Tipo Hardware @endsection
 
 @section('head')
     @parent
@@ -10,9 +10,9 @@
 
 @section('menu-h1')
     <h1>
-        <i class="fa fa-microchip"></i>  Listado de Activos Hardware &nbsp;&nbsp;
-        <a href="{{route('hardware.create')}}" class="btn btn-sm btn-success" title="Add Data">
-            <i class="fa fa-plus-circle"></i> Nuevo Hardware
+        <i class="fa fa-microchip"></i>  Listado de Tipos Hardware &nbsp;&nbsp;
+        <a href="{{route('tipohardware.create')}}" class="btn btn-sm btn-success" title="Add Data">
+            <i class="fa fa-plus-circle"></i> Nuevo Tipo Hardware
         </a>
 
     </h1>
@@ -71,15 +71,16 @@
         var table = $('#example1').DataTable({
             processing: true,
             serverSide: true,
-            ajax: '{{route('getdatatiposoftware')}}',
+            ajax: '{{route('getdatatipohardware')}}',
             columns: [
-                {data: 'id_tipo_software', name: 'id_tipo_software'},
-                {data: 'tipo_software', name: 'tipo_software'},
+                {data: 'id_tipo_hardware', name: 'id_tipo_hardware'},
+                {data: 'tipo_hardware', name: 'tipo_hardware'},
                 {
-                    data:'idactivo',
+                    data:'id_tipo_hardware',
                     render: function(data, type, row){
-
-                        return '<input type="checkbox" id="inputUnchecked" name="activo[]" value="'+data+'"/>';
+                        // var url =  "{{route('hardware.edit','+data+')}}";
+                        // return '<input type="checkbox" id="inputUnchecked" name="activo[]" value="'+data+'"/>';
+                        return '<a href="/tipohardware/'+ data +'/edit" class="btn btn-primary btn-sm">Editar</a>';
                     },
                     orderable:false,
                     searchable:false

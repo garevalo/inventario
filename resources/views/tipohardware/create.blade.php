@@ -1,6 +1,6 @@
 @extends('back.app')
 
-@section('title','Registrar Hardware')
+@section('title','Registrar Tipo Hardware')
 
 @section('content')
 
@@ -11,110 +11,15 @@
                 <h3 class="box-title">Registrar Hardware</h3>
             </div>
 
-            <form method="POST" action="{{route('hardware.store')}}">
+            <form method="POST" action="{{route('tipohardware.store')}}">
                 {{csrf_field()}}
                 <div class="box-body">
 
-                    <div class="form-group-sm {{ $errors->has('sede') ? ' has-error' : '' }}">
-                        <label>Tipo:</label>
-                        <select name="idtipo_hardware" id="idtipo_hardware" class="form-control" required>
-                            <option value="">Seleccione</option>
-                            @foreach($tipohardware as $hardware)
-                                <option value="{{$hardware->id_tipo_hardware}}" @if(old('idtipo_hardware')==$hardware->id_tipo_hardware) selected @endif>{{$hardware->tipo_hardware}}</option>
-                            @endforeach
-                        </select>
-                        {!! $errors->first('idtipo_hardware','<span class="help-block">:message</span>') !!}
-                    </div>
-
-                    <div class="form-group-sm {{ $errors->has('orden_compra') ? ' has-error' : '' }}">
-                        <label>Orden de Compra:</label>
-
-                        <input type="text" class="form-control" name="orden_compra" id="orden_compra" value="{{old('orden_compra')}}" required>
-                        {!! $errors->first('orden_compra','<span class="help-block">:message</span>') !!}
-                    </div>
-
-                    <div class="form-group-sm {{ $errors->has('marca') ? ' has-error' : '' }}">
+                    <div class="form-group-sm {{ $errors->has('tipo_hardware') ? ' has-error' : '' }}">
                         <label>Marca:</label>
 
-                        <input type="text" class="form-control" name="marca" id="marca" value="{{old('marca')}}" required>
-                        {!! $errors->first('marca','<span class="help-block">:message</span>') !!}
-                    </div>
-                    <div class="form-group-sm {{ $errors->has('modelo') ? ' has-error' : '' }}">
-                        <label>Modelo:</label>
-
-                        <input type="text" class="form-control" name="modelo" id="modelo" value="{{old('modelo')}}" required>
-                        {!! $errors->first('modelo','<span class="help-block">:message</span>') !!}
-                    </div>
-
-                    <div class="form-group-sm {{ $errors->has('num_serie') ? ' has-error' : '' }}">
-                        <label>Número Serie:</label>
-
-                        <input type="text" class="form-control" name="num_serie" id="num_serie" value="{{old('num_serie')}}">
-                        {!! $errors->first('num_serie','<span class="help-block">:message</span>') !!}
-                    </div>
-                    <div class="form-group-sm {{ $errors->has('cod_inventario') ? ' has-error' : '' }}">
-                        <label>Código Inventario:</label>
-
-                        <input type="text" class="form-control" name="cod_inventario" id="cod_inventario" value="{{old('cod_inventario')}}">
-                        {!! $errors->first('cod_inventario','<span class="help-block">:message</span>') !!}
-                    </div>
-                    <div class="form-group-sm {{ $errors->has('estado_activo') ? ' has-error' : '' }}">
-                        <label>Estado del Activo:</label>
-
-                        <select name="estado_activo" id="estado_activo" class="form-control">
-                            <option value="">Estado del Activo</option>
-                            @foreach($estados_activos as $key => $estado_activo)
-                            <option value="{{$key}}" @if($key==old('estado_activo')) selected @endif >{{$estado_activo}}</option>
-                            @endforeach
-                        </select>
-                        {!! $errors->first('estado_activo','<span class="help-block">:message</span>') !!}
-                    </div>
-
-                    <div class="form-group-sm {{ $errors->has('estado') ? ' has-error' : '' }}">
-                        <label>Estado:</label>
-
-                        <select name="estado" id="estado" class="form-control">
-                            <option value="">Estado</option>
-                            @foreach($estados as $key => $estado)
-                            <option value="{{$key}}" @if($key==old('estado')) selected @endif >{{$estado}}</option>
-                            @endforeach
-                        </select>
-                        {!! $errors->first('estado','<span class="help-block">:message</span>') !!}
-                    </div>
-                    <div class="form-group-sm {{ $errors->has('fecha_adquisicion') ? ' has-error' : '' }}">
-                        <label>Fecha de Adquisición:</label>
-                        <div class="input-group">
-                            <div class="input-group-addon">
-                                <i class="fa fa-calendar"></i>
-                            </div>
-                            <input type="text" class="form-control" data-inputmask="'alias': 'dd/mm/yyyy'" data-mask="" name="fecha_adquisicion" id="fecha_adquisicion">
-                        </div>
-                        {!! $errors->first('fecha_adquisicion','<span class="help-block">:message</span>') !!}
-                    </div>
-                    {{--
-                    <div class="form-group-sm {{ $errors->has('capacidad') ? ' has-error' : '' }}">
-                        <label>Capacidad:</label>
-
-                        <input type="text" class="form-control" name="capacidad" id="capacidad" value="{{old('capacidad')}}">
-                        {!! $errors->first('capacidad','<span class="help-block">:message</span>') !!}
-                    </div>
-                    <div class="form-group-sm {{ $errors->has('interfaz') ? ' has-error' : '' }}">
-                        <label>Interfaz:</label>
-
-                        <input type="text" class="form-control" name="interfaz" id="interfaz" value="{{old('interfaz')}}" >
-                        {!! $errors->first('interfaz','<span class="help-block">:message</span>') !!}
-                    </div>
-
-                    <div class="form-group-sm {{ $errors->has('tipo') ? ' has-error' : '' }}">
-                        <label>Tipo Componente:</label>
-
-                        <input type="text" class="form-control" name="tipo" id="tipo" value="{{old('tipo')}}" >
-                        {!! $errors->first('tipo','<span class="help-block">:message</span>') !!}
-                    </div> --}}
-                    <div class="form-group-sm {{ $errors->has('descripcion') ? ' has-error' : '' }}">
-                        <label>Descripción:</label>
-                        <textarea name="descripcion" id="descripcion" cols="30" rows="10" class="form-control" required >{{old('descripcion')}}</textarea>
-                        {!! $errors->first('descripcion','<span class="help-block">:message</span>') !!}
+                        <input type="text" class="form-control" name="tipo_hardware" id="tipo_hardware" value="{{old('tipo_hardware')}}" required>
+                        {!! $errors->first('tipo_hardware','<span class="help-block">:message</span>') !!}
                     </div>
 
                 </div>

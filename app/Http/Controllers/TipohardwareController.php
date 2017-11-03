@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Datatables;
+use App\TipoHardware;
 
 class TipohardwareController extends Controller
 {
@@ -81,4 +83,12 @@ class TipohardwareController extends Controller
     {
         //
     }
+
+    public function alldata(){
+
+        return Datatables::of(TipoHardware::all())->make(true);
+
+    }
 }
+
+
