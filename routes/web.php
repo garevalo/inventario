@@ -26,6 +26,12 @@ Route::middleware(['auth'])->group(function () {
     Route::resource('personal','PersonalController');
     Route::resource('hardware','HardwareController');
     Route::resource('software','SoftwareController');
+    Route::get('tiposoftware/alldata','TipoSoftwareController@alldata')->name('getdatatiposoftware');
+    Route::resource('tiposoftware','TipoSoftwareController');
+
+    Route::resource('tipohardware','TipohardwareController');
+
+
     Route::get('activo/asignar','ActivoController@asignar')->name('asignar');
     Route::get('activo/getdata','ActivoController@getRowDetailsDataActivo')->name('getdataactivo');
     Route::get('activo/allgetdata','ActivoController@getRowDetailsDataAll')->name('allgetdataactivo');

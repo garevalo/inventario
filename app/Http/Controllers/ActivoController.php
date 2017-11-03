@@ -173,7 +173,7 @@ class ActivoController extends Controller
             ->select(
                 DB::raw('distinct(personals_activos.activos_id)'),
                 'personals.*','activos.*',
-                'activos.updated_at fecha_asignacion',
+                'activos.updated_at as fecha_asignacion',
                 DB::raw('(select gerencia from gerencias g where g.idgerencia=personals.idgerencia_personal ) as gerencia'),
                 DB::raw('(select subgerencia from subgerencias sg where sg.idsubgerencia=personals.idsubgerencia_personal) subgerencia'),
                 DB::raw('(select sede from sedes  where sedes.idsede=personals.idsede_personal) sede'),

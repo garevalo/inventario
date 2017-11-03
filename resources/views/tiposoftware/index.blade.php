@@ -1,6 +1,6 @@
 @extends('back.app')
 
-@section('title')Módulo de Asignación @endsection
+@section('title') Tipo de Software @endsection
 
 @section('head')
     @parent
@@ -10,18 +10,11 @@
 
 @section('menu-h1')
     <h1>
-        <i class="fa fa-microchip"></i>  Asignación &nbsp;&nbsp;
-
-        <a href="{{route('hardware.create')}}" class="btn btn-sm btn-success" title="Add Data">
-            <i class="fa fa-plus-circle"></i> Registrar Hardware
+        <i class="fa fa-users"></i>  Listado de Tipos de Software &nbsp;&nbsp;
+        <a href="{{route('tiposoftware.create')}}" class="btn btn-sm btn-success" title="Add Data">
+            <i class="fa fa-plus-circle"></i> Nuevo Tipo Software
         </a>
 
-        <a href="{{route('software.create')}}" class="btn btn-sm btn-success" title="Add Data">
-            <i class="fa fa-plus-circle"></i> Registrar Sofware
-        </a>
-        <a href="{{route('asignar')}}" class="btn btn-sm btn-primary" title="Asignar Activos">
-            <i class="fa fa-plus-circle"></i> Asignar Activos
-        </a>
     </h1>
 @endsection
 
@@ -30,25 +23,19 @@
     <div class="col-xs-12">
         <div class="box">
             <div class="box-header">
-                <h3 class="box-title">Activos</h3>
+                <h3 class="box-title">Software</h3>
             </div>
             <!-- /.box-header -->
             <div class="box-body">
-                <table id="table-activos" class="table table-condensed table-striped table-bordered">
+                <table id="example1" class="table table-bordered table-hover">
                     <thead>
                     <tr>
-                        <th>ID Activo</th>
-                        <th>Tipo Activo</th>
-                        <th>Descripción</th>
-                        <th>Nombre Personal</th>
-                        <th>Sede</th>
-                        <th>Gerencia</th>
-                        <th>Sub Gerencia</th>
-                        <th>Fecha Asignación</th>
+                        <th>ID</th>
+                        <th>Tipo Software</th>
+                        <th>Editar</th>
                     </tr>
                     </thead>
                     <tbody>
-
                     </tbody>
                 </table>
             </div>
@@ -81,21 +68,23 @@
     <script>
         //var template = Handlebars.compile($("#details-template").html());
 
-        var table = $('#table-activos').DataTable({
+        var table = $('#example1').DataTable({
             processing: true,
             serverSide: true,
-            ajax: '{{route('allgetdataactivo')}}',
+            ajax: '{{route('getdatatiposoftware')}}',
             columns: [
-
-                {data: 'idactivo', name: 'idactivo'},
-                {data: 'nombre_tipo_activo', name: 'nombre_tipo_activo'},
-                {data: 'tipo_activo', name: 'tipo_activo'},
-                {data: 'nombres_personal', name: 'nombres_personal'},
-                {data: 'sede',name:'sede'},
-                {data: 'gerencia', name: 'gerencia'},
-                {data: 'subgerencia', name: 'subgerencia'},
-                {data: 'fechaasignacion', name: 'fechaasignacion'}
-
+                {data: 'id_tipo_software', name: 'id_tipo_software'},
+                {data: 'tipo_software', name: 'tipo_software'},
+                {
+                    data:'id_tipo_software',
+                    render: function(data, type, row){
+                       // var url =  "{{route('hardware.edit','+data+')}}";
+                       // return '<input type="checkbox" id="inputUnchecked" name="activo[]" value="'+data+'"/>';
+                        return '<a href="/tiposoftware/'+ data +'/edit" class="btn btn-primary btn-sm">Editar</a>';
+                    },
+                    orderable:false,
+                    searchable:false
+                },
             ],
             order: [[0, 'desc']],
             "language": {
