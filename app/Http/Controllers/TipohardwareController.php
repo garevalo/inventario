@@ -25,7 +25,7 @@ class TipohardwareController extends Controller
      */
     public function create()
     {
-        //
+        return view("tipohardware.create");
     }
 
     /**
@@ -36,7 +36,8 @@ class TipohardwareController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        TipoHardware::create($request->all());
+        return redirect()->route("tipohardware.index");
     }
 
     /**
@@ -58,7 +59,8 @@ class TipohardwareController extends Controller
      */
     public function edit($id)
     {
-        //
+        $tipohardware =  TipoHardware::FindOrFail($id);
+        return view("tipohardware.edit",compact('tipohardware'));
     }
 
     /**
@@ -70,7 +72,8 @@ class TipohardwareController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        TipoHardware::FindOrFail($id)->update($request->all());
+        return redirect()->route('tipohardware.index');
     }
 
     /**

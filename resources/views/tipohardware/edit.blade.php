@@ -11,7 +11,7 @@
                 <h3 class="box-title">Editar Tipo Hardware</h3>
             </div>
 
-            <form method="POST" action="{{route('tipohardware.update',$tipohardware->idhardware)}}">
+            <form method="POST" action="{{route('tipohardware.update',$tipohardware->id_tipo_hardware)}}">
 
                 {{csrf_field()}}
                 {!! method_field('PUT') !!}
