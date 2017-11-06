@@ -14,7 +14,7 @@ class AddDescripcionToHardwareTable extends Migration
     public function up()
     {
         Schema::table('hardwares', function (Blueprint $table) {
-            $table->text('descripcion');
+            $table->text('descripcion')->nulablle();
         });
     }
 

@@ -34,6 +34,12 @@
                         <input type="text" class="form-control" name="orden_compra" id="orden_compra" value="{{ $hardware->activo->orden_compra }}" required>
                         {!! $errors->first('orden_compra','<span class="help-block">:message</span>') !!}
                     </div>
+                     <div class="form-group-sm {{ $errors->has('codigo_patrimonial') ? ' has-error' : '' }}">
+                        <label>Código Patrimonial:</label>
+
+                        <input type="text" class="form-control" name="codigo_patrimonial" id="codigo_patrimonial" value="{{ $hardware->codigo_patrimonial }}">
+                        {!! $errors->first('codigo_patrimonial','<span class="help-block">:message</span>') !!}
+                    </div>
                     <div class="form-group-sm {{ $errors->has('marca') ? ' has-error' : '' }}">
                         <label>Marca:</label>
 

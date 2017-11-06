@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Hardware extends Model
 {
-    protected $fillable = ['marca','modelo','num_serie','cod_inventario','estado','capacidad','interfaz','fecha_adquisicion','idtipo_hardware','id_activo_hardware','tipo','descripcion'];
+    protected $fillable = ['marca','modelo','num_serie','cod_inventario','estado','capacidad','interfaz','fecha_adquisicion','idtipo_hardware','id_activo_hardware','tipo','descripcion','codigo_patrimonial'];
     protected $primaryKey = 'idhardware';
     protected $dates = ['fecha_adquisicion'];
 

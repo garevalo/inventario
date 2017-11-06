@@ -24,6 +24,7 @@ Route::middleware(['auth'])->group(function () {
     Route::resource('sede','SedeController');
     Route::resource('cargo','CargoController');
     Route::resource('personal','PersonalController');
+    Route::get('hardware/getalldata','HardwareController@getalldata')->name('getalldatahardware');
     Route::resource('hardware','HardwareController');
     Route::resource('software','SoftwareController');
     Route::get('tiposoftware/alldata','TipoSoftwareController@alldata')->name('getdatatiposoftware');

@@ -8,6 +8,7 @@ use App\Hardware;
 use App\Activo;
 use Carbon\Carbon;
 use DB;
+use Datatables;
 
 class HardwareController extends Controller
 {
@@ -55,7 +56,9 @@ class HardwareController extends Controller
                 "estado" => $request->estado,
                 "fecha_adquisicion" => Carbon::createFromFormat('d/m/Y', $request->fecha_adquisicion),
                 "descripcion"   => $request->descripcion,
-                "tipo" => $request->tipo ]);
+                "tipo" => $request->tipo,
+                "codigo_patrimonial" => $request->codigo_patrimonial
+                 ]);
         }
 
         
@@ -115,7 +118,8 @@ class HardwareController extends Controller
                 "cod_inventario" => $request->cod_inventario,
                 "estado" => $request->estado,
                 "fecha_adquisicion" => Carbon::createFromFormat('d/m/Y', $request->fecha_adquisicion),
-                "descripcion" => $request->descripcion
+                "descripcion" => $request->descripcion,
+                "codigo_patrimonial" =>$request->codigo_patrimonial,
             ]);
 
         return redirect()->route('hardware.index');
@@ -130,5 +134,33 @@ class HardwareController extends Controller
     public function destroy($id)
     {
         //
+    }
+
+    public function getalldata(){
+
+        $hardware = Hardware::with('tipohardware','activo')->get();
+
+        return Datatables::of( $hardware )
+        ->addColumn('estadohardware',function($hardware){
+            if($hardware->estado==1)
+                return '<span class="label label-success">Bueno</span>';
+            elseif($hardware->estado==2)
+                return '<span class="label label-danger">Regular</span>';
+            else
+                return '<span class="label label-warning">Malo </span>';
+        })
+        ->addColumn('estadoactivo',function($hardware){
+            if($hardware->activo->estado_activo==1)
+                return '<span class="label label-success">Activo</span>';
+            elseif($hardware->activo->estado_activo==2)
+                return '<span class="label label-danger">De Baja</span>';
+            else
+                return '<span class="label label-warning">Devuelto </span>';
+        })
+        ->addColumn('edit',function($hardware){
+                return '<a href="'.route('hardware.edit',$hardware->idhardware).'" class="btn btn-primary btn-sm">Editar</a>' ;
+        })
+        ->rawColumns(['edit','estadohardware','estadoactivo'])
+        ->make(true);
     }
 }

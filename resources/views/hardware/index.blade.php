@@ -27,7 +27,7 @@
             </div>
             <!-- /.box-header -->
             <div class="box-body">
-                <table id="example1" class="table table-condensed table-bordered table-responsive table-hover">
+                <table id="table-hardware" class="table table-condensed table-bordered table-responsive table-hover">
                     <thead>
                     <tr>
                         <th>ID</th>
@@ -37,6 +37,7 @@
                         <th>Num.Serie</th>
                         <th>Cod. Inventario</th>
                         <th>Orden Compra</th>
+                        <th>Código Patrimonial</th>
                         <th>Fec. Adquision</th>
                         <th>Estado</th>
                         <th>Estado Activo</th>
@@ -44,28 +45,6 @@
                     </tr>
                     </thead>
                     <tbody>
-                    @foreach($hardwares as $hardware)
-                    <tr>
-                        <td>{{$hardware->idhardware}}</td>
-                        <td>{{$hardware->tipohardware->tipo_hardware}}</td>
-                        <td>{{$hardware->marca}}</td>
-                        <td>{{$hardware->modelo}}</td>
-                        <td>{{$hardware->num_serie}}</td>
-                        <td>{{$hardware->cod_inventario}}</td>
-                        <td>{{$hardware->activo->orden_compra}}</td>
-                        <td>{{$hardware->fecha_adquisicion->format('d-m-Y')}}</td>
-                        <td>
-                            @if($hardware->estado==1) <span class="label label-success">Bueno</span>
-                            @elseif($hardware->estado==2) <span class="label label-danger">Regular</span>
-                            @else <span class="label label-warning">Malo </span>@endif </td>
-                        <td>
-                            @if($hardware->activo->estado_activo==1) <span class="label label-success">Activo</span>
-                            @elseif($hardware->activo->estado_activo==2) <span class="label label-danger">De Baja</span>
-                            @else <span class="label label-warning">Devuelto </span>@endif </td>
-                        <td><a href="{{route('hardware.edit',$hardware->idhardware)}}" class="btn btn-primary btn-sm">Editar</a></td>
-
-                    </tr>
-                    @endforeach
                     </tbody>
                 </table>
             </div>
@@ -96,8 +75,31 @@
     <!-- page script -->
 
     <script>
-        $(function () {
-            $("#example1").DataTable();
+       
+         var table = $('#table-hardware').DataTable({
+            processing: true,
+            serverSide: true,
+            ajax: '{{route('getalldatahardware')}}',
+            columns: [
+
+                {data: 'idhardware', name: 'idhardware'},
+                {data: 'tipohardware.tipo_hardware', name: 'tipo_hardware'},
+                {data: 'marca', name: 'marca'},
+                {data: 'modelo', name: 'modelo'},
+                {data: 'num_serie',name:'num_serie'},
+                {data: 'cod_inventario', name: 'cod_inventario'},
+                {data: 'activo.orden_compra', name: 'orden_compra'},
+                {data: 'codigo_patrimonial', name: 'codigo_patrimonial'},
+                {data: 'fecha_adquisicion', name: 'fecha_adquisicion'},
+                {data: 'estadohardware', name: 'estadohardware'},
+                {data: 'estadoactivo', name: 'estadoactivo'},
+                {data: 'edit', name: 'edit'}
+
+            ],
+            order: [[0, 'desc']],
+            "language": {
+                "url": "{{asset("plugins/datatables/Spanish.json")}}"
+            }
         });
     </script>
 

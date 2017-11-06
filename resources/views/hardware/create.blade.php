@@ -33,6 +33,13 @@
                         {!! $errors->first('orden_compra','<span class="help-block">:message</span>') !!}
                     </div>
 
+                     <div class="form-group-sm {{ $errors->has('orden_compra') ? ' has-error' : '' }}">
+                        <label>Código Patrimonial:</label>
+
+                        <input type="text" class="form-control" name="codigo_patrimonial" id="codigo_patrimonial" value="{{old('codigo_patrimonial')}}">
+                        {!! $errors->first('codigo_patrimonial','<span class="help-block">:message</span>') !!}
+                    </div>
+
                     <div class="form-group-sm {{ $errors->has('marca') ? ' has-error' : '' }}">
                         <label>Marca:</label>
 
