@@ -60,7 +60,7 @@
                     <li class="@if(request()->getRequestUri()=='/sede') active @endif"><a href="{{url('reporte/activosobsoletos')}}"><i class="fa fa-file-pdf-o"></i> Activos Obsoletos</a></li>
                 </ul>
             </li>
-            <li class="treeview @if(in_array(request()->getRequestUri(),['/cargo','/sede','/gerencia','/subgerencia','/personal'])) active @endif ">
+            <li class="treeview @if(in_array(request()->getRequestUri(),['/cargo','/sede','/gerencia','/subgerencia','/personal','/tiposoftware','/tipohardware'])) active @endif ">
                 <a href="#">
                     <i class="fa fa-pencil-square-o"></i>
                     <span>Módulo Mantenimientos</span>

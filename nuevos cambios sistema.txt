@@ -18,7 +18,7 @@
 
 * Nombre de equipo y usuario.
 
-* Agregar host y perfil al Personal
+* Agregar host y perfil al Personal (por verse)
 
 
 

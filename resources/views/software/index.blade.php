@@ -85,7 +85,11 @@
 
     <script>
         $(function () {
-            $("#example1").DataTable();
+            $("#example1").DataTable({
+                "language": {
+                    "url": "{{asset("plugins/datatables/Spanish.json")}}"
+                }
+            });
         });
     </script>
 

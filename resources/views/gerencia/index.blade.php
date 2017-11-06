@@ -83,7 +83,12 @@
 
     <script>
         $(function () {
-            $("#example1").DataTable();
+            $("#example1").DataTable({
+                order: [[0, 'desc']],
+                "language": {
+                    "url": "{{asset("plugins/datatables/Spanish.json")}}"
+                }
+            });
         });
     </script>
 
