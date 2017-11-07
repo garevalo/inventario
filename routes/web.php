@@ -44,6 +44,9 @@ Route::middleware(['auth'])->group(function () {
     Route::post('reporte/veractivosobsoletos','ReporteController@ActivosObsoletosPdf');
     Route::post('reporte/verlicenciaspagadas','ReporteController@LicenciasPagadasPdf');
 
+    Route::get('reporte/activos/operativos', 'ReporteController@ActivosOperativos');
+    Route::get('reporte/activos/vencidos', 'ReporteController@ActivosVencidos');
+
 });
 
 
