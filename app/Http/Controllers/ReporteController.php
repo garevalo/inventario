@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use PDF;
+use Excel;
 use DB;
 use Carbon\Carbon;
 use App\Activo;
@@ -88,18 +89,41 @@ class ReporteController extends Controller
 
     }
 
-    public function getActivosOperativos($sede=null,$gerencia=null,$subgerencia=null,$activo=1){
+    public function getActivosOperativos($sede=null,$gerencia=null,$subgerencia=null,$estado=1){
 
-        $activos = DB::select(DB::raw('select  idgerencia_personal,
-            (select gerencia from gerencias g where g.idgerencia=p1.idgerencia_personal ) as gerencia           
+        $sql = 'select  idgerencia_personal,
+            (select gerencia from gerencias g where g.idgerencia=p1.idgerencia_personal ) as gerencia,pa.*,h.*
             from (select distinct(activos_id) idactivo_unico,personals_activos.* from personals_activos ) pa
             join activos on activos_id = activos.idactivo
             join personals p1 on pa.personals_idpersonal = p1.idpersonal
-            where activos.tipo_activo=1'));
+            join hardwares h on h.id_activo_hardware = pa.activos_id
+            where activos.tipo_activo=1';
 
         
+        if($sede)
+            $sqlwhere = " and p1.idsede_personal = " ;   
 
-        return $activos;
+
+        $activos = DB::select(DB::raw($sql));
+
+
+        Excel::create('Filename', function($excel) use ($activos) {
+            // Set the title
+            $excel->setTitle('Our new awesome title');
+
+            // Chain the setters
+            $excel->setCreator('Maatwebsite')
+                  ->setCompany('Maatwebsite');
+
+            // Call them separately
+            $excel->setDescription('A demonstration to change the file properties');
+
+            $excel->sheet('Sheetname', function($sheet) use ($activos) {
+                //dd($activos);
+                $sheet->loadView('reportes.excel.ActivosOperativos',array('activos'=>$activos));
+            });
+        })->export('xls');
+       // return $activos;
 
     }
 
