@@ -88,22 +88,16 @@ class ReporteController extends Controller
 
     }
 
-    public function getActivosOperativos(){
+    public function getActivosOperativos($sede=null,$gerencia=null,$subgerencia=null,$activo=1){
 
         $activos = DB::select(DB::raw('select  idgerencia_personal,
-            (select gerencia from gerencias g where g.idgerencia=p1.idgerencia_personal ) as gerencia,
-            count(activos.idactivo) total_activos,            
-            (
-            select count(pa2.activos_id) from personals_activos pa2
-            join activos   on pa2.activos_id = activos.idactivo
-            join personals on pa2.personals_idpersonal = personals.idpersonal
-            where (TIMESTAMPDIFF(YEAR,fecha_adquisicion , CURDATE()))>=4 and p1.idgerencia_personal = personals.idgerencia_personal
-            ) activos_obsoletos
+            (select gerencia from gerencias g where g.idgerencia=p1.idgerencia_personal ) as gerencia           
             from (select distinct(activos_id) idactivo_unico,personals_activos.* from personals_activos ) pa
-            join `activos` on `activos_id` = `activos`.`idactivo` 
+            join activos on activos_id = activos.idactivo
             join personals p1 on pa.personals_idpersonal = p1.idpersonal
-            where activos.tipo_activo=1
-            group by p1.idgerencia_personal'));
+            where activos.tipo_activo=1'));
+
+        
 
         return $activos;
 

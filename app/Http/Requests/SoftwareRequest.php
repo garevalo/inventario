@@ -34,7 +34,6 @@ class SoftwareRequest extends FormRequest
                 'nombre_software' => 'required',
                 'arquitectura' => 'required',
                 'fecha_adquisicion'=> 'required|date_format:d/m/Y',
-                'estado'=>'required',
                 'licencia' => 'integer');
         }
 

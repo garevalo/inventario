@@ -19,6 +19,7 @@ Auth::routes();
 
 
 Route::middleware(['auth'])->group(function () {
+
     Route::resource('subgerencia','SubgerenciaController');
     Route::resource('gerencia','GerenciaController');
     Route::resource('sede','SedeController');
@@ -45,6 +46,8 @@ Route::middleware(['auth'])->group(function () {
     Route::post('reporte/verlicenciaspagadas','ReporteController@LicenciasPagadasPdf');
 
     Route::get('reporte/activos/operativos', 'ReporteController@ActivosOperativos');
+    Route::get('reporte/activos/getoperativos', 'ReporteController@getActivosOperativos');
+
     Route::get('reporte/activos/vencidos', 'ReporteController@ActivosVencidos');
 
 });

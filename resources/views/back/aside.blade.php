@@ -58,8 +58,8 @@
                 <ul class="treeview-menu">
                     <li class="@if(request()->getRequestUri()=='/cargo') active @endif" ><a href="{{url('reporte/licenciaspagadas')}}"><i class="fa fa-file-pdf-o"></i> Licencias Pagadas</a></li>
                     <li class="@if(request()->getRequestUri()=='/sede') active @endif"><a href="{{url('reporte/activosobsoletos')}}"><i class="fa fa-file-pdf-o"></i> Activos Obsoletos</a></li>
-                    <li class="@if(request()->getRequestUri()=='/sede') active @endif"><a href="{{url('reporte/activosobsoletos')}}"><i class="fa fa-file-pdf-o"></i> Activos Operativos</a></li>
-                    <li class="@if(request()->getRequestUri()=='/sede') active @endif"><a href="{{url('reporte/activosobsoletos')}}"><i class="fa fa-file-pdf-o"></i> Activos Vencidos</a></li>
+                    <li class="@if(request()->getRequestUri()=='/sede') active @endif"><a href="{{url('reporte/activos/operativos')}}"><i class="fa fa-file-pdf-o"></i> Activos Operativos</a></li>
+                    <li class="@if(request()->getRequestUri()=='/sede') active @endif"><a href="{{url('reporte/activos/vencidos')}}"><i class="fa fa-file-pdf-o"></i> Activos Vencidos</a></li>
                 </ul>
             </li>
             <li class="treeview @if(in_array(request()->getRequestUri(),['/cargo','/sede','/gerencia','/subgerencia','/personal','/tiposoftware','/tipohardware'])) active @endif ">

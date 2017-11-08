@@ -59,7 +59,7 @@
                         <input type="text" class="form-control input-sm" data-inputmask="'alias': 'dd/mm/yyyy'" data-mask="" name="fecha_adquisicion" value="{{old('fecha_adquisicion')}}" id="fecha_adquisicion" required>
                         {!! $errors->first('fecha_adquisicion','<span class="help-block">:message</span>') !!}
                     </div>
-
+                    {{-- 
                     <div class="form-group-sm {{ $errors->has('estado') ? ' has-error' : '' }}">
                         <label>Estado:</label>
 
@@ -71,7 +71,7 @@
                         </select>
                         {!! $errors->first('estado','<span class="help-block">:message</span>') !!}
                     </div>
-
+                    --}}
                     <div class="checkbox {{ $errors->has('licencia') ? ' has-error' : '' }}">
                         <label>
                             <input type="checkbox" name="licencia" value="1" @if(old('licencia')) checked @endif()> Licencia Pagada

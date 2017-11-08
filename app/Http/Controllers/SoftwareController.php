@@ -37,8 +37,7 @@ class SoftwareController extends Controller
     public function store(SoftwareRequest $request)
     {
         $idactivo = Activo::insertGetId(['fecha_adquisicion'=> Carbon::createFromFormat('d/m/Y', $request->fecha_adquisicion),
-            'tipo_activo'=>'2',
-            'estado'=> $request->estado ]);
+            'tipo_activo'=>'2']);
 
         if($idactivo){
             $software = Software::create([
