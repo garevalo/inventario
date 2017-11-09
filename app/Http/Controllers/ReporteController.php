@@ -96,31 +96,67 @@ class ReporteController extends Controller
 
     }
 
+    public function ActivosOperativosProcesar(Request $request){
+
+          $sede         = $request->idsede_personal;
+          $gerencia     = $request->idgerencia_personal;
+          $subgerencia  = $request->idsubgerencia_personal;
+          $estado       = $request->estado; /* 1 operativo 2 inoperativo*/
+          $exportar     = $request->exportar;
+
+          $data = $this->getActivosOperativos($sede,$gerencia,$subgerencia,$estado);
+          //dd($data);
+
+          if(!empty($data)){
+            if($exportar==1){
+                $this->export($data);
+            } else{
+                return $this->export($data,'pdf');
+            }
+          }
+          else{
+            echo "<script>alert('No hay datos'); document.location='".route('reportes-operativos')."';</script>";
+          }
+          
+
+    }
+
     public function getActivosOperativos($sede=null,$gerencia=null,$subgerencia=null,$estado=1){
 
-        $sql = 'select  idgerencia_personal,
-            (select gerencia from gerencias g where g.idgerencia=p1.idgerencia_personal ) as gerencia,pa.*,h.*
+        $sql = "select  idgerencia_personal,
+            (select gerencia from gerencias g where g.idgerencia=p1.idgerencia_personal ) as gerencia,
+            (select subgerencia from subgerencias sg where sg.idsubgerencia=p1.idsubgerencia_personal ) as subgerencia,
+            (select sede from sedes s where s.idsede=p1.idsede_personal ) as sede,
+            concat(p1.nombres,' ',p1.apellido_paterno,' ',p1.apellido_materno) personal, 
+            pa.*,h.*
             from (select distinct(activos_id) idactivo_unico,personals_activos.* from personals_activos ) pa
             join activos on activos_id = activos.idactivo
             join personals p1 on pa.personals_idpersonal = p1.idpersonal
             join hardwares h on h.id_activo_hardware = pa.activos_id
-            where activos.tipo_activo=1';
+            where activos.tipo_activo={$estado}";
 
-        
-        if($sede)
-            $sqlwhere = " and p1.idsede_personal = " ;   
+        $sqlwhere="";
 
-        $activos = DB::select(DB::raw($sql));
+        if(!empty($sede) )
+            $sqlwhere .= " and p1.idsede_personal = {$sede}";
 
-        $this->export($activos,'pdf');
+        if(!empty($gerencia) )
+            $sqlwhere .= " and p1.idgerencia_personal = {$gerencia}";
+
+        if(!empty($subgerencia) )
+            $sqlwhere .= " and p1.idsubgerencia_personal = {$subgerencia}";
+
+        //return $sql.$sqlwhere;  
+        return $activos = DB::select(DB::raw($sql.$sqlwhere));
 
     }
 
     public function export($data,$type="excel"){
 
         if($type=="pdf"){
+
             $pdf = PDF::loadView('reportes.excel.ActivosOperativos',array('data'=>$data));
-            return $pdf->stream();
+            return $pdf->download();
 
         } elseif($type=="excel"){
             Excel::create('reporte', function($excel) use ($data) {

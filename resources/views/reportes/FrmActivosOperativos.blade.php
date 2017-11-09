@@ -9,7 +9,7 @@
                 <h3 class="box-title">Reporte De Activos Operativos</h3>
             </div>
 
-            <form method="POST" action="{{url('reporte/verlicenciaspagadas')}}">
+            <form method="POST" action="{{url('reporte/activos/operativos')}}">
 
                 {{csrf_field()}}
                 <div class="box-body">
@@ -48,21 +48,37 @@
                     </div>
 
                     <div class="form-group-sm {{ $errors->has('hasta') ? ' has-error' : '' }}">
+                        <label>Estado del Activo :</label>
                         <div class="radio">
                             <label for="">
-                                <input type="radio" name="tipo" value="1" > Operativo
+                                <input type="radio" name="estado" value="1" checked > Operativo
                             </label>
                         </div>
                         <div class="radio">
                             <label for="">
-                                <input type="radio" name="tipo" value="2" > Inoperativo
+                                <input type="radio" name="estado" value="2" > Inoperativo
                             </label>
                         </div>
                     </div>
+                    
+                    <div class="form-group-sm {{ $errors->has('hasta') ? ' has-error' : '' }}">
+                         <label>Exportar a :</label>
+                        <div class="radio">
+                            <label for="">
+                                <input type="radio" name="exportar" value="1" checked > <i class="fa fa-file-excel-o" ></i> Excel
+                            </label>
+                        </div>
+                        <div class="radio">
+                            <label for="">
+                                <input type="radio" name="exportar" value="2" > <i class="fa fa-file-pdf-o"></i> PDF
+                            </label>
+                        </div>
+                    </div>
+
                 </div>
 
                 <div class="box-footer">
-                    <button type="submit" class="btn btn-primary">Ver Reporte</button>
+                    <button type="submit" class="btn btn-primary">Exportar </button>
                 </div>
             </form>
             <!-- /.box-body -->
