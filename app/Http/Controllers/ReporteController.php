@@ -9,6 +9,9 @@ use DB;
 use Carbon\Carbon;
 use App\Activo;
 use App\Personals_activos;
+use App\Sede;
+use App\Gerencia;
+use App\Subgerencia;
 
 class ReporteController extends Controller
 {
@@ -85,7 +88,11 @@ class ReporteController extends Controller
 
     public function ActivosOperativos(){
 
-        return view('reportes.FrmActivosOperativos');
+        $sedes = Sede::all();
+        $gerencias = Gerencia::all();
+        $subgerencias = Subgerencia::all();
+
+        return view('reportes.FrmActivosOperativos',compact('sedes','gerencias','subgerencias'));
 
     }
 
@@ -103,28 +110,26 @@ class ReporteController extends Controller
         if($sede)
             $sqlwhere = " and p1.idsede_personal = " ;   
 
-
         $activos = DB::select(DB::raw($sql));
 
+        $this->export($activos,'pdf');
 
-        Excel::create('Filename', function($excel) use ($activos) {
-            // Set the title
-            $excel->setTitle('Our new awesome title');
+    }
 
-            // Chain the setters
-            $excel->setCreator('Maatwebsite')
-                  ->setCompany('Maatwebsite');
+    public function export($data,$type="excel"){
 
-            // Call them separately
-            $excel->setDescription('A demonstration to change the file properties');
+        if($type=="pdf"){
+            $pdf = PDF::loadView('reportes.excel.ActivosOperativos',array('data'=>$data));
+            return $pdf->stream();
 
-            $excel->sheet('Sheetname', function($sheet) use ($activos) {
-                //dd($activos);
-                $sheet->loadView('reportes.excel.ActivosOperativos',array('activos'=>$activos));
-            });
-        })->export('xls');
-       // return $activos;
-
+        } elseif($type=="excel"){
+            Excel::create('reporte', function($excel) use ($data) {
+                $excel->sheet('Sheetname', function($sheet) use ($data) {
+                    //dd($activos);
+                    $sheet->loadView('reportes.excel.ActivosOperativos',array('data'=>$data) );
+                });
+            })->export('xlsx');
+        }
     }
 
 

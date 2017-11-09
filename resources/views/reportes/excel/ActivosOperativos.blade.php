@@ -1,20 +1,34 @@
-{{dd($activos)}}
+<html>
+
 <table>
-	<th>Gerencia</th>
-	<th>Marca</th>
-	<th>Modelo</th>
-	<th>Num. Serie</th>
-	<th>Código Inventario</th>
-	<tbody>
-		@foreach( $activos as $activo )
+	<thead>
 		<tr>
-			<td>{{activo->gerencia}}</td>
-			<td>{{activo->marca}}</td>
-			<td>{{activo->modelo}}</td>
-			<td>{{activo->num_serie}}</td>
-			<td>{{activo->cod_inventario}}</td>
+			<th>Sede</th>
+			<th >Gerencia</th>
+			<th >Sub Gerencia</th>
+			<th >Marca</th>
+			<th >Modelo</th>
+			<th >Num. Serie</th>
+			<th >Código Inventario</th>
+			<th>Descripción</th>
 		</tr>
-		@endforeach
-		
+	</thead>
+
+	<tbody>
+	@foreach( $data as $val )
+		<tr>
+			<td>{{$val->gerencia}}</td>
+			<td>{{$val->gerencia}}</td>
+			<td>{{$val->gerencia}}</td>
+			<td>{{$val->marca}}</td>
+			<td>{{$val->modelo}}</td>
+			<td>{{$val->num_serie}}</td>
+			<td>{{$val->cod_inventario}}</td>
+			<td>{{$val->descripcion}}</td>
+		</tr>
+	@endforeach
+
 	</tbody>
 </table>
+
+</html>

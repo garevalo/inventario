@@ -14,31 +14,50 @@
                 {{csrf_field()}}
                 <div class="box-body">
 
-                    <div class="form-group-sm {{ $errors->has('desde') ? ' has-error' : '' }}">
-                        <label>Desde:</label>
-                        <input type="text" class="form-control" data-inputmask="'alias': 'dd/mm/yyyy'" data-mask="" name="desde" id="desde" required>
-                        {!! $errors->first('desde','<span class="help-block">:message</span>') !!}
+                    <div class="form-group-sm {{ $errors->has('idsede_personal') ? 'has-error' : '' }}">
+                        <label>Sede:</label>
+                        <select class="form-control" name="idsede_personal" id="idsede_personal">
+                            <option value="">Seleccione Sede</option>
+                            @foreach($sedes as $sede)
+                                <option value="{{$sede->idsede}}" @if(old('idsede_personal')== $sede->idsede) selected @endif>{{$sede->sede}}</option>
+                            @endforeach
+                        </select>
+                        {!! $errors->first('idsede_personal','<span class="help-block">:message</span>') !!}
+                    </div>
+
+                    <div class="form-group-sm {{ $errors->has('idgerencia_personal') ? 'has-error' : '' }}">
+                        <label>Gerencia:</label>
+                        <select class="form-control" name="idgerencia_personal" id="idgerencia_personal">
+                            <option value="">Seleccione Gerencia</option>
+                            @foreach($gerencias as $gerencia)
+                                <option value="{{$gerencia->idgerencia}}" @if(old('idgerencia_personal')== $gerencia->idgerencia) selected @endif>{{$gerencia->gerencia}}</option>
+                            @endforeach
+                        </select>
+                        {!! $errors->first('idsubgerencia_personal','<span class="help-block">:message</span>') !!}
+                    </div>
+
+                    <div class="form-group-sm {{ $errors->has('idsubgerencia_personal') ? 'has-error' : '' }}">
+                        <label>Sub Gerencia:</label>
+                        <select class="form-control" name="idsubgerencia_personal" id="idsubgerencia_personal">
+                            <option value="">Seleccione Subgerencia</option>
+                            @foreach($subgerencias as $subgerencia)
+                                <option value="{{$subgerencia->idsubgerencia}}" @if(old('idsubgerencia_personal')== $subgerencia->idsubgerencia) selected @endif>{{$subgerencia->subgerencia}}</option>
+                            @endforeach
+                        </select>
+                        {!! $errors->first('idsubgerencia_personal','<span class="help-block">:message</span>') !!}
                     </div>
 
                     <div class="form-group-sm {{ $errors->has('hasta') ? ' has-error' : '' }}">
-                        <label>Hasta:</label>
-                        <input type="text" class="form-control" data-inputmask="'alias': 'dd/mm/yyyy'" data-mask="" name="hasta" id="hasta" required>
-                        {!! $errors->first('hasta','<span class="help-block">:message</span>') !!}
-                    </div>
-                    <div class="form-group-sm {{ $errors->has('hasta') ? ' has-error' : '' }}">
-                        <label>Sede:</label>
-                        <input type="text" class="form-control" data-inputmask="'alias': 'dd/mm/yyyy'" data-mask="" name="hasta" id="hasta" required>
-                        {!! $errors->first('hasta','<span class="help-block">:message</span>') !!}
-                    </div>
-                    <div class="form-group-sm {{ $errors->has('hasta') ? ' has-error' : '' }}">
-                        <label>Gerencia:</label>
-                        <input type="text" class="form-control" data-inputmask="'alias': 'dd/mm/yyyy'" data-mask="" name="hasta" id="hasta" required>
-                        {!! $errors->first('hasta','<span class="help-block">:message</span>') !!}
-                    </div>
-                    <div class="form-group-sm {{ $errors->has('hasta') ? ' has-error' : '' }}">
-                        <label>Sub Gerencia:</label>
-                        <input type="text" class="form-control" data-inputmask="'alias': 'dd/mm/yyyy'" data-mask="" name="hasta" id="hasta" required>
-                        {!! $errors->first('hasta','<span class="help-block">:message</span>') !!}
+                        <div class="radio">
+                            <label for="">
+                                <input type="radio" name="tipo" value="1" > Operativo
+                            </label>
+                        </div>
+                        <div class="radio">
+                            <label for="">
+                                <input type="radio" name="tipo" value="2" > Inoperativo
+                            </label>
+                        </div>
                     </div>
                 </div>
 
