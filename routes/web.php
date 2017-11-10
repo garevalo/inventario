@@ -17,7 +17,6 @@ Route::get('/', function () {
 
 Auth::routes();
 
-
 Route::middleware(['auth'])->group(function () {
 
     Route::resource('subgerencia','SubgerenciaController');
