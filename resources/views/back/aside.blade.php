@@ -78,6 +78,7 @@
                     <li class="@if(request()->getRequestUri()=='/personal') active @endif"><a href="/personal"><i class="fa fa-circle-o"></i> Personal</a></li>
                     <li class="@if(request()->getRequestUri()=='/tiposoftware') active @endif"><a href="/tiposoftware"><i class="fa fa-circle-o"></i> Tipo Software</a></li>
                     <li class="@if(request()->getRequestUri()=='/tipohardware') active @endif"><a href="/tipohardware"><i class="fa fa-circle-o"></i> Tipo Hardware</a></li>
+                    <li class="@if(request()->getRequestUri()=='/rol') active @endif"><a href="/rol"><i class="fa fa-circle-o"></i> Roles</a></li>
                 </ul>
             </li>
         </ul>
