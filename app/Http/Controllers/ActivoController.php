@@ -201,6 +201,10 @@ class ActivoController extends Controller
             ->addColumn('fechaasignacion',function($activo){
                 return $activo->fecha_asignacion;
             })
+            ->addColumn('reasignar',function($activo){
+                return '<a href="#" class="btn btn-danger btn-xs"> <i class="fa fa-repeat"></i> Reasignar </a>';
+            })
+            ->rawColumns(['reasignar'])
             ->make(true);
     }
 }

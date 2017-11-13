@@ -1,5 +1,5 @@
 @extends('back.app')
-
+@section('title') Gestion de Activos TI @endsection
 @section('menu-h1')
     <h1>
         Gestion de Activos TI

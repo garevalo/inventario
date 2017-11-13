@@ -34,7 +34,7 @@
             </div>
             <!-- /.box-header -->
             <div class="box-body">
-                <table id="table-activos" class="table table-condensed table-striped table-bordered">
+                <table id="table-activos" class="table table-condensed table-striped">
                     <thead>
                     <tr>
                         <th>ID Activo</th>
@@ -45,6 +45,7 @@
                         <th>Gerencia</th>
                         <th>Sub Gerencia</th>
                         <th>Fecha Asignación</th>
+                        <th>Reasignar</th>
                     </tr>
                     </thead>
                     <tbody>
@@ -94,7 +95,8 @@
                 {data: 'sede',name:'sede'},
                 {data: 'gerencia', name: 'gerencia'},
                 {data: 'subgerencia', name: 'subgerencia'},
-                {data: 'fechaasignacion', name: 'fechaasignacion'}
+                {data: 'fechaasignacion', name: 'fechaasignacion'},
+                {data: 'reasignar', name: 'reasignar'}
 
             ],
             order: [[0, 'desc']],
