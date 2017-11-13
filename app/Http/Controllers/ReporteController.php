@@ -160,8 +160,13 @@ class ReporteController extends Controller
 
         } elseif($type=="excel"){
             Excel::create('reporte', function($excel) use ($data) {
-                $excel->sheet('Sheetname', function($sheet) use ($data) {
+                $excel->sheet('reporte', function($sheet) use ($data) {
                     //dd($activos);
+                    $cells->setBackground('#000000');
+                    $sheet->setFontFamily('Comic Sans MS');
+                    $sheet->setFontSize(8);
+                    $sheet->setAllBorders('thin');
+
                     $sheet->loadView('reportes.excel.ActivosOperativos',array('data'=>$data) );
                 });
             })->export('xlsx');
@@ -171,7 +176,13 @@ class ReporteController extends Controller
 
     public function ActivosVencidos(){
 
-        return view('reportes.FrmActivosOperativos');
+
+        $sedes = Sede::all();
+        $gerencias = Gerencia::all();
+        $subgerencias = Subgerencia::all();
+
+        return view('reportes.FrmActivosOperativos',compact('sedes','gerencias','subgerencias'));
+        //return view('reportes.FrmActivosOperativos');
 
     }
 

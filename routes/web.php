@@ -28,6 +28,7 @@ Route::middleware(['auth'])->group(function () {
     Route::get('rol/alldata','RolController@alldata')->name('getroles');
     Route::resource('rol','RolController');
 
+    Route::get('usuario/alldata','UsuarioController@getalldata')->name('getalldatausuario');
     Route::resource('usuario','UsuarioController');
     Route::get('hardware/getalldata','HardwareController@getalldata')->name('getalldatahardware');
     Route::resource('hardware','HardwareController');

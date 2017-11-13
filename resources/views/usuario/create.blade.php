@@ -1,6 +1,6 @@
 @extends('back.app')
 
-@section('title','Registrar Tipo Software')
+@section('title','Registrar Usuario')
 
 @section('header')
     @parent()
@@ -14,10 +14,10 @@
 
         <div class="box box-danger">
             <div class="box-header">
-                <h3 class="box-title">Registrar Tipo Software</h3>
+                <h3 class="box-title">Registrar Usuario</h3>
             </div>
 
-            <form method="POST" action="{{route('tiposoftware.store')}}">
+            <form method="POST" action="{{route('usuario.store')}}">
 
                 {{csrf_field()}}
                 <div class="box-body">
@@ -25,29 +25,29 @@
                     <div class="form-group-sm {{ $errors->has('name') ? ' has-error' : '' }}">
                         <label>Nombre:</label>
 
-                        <input type="text" class="form-control input-sm" name="tipo_software" id="tipo_software" value="{{old('tipo_software')}}" required>
+                        <input type="text" class="form-control input-sm" name="name" id="name" value="{{old('name')}}" required>
                         {!! $errors->first('name','<span class="help-block">:message</span>') !!}
                     </div>
 
-                    <div class="form-group {{ $errors->has('tipo_software') ? ' has-error' : '' }}">
+                    <div class="form-group {{ $errors->has('apellidos') ? ' has-error' : '' }}">
                         <label>Apellidos:</label>
 
-                        <input type="text" class="form-control input-sm" name="tipo_software" id="tipo_software" value="{{old('tipo_software')}}" required>
-                        {!! $errors->first('tipo_software','<span class="help-block">:message</span>') !!}
+                        <input type="text" class="form-control input-sm" name="apellidos" id="apellidos" value="{{old('apellidos')}}" required>
+                        {!! $errors->first('apellidos','<span class="help-block">:message</span>') !!}
                     </div>
 
-                    <div class="form-group {{ $errors->has('tipo_software') ? ' has-error' : '' }}">
+                    <div class="form-group {{ $errors->has('usuario') ? ' has-error' : '' }}">
                         <label>Usuario:</label>
 
-                        <input type="text" class="form-control input-sm" name="tipo_software" id="tipo_software" value="{{old('tipo_software')}}" required>
-                        {!! $errors->first('tipo_software','<span class="help-block">:message</span>') !!}
+                        <input type="text" class="form-control input-sm" name="usuario" id="usuario" value="{{old('usuario')}}" required>
+                        {!! $errors->first('usuario','<span class="help-block">:message</span>') !!}
                     </div>
 
-                    <div class="form-group {{ $errors->has('tipo_software') ? ' has-error' : '' }}">
+                    <div class="form-group {{ $errors->has('email') ? ' has-error' : '' }}">
                         <label>Email:</label>
 
-                        <input type="text" class="form-control input-sm" name="tipo_software" id="tipo_software" value="{{old('tipo_software')}}" required>
-                        {!! $errors->first('tipo_software','<span class="help-block">:message</span>') !!}
+                        <input type="text" class="form-control input-sm" name="email" id="email" value="{{old('email')}}" required>
+                        {!! $errors->first('email','<span class="help-block">:message</span>') !!}
                     </div>
 
                     <div class="form-group {{ $errors->has('password') ? ' has-error' : '' }}">
@@ -60,7 +60,7 @@
                     <div class="form-group {{ $errors->has('rol') ? ' has-error' : '' }}">
                         <label>Rol:</label>
 
-                        <select name="rol" id="rol" required>
+                        <select name="idrol" id="idrol" class="form-control input-sm" required>
                             <option value="">Seleccione Rol</option>
                         </select>
                         {!! $errors->first('rol','<span class="help-block">:message</span>') !!}
@@ -70,6 +70,8 @@
 
                         <select name="estado" id="estado" class="form-control input-sm" required>
                             <option value="">Seleccione Estado</option>
+                            <option value="1">Activo</option>
+                            <option value="2">Inactivo</option>
                         </select>
                         {!! $errors->first('estado','<span class="help-block">:message</span>') !!}
                     </div>

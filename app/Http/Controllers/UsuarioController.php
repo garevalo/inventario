@@ -4,6 +4,9 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\User;
+use App\Http\Request\UsuarioRequest;  
+use Datatables;
+use App\Rol;
 
 class UsuarioController extends Controller
 {
@@ -31,10 +34,10 @@ class UsuarioController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param  App\Http\Request\UsuarioRequest  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(UsuarioRequest $request)
     {
         User::create($request->all());
         return redirect()->route('usuario.index');
@@ -87,9 +90,12 @@ class UsuarioController extends Controller
         //
     }
 
-    public function alldata(){
+    public function getalldata(){
 
-        return Datatables::of(User::all())
+
+        dd(User::with('rol')->get());
+
+        return Datatables::of(User::with('rol')->get() )
             ->addColumn('edit',function($usuario){
                 return '<a href="'.route('usuario.edit',$usuario->id).'" class="btn btn-primary btn-sm">Editar</a>' ;
             })
