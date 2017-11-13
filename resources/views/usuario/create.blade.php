@@ -62,6 +62,9 @@
 
                         <select name="idrol" id="idrol" class="form-control input-sm" required>
                             <option value="">Seleccione Rol</option>
+                            @foreach($roles as $rol)
+                            <option value="{{$rol->idrol}}">{{$rol->rol}}</option>
+                            @endforeach
                         </select>
                         {!! $errors->first('rol','<span class="help-block">:message</span>') !!}
                     </div>

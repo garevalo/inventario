@@ -2,7 +2,7 @@
 
 @section('menu-h1')
     <h1>
-        Dashboard
+        Gestion de Activos TI
         <small>Panel de Control</small>
     </h1>
 @endsection

@@ -27,14 +27,16 @@
             </div>
             <!-- /.box-header -->
             <div class="box-body">
-                <table id="table" class="table table-bordered table-hover">
+                <table id="table" class="table table-bordered table-hover table-condensed">
                     <thead>
                     <tr>
                         <th>ID</th>
                         <th>Nombre</th>
-                        <th>Usuario</th>
                         <th>Apellidos</th>
+                        <th>Usuario</th>
+                        <th>Email</th>
                         <th>Rol</th>
+                        <th>Estado</th>
                         <th>Editar</th>
 
                     </tr>
@@ -74,10 +76,15 @@
         var table = $('#table').DataTable({
             processing: true,
             serverSide: true,
-            ajax: '{{route('getroles')}}',
+            ajax: '{{route('getalldatausuario')}}',
             columns: [
-                {data: 'idrol', name: 'idrol'},
-                {data: 'rol', name: 'rol'},
+                {data: 'id', name: 'id'},
+                {data: 'name', name: 'name'},
+                {data: 'apellidos', name: 'apellidos'},
+                {data: 'usuario', name: 'usuario'},
+                {data: 'email', name: 'email'},
+                {data: 'roluser', name: 'roluser'},
+                {data: 'estadouser', name: 'estadouser'},
                 {
                     data: 'edit',
                     name: 'edit',

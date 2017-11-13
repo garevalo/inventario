@@ -44,7 +44,7 @@
             <section class="content-header">
                 @section('menu-h1')
                     <h1>
-                        Dashboard
+                        Gestión de Activos
                         {{-- <small>Control panel</small> --}}
                     </h1>
                 @show

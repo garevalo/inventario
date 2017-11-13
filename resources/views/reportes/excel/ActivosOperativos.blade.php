@@ -1,24 +1,26 @@
 <html>
-<style type="text/css">
-	table{
-		font-size: 8px;
-	}
-</style>
-<table border="0" cellpadding="2" cellspacing="0" >
-	<thead>
-		<tr style="background-color: #b9aeae; color: #fff;">
-			<th>Sede</th>
-			<th >Gerencia</th>
-			<th >Sub Gerencia</th>
-			<th >Marca</th>
-			<th >Modelo</th>
-			<th >Num. Serie</th>
-			<th >Código Inventario</th>
-			<th>Código Patrimonial</th>
-			<th >Fecha de Adquisición</th>
-			<th>Descripción</th>
-		</tr>
-	</thead>
+
+<table>
+	<tr align="center">
+		<td colspan="10" ><h2>Reporte de Activos Operativos</h2></td>
+	</tr>	
+</table>
+
+<table border="1" cellpadding="2" cellspacing="0" width="100%" style="font-size: 8">
+	
+	<tr>
+		<th>Sede</th>
+		<th >Gerencia</th>
+		<th >Sub Gerencia</th>
+		<th >Marca</th>
+		<th >Modelo</th>
+		<th >Num. Serie</th>
+		<th >Código Inventario</th>
+		<th>Código Patrimonial</th>
+		<th >Fecha de Adquisición</th>
+		<th>Descripción</th>
+	</tr>
+	
 
 	<tbody>
 	@foreach( $data as $val )

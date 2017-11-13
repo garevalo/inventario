@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\User;
-use App\Http\Request\UsuarioRequest;  
+use App\Http\Requests\UsuarioRequest; 
 use Datatables;
 use App\Rol;
 
@@ -28,7 +28,8 @@ class UsuarioController extends Controller
      */
     public function create()
     {
-        return view('usuario.create');
+        $roles = Rol::all();
+        return view('usuario.create',compact('roles'));
     }
 
     /**
@@ -62,8 +63,11 @@ class UsuarioController extends Controller
      */
     public function edit($id)
     {
-        $user = User::FindOrFail($id);
-        return view("usuario.edit",compact('user'));
+        $user    = User::FindOrFail($id);
+        $roles   = Rol::all();
+        //dd($roles);
+        $estados = array(1=>"Activo",2=>"Inactivo");
+        return view("usuario.edit",compact('user','roles','estados'));
     }
 
     /**
@@ -73,9 +77,34 @@ class UsuarioController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(UsuarioRequest $request, $id)
     {
-        User::FindOrFail($id)->update($request->all());
+
+        if(!empty($request->password)){
+            User::FindOrFail($id)->update(
+                [
+                    'name'      => $request->name,
+                    'usuario'   => $request->usuario,
+                    'apellidos' => $request->apellidos,
+                    'email'     => $request->email,
+                    'idrol'     => $request->idrol,
+                    'estado'    => $request->estado,
+                    'password'  => bcrypt($request->password) 
+                ]
+            );
+        }else{
+            User::FindOrFail($id)->update(
+                [
+                    'name'      => $request->name,
+                    'usuario'   => $request->usuario,
+                    'apellidos' => $request->apellidos,
+                    'email'     => $request->email,
+                    'idrol'     => $request->idrol,
+                    'estado'    => $request->estado
+                ]
+            );
+        }
+        
         return redirect()->route('usuario.index');
     }
 
@@ -93,13 +122,28 @@ class UsuarioController extends Controller
     public function getalldata(){
 
 
-        dd(User::with('rol')->get());
+        //dd(User::with('rol')->get());
 
         return Datatables::of(User::with('rol')->get() )
-            ->addColumn('edit',function($usuario){
-                return '<a href="'.route('usuario.edit',$usuario->id).'" class="btn btn-primary btn-sm">Editar</a>' ;
+            ->addColumn('roluser',function($usuario){
+                if($usuario->rol){
+                    return $usuario->rol->rol ;    
+                }else
+                    return "";
+                
             })
-            ->rawColumns(['edit'])
+            ->addColumn('edit',function($usuario){
+                return '<a href="'.route('usuario.edit',$usuario->id).'" class="btn btn-primary btn-xs">Editar</a>' ;
+            })
+            ->addColumn('estadouser',function($usuario){
+                if($usuario->estado == 1){
+                    return "<label class='label label-primary'>Activo</label>";
+                }
+                else
+                    return "<label class='label label-warning'>Inactivo</label>";
+            })
+
+            ->rawColumns(['edit','estadouser'])
             ->make(true);
 
     }
