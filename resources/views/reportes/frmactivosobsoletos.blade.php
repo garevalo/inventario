@@ -6,13 +6,13 @@
 
         <div class="box box-danger">
             <div class="box-header">
-                <h3 class="box-title">Reporte Licencias Pagadas</h3>
+                <h3 class="box-title">Reporte Activos Obsoletos</h3>
             </div>
 
             <form method="POST" action="{{url('reporte/veractivosobsoletos')}}">
 
                 {{csrf_field()}}
-                <div class="box-body">
+                <!-- <div class="box-body">
 
                     <div class="form-group-sm {{ $errors->has('desde') ? ' has-error' : '' }}">
                         <label>Desde:</label>
@@ -25,7 +25,7 @@
                         <input type="text" class="form-control" data-inputmask="'alias': 'dd/mm/yyyy'" data-mask="" name="hasta" id="hasta" required>
                         {!! $errors->first('hasta','<span class="help-block">:message</span>') !!}
                     </div>
-                </div>
+                </div> -->
 
                 <div class="box-footer">
                     <button type="submit" class="btn btn-primary">Ver Reporte</button>

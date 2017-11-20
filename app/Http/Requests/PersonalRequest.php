@@ -24,9 +24,9 @@ class PersonalRequest extends FormRequest
     public function rules()
     {
         $validation = array(
-            'nombres' =>'required|regex:/^[a-z A-Z áéíóú ÁÉÍÓÚ]+$/u',
-            'apellido_paterno' => 'required|regex:/^[a-z A-Z áéíóú ÁÉÍÓÚ]+$/u',
-            'apellido_materno' => 'required|regex:/^[a-z A-Z áéíóú ÁÉÍÓÚ]+$/u',
+            'nombres' =>'required|regex:/^[a-z A-Z áéíóúñ ÁÉÍÓÚÑ]+$/u',
+            'apellido_paterno' => 'required|regex:/^[a-z A-Z áéíóúñ ÁÉÍÓÚÑ]+$/u',
+            'apellido_materno' => 'required|regex:/^[a-z A-Z áéíóúñ ÁÉÍÓÚÑ]+$/u',
             'idcargo_personal' => 'required|integer',
             'idsede_personal' => 'required|integer',
             'idgerencia_personal' => 'required|integer',

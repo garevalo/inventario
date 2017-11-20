@@ -12,6 +12,7 @@
             <form method="POST" action="{{url('reporte/verlicenciaspagadas')}}">
 
                 {{csrf_field()}}
+                <!-- 
                 <div class="box-body">
 
                     <div class="form-group-sm {{ $errors->has('desde') ? ' has-error' : '' }}">
@@ -26,7 +27,7 @@
                         {!! $errors->first('hasta','<span class="help-block">:message</span>') !!}
                     </div>
                 </div>
-
+                -->
                 <div class="box-footer">
                     <button type="submit" class="btn btn-primary">Ver Reporte</button>
                 </div>

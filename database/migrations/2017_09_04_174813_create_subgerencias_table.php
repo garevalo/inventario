@@ -15,7 +15,7 @@ class CreateSubgerenciasTable extends Migration
     {
         Schema::create('subgerencias', function (Blueprint $table) {
             $table->increments('idsubgerencia');
-            $table->text('subgerencia',50);
+            $table->text('subgerencia',80);
             $table->timestamps();
         });
     }

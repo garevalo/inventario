@@ -1,6 +1,6 @@
 @extends('back.app')
 
-@section('title')Módulo de Asignación @endsection
+@section('title')Módulo de Seguimiento @endsection
 
 @section('head')
     @parent
@@ -10,7 +10,7 @@
 @endsection
 @section('menu-h1')
     <h1>
-        <i class="fa fa-microchip"></i>  Módulo de Asignación &nbsp;&nbsp;
+        <i class="fa fa-laptop"></i>  Módulo de Seguimiento &nbsp;&nbsp;
 
         <a href="{{route('hardware.create')}}" class="btn btn-sm btn-success" title="Add Data">
             <i class="fa fa-plus-circle"></i> Registrar Hardware
@@ -18,9 +18,6 @@
 
         <a href="{{route('software.create')}}" class="btn btn-sm btn-success" title="Add Data">
             <i class="fa fa-plus-circle"></i> Registrar Sofware
-        </a>
-        <a href="{{route('activo.index')}}" class="btn btn-sm btn-primary" title="Asignar Activos">
-            <i class="fa  fa-reply"></i> Regresar
         </a>
     </h1>
 @endsection
@@ -32,17 +29,10 @@
 
             <!-- /.box-header -->
             <div class="box-body">
-                <form action="{{route("activo.store")}}" class="form-group" method="post">
-                    <div class="col-md-11 col-xs-12">
+                <form action="{{route("seguimiento")}}" class="form-group" method="post">
+                    
                         {{csrf_field()  }}
-                        <div class="form-group">
-                            <label>Seleccione Personal</label>
-                            <select class="input-sm form-control select2" name="personal">
-                                @foreach($personals as $personal)
-                                    <option value="{{$personal->idpersonal}}">{{$personal->nombres.' '.$personal->apellido_paterno.' '.$personal->apellido_materno }}</option>
-                                @endforeach
-                            </select>
-                        </div>
+                       
                         <div class="box box-primary">
                             <div class="box-header">
                                 <h3 class="box-title">Activos</h3>
@@ -52,11 +42,12 @@
                                     <thead>
                                     <tr>
                                         <th></th>
-                                        <th></th>
+                                        <th>Activo</th>
                                         <th>Tipo Activo</th>
                                         <th>SOftware/Marca</th>
                                         <th>Arquitecura / Modelo</th>
                                         <th>Service Pack / Num. Serie</th>
+                                        <th>Seguimiento</th>
 
                                     </tr>
                                     </thead>
@@ -67,10 +58,7 @@
 
                             </div>
                         </div>   
-                    </div>
-                    <div class="col-md-1 col-xs-12">
-                        <button type="submit" class="btn btn-warning btn-block"> <i class="fa fa-send-o"></i> <br>Asignar</button>    
-                    </div>
+                    
                     
                 </form>
 
@@ -103,14 +91,11 @@
         var table = $('#table-activos').DataTable({
             processing: true,
             serverSide: true,
-            ajax: '{{route('getdataactivo')}}',
+            ajax: '{{route('getdataseguimiento')}}',
             columns: [
                 {
                     data:'idactivo',
-                    render: function(data, type, row){
-
-                            return '<input type="checkbox" id="inputUnchecked" name="activo[]" value="'+data+'"/>';
-                    },
+                    name:'idactivo',
                     orderable:false,
                     searchable:false
                 },
@@ -118,7 +103,8 @@
                 {data: 'campo4', name: 'campo4'},
                 {data: 'campo1', name: 'campo1'},
                 {data: 'campo2', name: 'campo2'},
-                {data: 'campo3', name: 'campo3'}
+                {data: 'campo3', name: 'campo3'},
+                {data: 'seguimiento', name: 'seguimiento'}
             ],
             order: [[0, 'desc']],
             "language": {

@@ -44,7 +44,7 @@
             <section class="content-header">
                 @section('menu-h1')
                     <h1>
-                        Gestión de Activos
+                        Gestión de Activos TI
                         {{-- <small>Control panel</small> --}}
                     </h1>
                 @show

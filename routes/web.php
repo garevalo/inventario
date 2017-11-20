@@ -42,6 +42,15 @@ Route::middleware(['auth'])->group(function () {
     Route::get('activo/asignar','ActivoController@asignar')->name('asignar');
     Route::get('activo/getdata','ActivoController@getRowDetailsDataActivo')->name('getdataactivo');
     Route::get('activo/allgetdata','ActivoController@getRowDetailsDataAll')->name('allgetdataactivo');
+
+    Route::get('activo/getdataseguimiento','ActivoController@GetDataSeguimiento')->name('getdataseguimiento');
+    Route::get('activo/seguimiento','ActivoController@seguimiento')->name('seguimiento');
+
+    Route::get('activo/verseguimiento/{idactivo}','ActivoController@verseguimiento')->name('activo.verseguimiento');
+    
+
+    Route::get('activo/reasignar/{idactivo}','ActivoController@reasignar')->name('activo.reasignar');
+
     Route::resource('activo','ActivoController');
     Route::get('/home', 'HomeController@index')->name('home');
 

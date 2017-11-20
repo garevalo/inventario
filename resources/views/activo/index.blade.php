@@ -37,10 +37,10 @@
                 <table id="table-activos" class="table table-condensed table-striped">
                     <thead>
                     <tr>
-                        <th>ID Activo</th>
+                        <th>ID</th>
                         <th>Tipo Activo</th>
-                        <th>Descripción</th>
-                        <th>Nombre Personal</th>
+                        <th>Descripción del Activo</th>
+                        <th>Personal</th>
                         <th>Sede</th>
                         <th>Gerencia</th>
                         <th>Sub Gerencia</th>

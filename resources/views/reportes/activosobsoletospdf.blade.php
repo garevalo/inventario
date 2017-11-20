@@ -131,7 +131,7 @@
                 <p style=""><span style="font-size: 9.0pt; font-family: 'Arial',sans-serif; color: black;">{{$activo->total_activos}}</span></p>
             </td>
             <td style="border: solid black 1.0pt; border-top: none; background: white; padding: 0 0 0 0; height: 15.5pt;" width="">
-                <p style=""><span style="font-size: 9.0pt; font-family: 'Arial',sans-serif; color: black;">{{ ($activo->activos_obsoletos/$activo->total_activos)*100 }}</span></p>
+                <p style=""><span style="font-size: 9.0pt; font-family: 'Arial',sans-serif; color: black;">{{ round(($activo->activos_obsoletos/$activo->total_activos)*100, 2)  }}</span></p>
             </td>
         </tr>
     @endforeach

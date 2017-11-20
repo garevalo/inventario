@@ -46,10 +46,18 @@
             </li>
             <li>
                 <a href="/activo">
-                    <i class="fa fa-th"></i> <span>Módulo de Asignación</span>
+                    <i class="fa fa-send-o"></i> <span>Módulo de Asignación</span>
                     <span class="pull-right-container"></span>
                 </a>
             </li>
+
+            <li>
+                <a href="/activo/seguimiento">
+                    <i class="fa fa-tasks"></i> <span>Módulo de Seguimiento</span>
+                    <span class="pull-right-container"></span>
+                </a>
+            </li>
+
             <li class="treeview">
                 <a href="/activo">
                     <i class="fa fa-pie-chart"></i> <span>Módulo de Reportes</span>

@@ -32,7 +32,13 @@ class ReporteController extends Controller
             join personals on pa2.personals_idpersonal = personals.idpersonal
             where (TIMESTAMPDIFF(YEAR,fecha_adquisicion , CURDATE()))>=4 and p1.idgerencia_personal = personals.idgerencia_personal
             ) activos_obsoletos
-            from (select distinct(activos_id) idactivo_unico,personals_activos.* from personals_activos ) pa
+            from (
+             select activos_id, 
+            (select personals_idpersonal from personals_activos b where a.activos_id=b.activos_id order by activos_id desc limit 1) personals_idpersonal
+            from personals_activos a
+            group by activos_id
+            order by activos_id desc
+             ) pa
             join `activos` on `activos_id` = `activos`.`idactivo` 
             join personals p1 on pa.personals_idpersonal = p1.idpersonal
             where activos.tipo_activo=1
@@ -48,7 +54,7 @@ class ReporteController extends Controller
 
 
         $pdf = PDF::loadView('reportes.activosobsoletospdf',$data);
-        return $pdf->stream();
+        return $pdf->download();
     }
 
     public function LicenciasPagadas()
@@ -68,7 +74,13 @@ class ReporteController extends Controller
             join softwares on id_activo_software = pa2.activos_id
             where  licencia=1 and p1.idgerencia_personal = personals.idgerencia_personal
             ) licencias_pagadas
-            from (select distinct(activos_id) idactivo_unico,personals_activos.* from personals_activos ) pa
+            from (
+             select activos_id, 
+            (select personals_idpersonal from personals_activos b where a.activos_id=b.activos_id order by activos_id desc limit 1) personals_idpersonal
+            from personals_activos a
+            group by activos_id
+            order by activos_id desc
+             ) pa
             join `activos` on `activos_id` = `activos`.`idactivo` 
             join personals p1 on pa.personals_idpersonal = p1.idpersonal
             where activos.tipo_activo=2
@@ -82,7 +94,7 @@ class ReporteController extends Controller
         );
 
         $pdf = PDF::loadView('reportes.licenciapagadas',$data);
-        return $pdf->stream();
+        return $pdf->download();
     }
 
 
@@ -129,7 +141,13 @@ class ReporteController extends Controller
             (select sede from sedes s where s.idsede=p1.idsede_personal ) as sede,
             concat(p1.nombres,' ',p1.apellido_paterno,' ',p1.apellido_materno) personal, 
             pa.*,h.*
-            from (select distinct(activos_id) idactivo_unico,personals_activos.* from personals_activos ) pa
+            from (
+             select activos_id, 
+            (select personals_idpersonal from personals_activos b where a.activos_id=b.activos_id order by activos_id desc limit 1) personals_idpersonal
+            from personals_activos a
+            group by activos_id
+            order by activos_id desc
+             ) pa
             join activos on activos_id = activos.idactivo
             join personals p1 on pa.personals_idpersonal = p1.idpersonal
             join hardwares h on h.id_activo_hardware = pa.activos_id
