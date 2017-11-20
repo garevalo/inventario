@@ -52,10 +52,10 @@ class ActivoController extends Controller
     public function store(Request $request)
     {
 
-        //dd($request->activo);
+        //dd($request->all());
 
-        if(!empty($request->activo)){
-            return "<script>alert('seleccione al menos un activo')</script>";
+        if(!isset($request->activo) || count($request->activo)==0 ){
+            return "<script>alert('seleccione al menos un activo'); document.location = '/activo/asignar' </script>";
         }
         else{
            foreach ($request->activo as $activo){
