@@ -27,11 +27,11 @@ class SgMessageRequest extends FormRequest
 
         if($this->request->has('_method')){
             return [
-                'subgerencia'=>'required|min:5|regex:/^[a-z A-Z áéíóú ÁÉÍÓÚ]+$/u|unique:subgerencias,subgerencia,'.$this->route('subgerencia').',idsubgerencia'
+                'subgerencia'=>'required|min:5|regex:/^[a-z A-Z áéíóúñ ÁÉÍÓÚÑ]+$/u|unique:subgerencias,subgerencia,'.$this->route('subgerencia').',idsubgerencia'
             ];
         }else{
             return [
-                'subgerencia' => 'required|regex:/^[a-z A-Z áéíóú ÁÉÍÓÚ]+$/u|unique:subgerencias,subgerencia'
+                'subgerencia' => 'required|regex:/^[a-z A-Z áéíóúñ ÁÉÍÓÚÑ]+$/u|unique:subgerencias,subgerencia'
             ];
         }
     }

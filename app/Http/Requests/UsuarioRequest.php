@@ -24,8 +24,8 @@ class UsuarioRequest extends FormRequest
     public function rules()
     {
         $validation = array(
-            "name"          => "required|min:5|regex:/^[a-z A-Z áéíóú ÁÉÍÓÚ]+$/u",
-            "apellidos"     => "required|min:5|regex:/^[a-z A-Z áéíóú ÁÉÍÓÚ]+$/u",
+            "name"          => "required|min:5|regex:/^[a-z A-Z áéíóúñ ÁÉÍÓÚÑ]+$/u",
+            "apellidos"     => "required|min:5|regex:/^[a-z A-Z áéíóúñ ÁÉÍÓÚÑ]+$/u",
             'idrol'         => 'required|integer',
             'estado'        => 'required|integer',
 
@@ -34,14 +34,14 @@ class UsuarioRequest extends FormRequest
             return [
                 //'name'=>'required|min:5|regex:/^[a-z A-Z áéíóú ÁÉÍÓÚ]+$/u|unique:subgerencias,subgerencia,'.$this->route('subgerencia').',idsubgerencia'
                 "email"      => 'required|string|email|max:255|unique:users,email,'.$this->route('usuario').',id',
-                "usuario"    => 'required|regex:/^[a-z A-Z áéíóú ÁÉÍÓÚ]+$/u|max:255|unique:users,usuario,'.$this->route('usuario').',id',
+                "usuario"    => 'required|regex:/^[a-z A-Z áéíóúñ ÁÉÍÓÚÑ]+$/u|max:255|unique:users,usuario,'.$this->route('usuario').',id',
                 //'password'      => 'string|min:6',
             ];
         }else{
             return [
                 //'subgerencia' => 'required|regex:/^[a-z A-Z áéíóú ÁÉÍÓÚ]+$/u|unique:subgerencias,subgerencia'
                 "email"         => 'required|string|email|max:255|unique:users',
-                "usuario"       => 'required|regex:/^[a-z A-Z áéíóú ÁÉÍÓÚ]+$/u|max:255|unique:users',
+                "usuario"       => 'required|regex:/^[a-z A-Z áéíóúñ ÁÉÍÓÚÑ]+$/u|max:255|unique:users',
                 'password'      => 'required|string|min:6',
             ];
         }

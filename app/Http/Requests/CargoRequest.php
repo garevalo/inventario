@@ -25,11 +25,11 @@ class CargoRequest extends FormRequest
     {
         if($this->request->has('_method')){
             return [
-                'cargo'=>'required|min:5|regex:/^[a-z A-Z áéíóú ÁÉÍÓÚ]+$/u|unique:cargos,cargo,'.$this->route('cargo').',idcargo'
+                'cargo'=>'required|min:5|regex:/^[a-z A-Z áéíóúñ ÁÉÍÓÚÑ]+$/u|unique:cargos,cargo,'.$this->route('cargo').',idcargo'
             ];
         }else{
             return [
-                'cargo'=>'required|min:5|regex:/^[a-z A-Z áéíóú ÁÉÍÓÚ]+$/u|unique:cargos,cargo'
+                'cargo'=>'required|min:5|regex:/^[a-z A-Z áéíóúñ ÁÉÍÓÚÑ]+$/u|unique:cargos,cargo'
             ];
         }
 
