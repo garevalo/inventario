@@ -148,7 +148,7 @@ class ReporteController extends Controller
 
     }
 
-    public function getActivosOperativos($sede=null,$gerencia=null,$subgerencia=null,$estado=1){
+    public function getActivosOperativos($sede=null,$gerencia=null,$subgerencia=null,$estado=1,$vencido=null){
 
         $sql = "select  idgerencia_personal,
             (select gerencia from gerencias g where g.idgerencia=p1.idgerencia_personal ) as gerencia,
@@ -169,6 +169,8 @@ class ReporteController extends Controller
             where activos.tipo_activo={$estado}";
 
         $sqlwhere="";
+
+        //(TIMESTAMPDIFF(YEAR,fecha_adquisicion , CURDATE()))>=4 and p1.idgerencia_personal = personals.idgerencia_personal
 
         if(!empty($sede) )
             $sqlwhere .= " and p1.idsede_personal = {$sede}";
