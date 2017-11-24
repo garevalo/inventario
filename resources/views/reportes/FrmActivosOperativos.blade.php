@@ -9,7 +9,7 @@
                 <h3 class="box-title">Reporte De Activos Operativos</h3>
             </div>
 
-            <form method="POST" action="{{url('reporte/activos/operativos')}}">
+            <form method="POST" action="{{url('reporte/activos/operativos')}}" target="_blank">
 
                 {{csrf_field()}}
                 <div class="box-body">

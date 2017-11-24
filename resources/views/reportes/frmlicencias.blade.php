@@ -9,7 +9,7 @@
                 <h3 class="box-title">Reporte Licencias Pagadas</h3>
             </div>
 
-            <form method="POST" action="{{url('reporte/verlicenciaspagadas')}}">
+            <form method="POST" action="{{url('reporte/verlicenciaspagadas')}}" target="_blank">
 
                 {{csrf_field()}}
                 <!-- 

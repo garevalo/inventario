@@ -27,7 +27,14 @@ class ReporteController extends Controller
             (select gerencia from gerencias g where g.idgerencia=p1.idgerencia_personal ) as gerencia,
             count(activos.idactivo) total_activos,            
             (
-            select count(pa2.activos_id) from personals_activos pa2
+            select count(pa2.activos_id) from 
+              (
+                select activos_id, 
+                (select personals_idpersonal from personals_activos b where a.activos_id=b.activos_id order by activos_id desc limit 1) personals_idpersonal
+                    from personals_activos a
+                    group by activos_id
+                    order by activos_id desc
+                ) pa2   
             join activos   on pa2.activos_id = activos.idactivo
             join personals on pa2.personals_idpersonal = personals.idpersonal
             where (TIMESTAMPDIFF(YEAR,fecha_adquisicion , CURDATE()))>=4 and p1.idgerencia_personal = personals.idgerencia_personal
@@ -54,7 +61,7 @@ class ReporteController extends Controller
 
 
         $pdf = PDF::loadView('reportes.activosobsoletospdf',$data);
-        return $pdf->download();
+        return $pdf->stream('Reporte.pdf');
     }
 
     public function LicenciasPagadas()
@@ -69,14 +76,22 @@ class ReporteController extends Controller
             (select gerencia from gerencias g where g.idgerencia=p1.idgerencia_personal ) as gerencia,
             count(activos.idactivo) licencias_usadas,            
             (
-            select count(pa2.activos_id) from personals_activos pa2
+            select count(pa2.activos_id) 
+            from 
+                (
+                select activos_id, 
+                (select personals_idpersonal from personals_activos b where a.activos_id=b.activos_id order by activos_id desc limit 1) personals_idpersonal
+                    from personals_activos a
+                    group by activos_id
+                    order by activos_id desc
+                ) pa2
             join personals on pa2.personals_idpersonal = personals.idpersonal
             join softwares on id_activo_software = pa2.activos_id
             where  licencia=1 and p1.idgerencia_personal = personals.idgerencia_personal
             ) licencias_pagadas
             from (
-             select activos_id, 
-            (select personals_idpersonal from personals_activos b where a.activos_id=b.activos_id order by activos_id desc limit 1) personals_idpersonal
+                select activos_id, 
+                (select personals_idpersonal from personals_activos b where a.activos_id=b.activos_id order by activos_id desc limit 1) personals_idpersonal
             from personals_activos a
             group by activos_id
             order by activos_id desc
@@ -94,7 +109,7 @@ class ReporteController extends Controller
         );
 
         $pdf = PDF::loadView('reportes.licenciapagadas',$data);
-        return $pdf->download();
+        return $pdf->stream();
     }
 
 
@@ -174,7 +189,7 @@ class ReporteController extends Controller
         if($type=="pdf"){
 
             $pdf = PDF::loadView('reportes.excel.ActivosOperativos',array('data'=>$data));
-            return $pdf->download();
+            return $pdf->stream();
 
         } elseif($type=="excel"){
             Excel::create('reporte', function($excel) use ($data) {
