@@ -12,6 +12,7 @@ use App\Personals_activos;
 use App\Sede;
 use App\Gerencia;
 use App\Subgerencia;
+use App\Personal;
 
 class ReporteController extends Controller
 {
@@ -136,9 +137,9 @@ class ReporteController extends Controller
 
           if(!empty($data)){
             if($exportar==1){
-                $this->export($data);
+                $this->export('reportes.excel.ActivosOperativos',$data);
             } else{
-                return $this->export($data,'pdf');
+                return $this->export('reportes.excel.ActivosOperativos',$data,'pdf');
             }
           }
           else{
@@ -148,7 +149,7 @@ class ReporteController extends Controller
 
     }
 
-    public function getActivosOperativos($sede=null,$gerencia=null,$subgerencia=null,$estado=1,$vencido=null){
+    public function getActivosOperativos($sede=null,$gerencia=null,$subgerencia=null,$estado=1,$vencido=0){
 
         $sql = "select  idgerencia_personal,
             (select gerencia from gerencias g where g.idgerencia=p1.idgerencia_personal ) as gerencia,
@@ -165,12 +166,16 @@ class ReporteController extends Controller
              ) pa
             join activos on activos_id = activos.idactivo
             join personals p1 on pa.personals_idpersonal = p1.idpersonal
-            join hardwares h on h.id_activo_hardware = pa.activos_id
-            where activos.tipo_activo={$estado}";
+            join hardwares h on h.id_activo_hardware = pa.activos_id";
 
-        $sqlwhere="";
+        $sqlwhere=" where ";
 
-        //(TIMESTAMPDIFF(YEAR,fecha_adquisicion , CURDATE()))>=4 and p1.idgerencia_personal = personals.idgerencia_personal
+        if($vencido==1){
+            $sqlwhere.=" (TIMESTAMPDIFF(YEAR,activos.fecha_adquisicion , CURDATE()))>=4 ";
+        }else{
+            $sqlwhere .= " activos.tipo_activo={$estado}";
+        }
+
 
         if(!empty($sede) )
             $sqlwhere .= " and p1.idsede_personal = {$sede}";
@@ -186,18 +191,18 @@ class ReporteController extends Controller
 
     }
 
-    public function export($data,$type="excel"){
+    public function export($view=null,$data=null,$type="excel"){
 
         if($type=="pdf"){
 
-            $pdf = PDF::loadView('reportes.excel.ActivosOperativos',array('data'=>$data));
+            $pdf = PDF::loadView($view,array('data'=>$data));
             return $pdf->stream();
 
         } elseif($type=="excel"){
-            Excel::create('reporte', function($excel) use ($data) {
-                $excel->sheet('reporte', function($sheet) use ($data) {
+            Excel::create('reporte', function($excel) use ($view,$data) {
+                $excel->sheet('reporte', function($sheet) use ($view,$data) {
                     //dd($activos);
-                    $sheet->loadView('reportes.excel.ActivosOperativos',array('data'=>$data) );
+                    $sheet->loadView($view,array('data'=>$data) );
                 });
             })->export('xlsx');
         }
@@ -216,25 +221,33 @@ class ReporteController extends Controller
 
     }
 
-    public function getActivosVencidos(){
+    public function ActivosVencidosProcesar(Request $request){
 
-        $activos = DB::select(DB::raw('select  idgerencia_personal,
-            (select gerencia from gerencias g where g.idgerencia=p1.idgerencia_personal ) as gerencia,
-            count(activos.idactivo) total_activos,            
-            (
-            select count(pa2.activos_id) from personals_activos pa2
-            join activos   on pa2.activos_id = activos.idactivo
-            join personals on pa2.personals_idpersonal = personals.idpersonal
-            where (TIMESTAMPDIFF(YEAR,fecha_adquisicion , CURDATE()))>=4 and p1.idgerencia_personal = personals.idgerencia_personal
-            ) activos_obsoletos
-            from (select distinct(activos_id) idactivo_unico,personals_activos.* from personals_activos ) pa
-            join `activos` on `activos_id` = `activos`.`idactivo` 
-            join personals p1 on pa.personals_idpersonal = p1.idpersonal
-            where activos.tipo_activo=1
-            group by p1.idgerencia_personal'));
+          $sede         = $request->idsede_personal;
+          $gerencia     = $request->idgerencia_personal;
+          $subgerencia  = $request->idsubgerencia_personal;
+          $exportar     = $request->exportar;
 
-        return $activos;
+          $data = $this->getActivosOperativos($sede,$gerencia,$subgerencia,0,1);
+          //dd($data);
 
+          if(!empty($data)){
+            if($exportar==1){
+                $this->export('reportes.excel.ActivosVencidos',$data);
+            } else{
+                return $this->export('reportes.excel.ActivosVencidos',$data,'pdf');
+            }
+          }
+          else{
+            echo "<script>alert('No hay datos'); document.location='".route('reportes-operativos')."';</script>";
+          }
+    }
+
+    public function ActivosPersonal(){
+
+        $personals = Personal::all();
+        //dd($personals);
+        return view('reportes.frmActivosPersonal',compact('personals'));
     }
 
 }

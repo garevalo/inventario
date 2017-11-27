@@ -133,11 +133,17 @@ class ActivoController extends Controller
 
     public function verseguimiento(Request $request,$id){
 
-        $activos = Personals_activos::FindOrFail($id)
-                    //->join('')
+        $activos = Personals_activos::select('*',
+                        DB::raw("(select sede from sedes where sedes.idsede=personals.idsede_personal) as sede "),    
+                        DB::raw("(select gerencia from gerencias where gerencias.idgerencia=personals.idgerencia_personal) as gerencia "),
+                        DB::raw("(select subgerencia from subgerencias where subgerencias.idsubgerencia=personals.idsubgerencia_personal) as subgerencia ")
+                    )
+                    ->join('activos','personals_activos.activos_id','activos.idactivo')
+                    ->join('personals','personals.idpersonal','personals_activos.personals_idpersonal')
+                    ->where('activos_id',$id)
                     ->get();
 
-        dd($activos);
+        return view('activo.verseguimiento',compact('activos'));
 
     }
 

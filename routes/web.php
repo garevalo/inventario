@@ -44,11 +44,10 @@ Route::middleware(['auth'])->group(function () {
     Route::get('activo/allgetdata','ActivoController@getRowDetailsDataAll')->name('allgetdataactivo');
 
     Route::get('activo/getdataseguimiento','ActivoController@GetDataSeguimiento')->name('getdataseguimiento');
-    Route::get('activo/seguimiento','ActivoController@seguimiento')->name('seguimiento');
+    Route::get('activo/seguimiento','ActivoController@seguimiento')->name('activo.seguimiento');
 
-    Route::get('activo/verseguimiento/{idactivo}','ActivoController@verseguimiento')->name('activo.verseguimiento');
+    Route::get('activo/seguimiento/{idactivo}','ActivoController@verseguimiento')->name('activo.verseguimiento');
     
-
     Route::get('activo/reasignar/{idactivo}','ActivoController@reasignar')->name('activo.reasignar');
 
     Route::resource('activo','ActivoController');
@@ -64,7 +63,10 @@ Route::middleware(['auth'])->group(function () {
     Route::get('reporte/activos/getoperativos', 'ReporteController@getActivosOperativos');
 
     Route::get('reporte/activos/vencidos', 'ReporteController@ActivosVencidos');
+    Route::post('reporte/activos/vencidos', 'ReporteController@ActivosVencidosProcesar');
 
+    Route::get('reporte/activos/personal', 'ReporteController@ActivosPersonal');
+    Route::post('reporte/activos/personal', 'ReporteController@ActivosPersonalProcesar')->name('reporte.personal');
 });
 
 

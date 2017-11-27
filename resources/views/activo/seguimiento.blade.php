@@ -29,8 +29,7 @@
 
             <!-- /.box-header -->
             <div class="box-body">
-                <form action="{{route("seguimiento")}}" class="form-group" method="post">
-                    
+                   
                         {{csrf_field()  }}
                        
                         <div class="box box-primary">
@@ -58,9 +57,6 @@
 
                             </div>
                         </div>   
-                    
-                    
-                </form>
 
             </div>
             <!-- /.box-body -->
