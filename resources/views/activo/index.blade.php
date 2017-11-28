@@ -34,18 +34,20 @@
             </div>
             <!-- /.box-header -->
             <div class="box-body">
-                <table id="table-activos" class="table table-condensed table-striped">
+                <table id="table-activos" class="table table-condensed table-bordered table-striped">
                     <thead>
                     <tr>
-                        <th>ID</th>
-                        <th>Tipo Activo</th>
-                        <th>Descripción del Activo</th>
-                        <th>Personal</th>
-                        <th>Sede</th>
-                        <th>Gerencia</th>
-                        <th>Sub Gerencia</th>
-                        <th>Fecha Asignación</th>
-                        <th>Reasignar</th>
+                        <th width="5%">ID</th>
+                        <th width="5%">Tipo Activo</th>
+                        <th width="20%">Activo</th>
+                        <th width="10%">Personal</th>
+                        <th width="5%">Sede</th>
+                        <th width="5%">Gerencia</th>
+                        <th width="10%">Sub Gerencia</th>
+                        <th width="10%">Fecha Asignación</th>
+                        <th width="25%">Descripción</th>
+                        <th width="5%">Reasignar</th>
+                        
                     </tr>
                     </thead>
                     <tbody>
@@ -96,6 +98,7 @@
                 {data: 'gerencia', name: 'gerencia'},
                 {data: 'subgerencia', name: 'subgerencia'},
                 {data: 'fechaasignacion', name: 'fechaasignacion'},
+                {data: 'descripcion', name: 'descripcion'},
                 {data: 'reasignar', name: 'reasignar'}
 
             ],

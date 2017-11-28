@@ -229,7 +229,6 @@ class ReporteController extends Controller
           $exportar     = $request->exportar;
 
           $data = $this->getActivosOperativos($sede,$gerencia,$subgerencia,0,1);
-          //dd($data);
 
           if(!empty($data)){
             if($exportar==1){
@@ -248,6 +247,71 @@ class ReporteController extends Controller
         $personals = Personal::all();
         //dd($personals);
         return view('reportes.frmActivosPersonal',compact('personals'));
+    }
+
+    public function ActivosPersonalProcesar(Request $request){
+
+        $id         =  $request->personal;
+        $exportar   =  $request->exportar;
+
+        $data = $this->getActivosPersonal($id);
+        //dd($data);
+
+        if(!empty($data)){
+        if($exportar==1){
+            $this->export('reportes.excel.ActivosPersonal',$data);
+        } else{
+            return $this->export('reportes.excel.ActivosPersonal',$data,'pdf');
+        }
+        }
+        else{
+        echo "<script>alert('No hay datos'); document.location='".route('reportes-operativos')."';</script>";
+        }
+
+    }
+
+
+    public function getActivosPersonal($id){
+
+        $activos = DB::select(
+            DB::raw('select 
+            personals_idpersonal, `personals`.*, `activos`.*, `activos`.`updated_at` as `fecha_asignacion`, 
+            (select gerencia from gerencias g where g.idgerencia=personals.idgerencia_personal ) as gerencia, 
+            (select subgerencia from subgerencias sg where sg.idsubgerencia=personals.idsubgerencia_personal) subgerencia, 
+            (select sede from sedes where sedes.idsede=personals.idsede_personal) sede, 
+            (
+            select concat("Tipo Software:", tipo_softwares.tipo_software," \n","Nombre: ",softwares.nombre_software,", Arquitectura: ",softwares.arquitectura,",\n Service Pack: ",softwares.service_pack) from softwares 
+            join tipo_softwares on id_tipo_software=idtipo_software
+            where softwares.id_activo_software=activos.idactivo
+            ) software,
+             (
+             select concat("Tipo Hardware:", tipo_hardwares.tipo_hardware,"\n","Marca: ",hardwares.marca,", Modelo: ",hardwares.modelo,"\n Num. Serie: ",hardwares.num_serie,"\n Cod. Inventario: ",ifnull(hardwares.cod_inventario,"--")) 
+             from hardwares 
+             join tipo_hardwares on id_tipo_hardware = idtipo_hardware
+             where hardwares.id_activo_hardware=activos.idactivo
+            ) hardware,
+
+            (
+             select descripcion from hardwares 
+             join tipo_hardwares on id_tipo_hardware = idtipo_hardware
+             where hardwares.id_activo_hardware=activos.idactivo
+            ) descripcion
+
+             from (
+             select activos_id, 
+            (select personals_idpersonal from personals_activos b where a.activos_id=b.activos_id order by activos_id desc limit 1) personals_idpersonal
+            from personals_activos a
+            group by activos_id
+            order by activos_id desc
+             ) personals_activos
+             left join `activos` on `personals_activos`.`activos_id` = `activos`.`idactivo` 
+             left join `personals` on `personals_activos`.`personals_idpersonal` = `personals`.`idpersonal` 
+             where personals_activos.personals_idpersonal = '. $id)
+         );
+
+ 
+        return $activos ;
+
     }
 
 }

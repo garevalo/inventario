@@ -16,7 +16,7 @@
             <p><strong><span style="font-size: 9.0pt; font-family: 'Arial',sans-serif; color: black;">Tipo de Prueba</span></strong></p>
         </td>
         <td style="width: 57.5pt; border-top: none; border-left: none; border-bottom: solid black 1.0pt; border-right: solid black 1.0pt; background: white; padding: 0cm 5.4pt 0cm 5.4pt; height: 17.25pt;" colspan="2" width="77">
-            <p style="text-align: center;"><span style="font-size: 9.0pt; font-family: 'Arial',sans-serif;">Pre - Test</span></p>
+            <p style="text-align: center;"><span style="font-size: 9.0pt; font-family: 'Arial',sans-serif;">Post - Test</span></p>
         </td>
     </tr>
     <tr style="height: 17.25pt;">

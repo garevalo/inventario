@@ -221,7 +221,13 @@ class ActivoController extends Controller
              from hardwares 
              join tipo_hardwares on id_tipo_hardware = idtipo_hardware
              where hardwares.id_activo_hardware=activos.idactivo
-            ) hardware
+            ) hardware,
+
+            (
+             select descripcion from hardwares 
+             join tipo_hardwares on id_tipo_hardware = idtipo_hardware
+             where hardwares.id_activo_hardware=activos.idactivo
+            ) descripcion
 
              from (
              select activos_id, 
@@ -254,6 +260,18 @@ class ActivoController extends Controller
             ->addColumn('fechaasignacion',function($activo){
                 return $activo->fecha_asignacion;
             })
+
+            ->addColumn('descripcion',function($activo){
+
+                if($activo->hardware){
+                    return $activo->descripcion;
+
+                }else{
+                    return '--';                    
+                }
+
+            })
+
             ->addColumn('reasignar',function($activo){
                 return '<a href="'.route('activo.reasignar',$activo->idactivo).'" class="btn btn-danger btn-xs" onclick="if(!confirm(\'¿Estas seguro de realizar está acción?\')) return false;"> <i class="fa fa-repeat"></i> Reasignar </a>';
             })

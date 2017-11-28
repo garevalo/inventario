@@ -32,7 +32,7 @@
 
             <!-- /.box-header -->
             <div class="box-body">
-                <form action="{{route("activo.store")}}" class="form-group" method="post">
+                <form action="{{route("reporte.personal")}}" class="form-group" method="post" target="_blank">
             
                         {{csrf_field()  }}
                         <div class="form-group">
