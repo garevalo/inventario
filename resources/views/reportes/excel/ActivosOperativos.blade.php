@@ -12,6 +12,7 @@
 		<th>Sede</th>
 		<th >Gerencia</th>
 		<th >Sub Gerencia</th>
+		<th>Tipo Activo</th>
 		<th >Marca</th>
 		<th >Modelo</th>
 		<th >Num. Serie</th>
@@ -28,6 +29,7 @@
 			<td>{{$val->sede}}</td>
 			<td>{{$val->gerencia}}</td>
 			<td>{{$val->subgerencia}}</td>
+			<td>{{$val->tipo_hardware}}</td>
 			<td>{{$val->marca}}</td>
 			<td>{{$val->modelo}}</td>
 			<td>{{$val->num_serie}}</td>

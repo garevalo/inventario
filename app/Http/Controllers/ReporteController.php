@@ -156,6 +156,11 @@ class ReporteController extends Controller
             (select subgerencia from subgerencias sg where sg.idsubgerencia=p1.idsubgerencia_personal ) as subgerencia,
             (select sede from sedes s where s.idsede=p1.idsede_personal ) as sede,
             concat(p1.nombres,' ',p1.apellido_paterno,' ',p1.apellido_materno) personal, 
+
+            (
+             select tipo_hardwares.tipo_hardware from tipo_hardwares where id_tipo_hardware = h.idtipo_hardware
+            ) tipo_hardware,
+
             pa.*,h.*
             from (
              select activos_id, 
