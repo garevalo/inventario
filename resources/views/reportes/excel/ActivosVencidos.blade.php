@@ -2,13 +2,14 @@
 
 <table>
 	<tr align="center">
-		<td colspan="10" ><h2>Reporte de Activos Vencidos</h2></td>
+		<td colspan="11" width="100%"><h2>Reporte de Activos Vencidos</h2></td>
 	</tr>	
 </table>
 
 <table border="1" cellpadding="2" cellspacing="0" width="100%" style="font-size: 8">
 	
 	<tr>
+		<th></th>
 		<th>Sede</th>
 		<th >Gerencia</th>
 		<th >Sub Gerencia</th>
@@ -23,8 +24,9 @@
 	
 
 	<tbody>
-	@foreach( $data as $val )
+	@foreach( $data as $key => $val )
 		<tr>
+			<td>{{$key+1}}</td>
 			<td>{{$val->sede}}</td>
 			<td>{{$val->gerencia}}</td>
 			<td>{{$val->subgerencia}}</td>

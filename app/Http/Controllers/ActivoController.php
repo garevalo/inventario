@@ -223,11 +223,15 @@ class ActivoController extends Controller
              where hardwares.id_activo_hardware=activos.idactivo
             ) hardware,
 
-            (
-             select descripcion from hardwares 
-             join tipo_hardwares on id_tipo_hardware = idtipo_hardware
-             where hardwares.id_activo_hardware=activos.idactivo
-            ) descripcion
+            (select descripcion from hardwares where hardwares.id_activo_hardware=activos.idactivo) descripcion,
+
+            (select idhardware from hardwares where hardwares.id_activo_hardware=activos.idactivo) idhardware,
+
+            (select idsoftware from softwares where softwares.id_activo_software=activos.idactivo) idsoftware,
+
+            (select estado from hardwares where hardwares.id_activo_hardware=activos.idactivo) estado,
+
+            activos.estado_activo
 
              from (
              select activos_id, 
@@ -272,10 +276,65 @@ class ActivoController extends Controller
 
             })
 
+            ->addColumn('estado_activo',function($activo){
+
+                if($activo->hardware){
+                    switch ($activo->estado_activo) {
+                        case 1:
+                           $estado_activo = "<label class='label label-primary'>Activo</label>";
+                            break;
+                        case 2:
+                            $estado_activo = "<label class='label label-danger'>Baja</label>";
+                            break;    
+                        
+                        default:
+                            $estado_activo = "<label class='label label-warning'>Devuelto</label>";
+                            break;
+                    }
+                    return $estado_activo;
+
+                }else{
+                    return '--';                    
+                }
+
+            })
+
+            ->addColumn('estado_hardware',function($activo){
+
+                if($activo->hardware){
+                    switch ($activo->estado) {
+                        case 1:
+                           $estado_hardware = "<label class='label label-primary'>Bueno</label>";
+                            break;
+                        case 2:
+                            $estado_hardware = "<label class='label label-danger'>Regular</label>";
+                            break;    
+                        
+                        default:
+                            $estado_hardware = "<label class='label label-warning'>Malo</label>";
+                            break;
+                    }
+                    return $estado_hardware;
+
+                }else{
+                    return '--';                    
+                }
+
+            })
+
+            ->addColumn('edit',function($activo){
+                if($activo->hardware){
+                    return '<a target="_blank" href="'.route('hardware.edit',$activo->idhardware).'" class="btn btn-primary btn-xs"> <i class="fa fa-edit"></i> Editar</a>';
+
+                }else{
+                    return '<a target="_blank" href="'.route('software.edit',$activo->idsoftware).'" class="btn btn-primary btn-xs"> <i class="fa fa-edit"></i> Editar</a>';                    
+                }
+            })
+
             ->addColumn('reasignar',function($activo){
                 return '<a href="'.route('activo.reasignar',$activo->idactivo).'" class="btn btn-danger btn-xs" onclick="if(!confirm(\'¿Estas seguro de realizar está acción?\')) return false;"> <i class="fa fa-repeat"></i> Reasignar </a>';
             })
-            ->rawColumns(['reasignar','tipo_activo'])
+            ->rawColumns(['reasignar','tipo_activo','edit','estado_activo','estado_hardware'])
             ->make(true);
     }
 

@@ -43,10 +43,13 @@
                         <th width="10%">Personal</th>
                         <th width="5%">Sede</th>
                         <th width="5%">Gerencia</th>
-                        <th width="10%">Sub Gerencia</th>
-                        <th width="10%">Fecha Asignación</th>
-                        <th width="25%">Descripción</th>
+                        <th width="5%">Sub Gerencia</th>
+                        <th width="5%">Fecha Asignación</th>
+                        <th width="20%">Descripción</th>
+                        <th width="5%">Estado Activo</th>
+                        <th width="5%">Estado Hardware</th>
                         <th width="5%">Reasignar</th>
+                        <th width="5%">Editar</th>
                         
                     </tr>
                     </thead>
@@ -99,7 +102,10 @@
                 {data: 'subgerencia', name: 'subgerencia'},
                 {data: 'fechaasignacion', name: 'fechaasignacion'},
                 {data: 'descripcion', name: 'descripcion'},
-                {data: 'reasignar', name: 'reasignar'}
+                {data: 'estado_activo', name: 'estado_activo'},
+                {data: 'estado_hardware', name: 'estado_hardware'},
+                {data: 'reasignar', name: 'reasignar'},
+                {data: 'edit', name: 'edit'}
 
             ],
             order: [[0, 'desc']],

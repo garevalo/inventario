@@ -171,14 +171,15 @@ class ReporteController extends Controller
              ) pa
             join activos on activos_id = activos.idactivo
             join personals p1 on pa.personals_idpersonal = p1.idpersonal
-            join hardwares h on h.id_activo_hardware = pa.activos_id";
+            join hardwares h on h.id_activo_hardware = pa.activos_id
+            where activos.tipo_activo=1
+            ";
 
-        $sqlwhere=" where ";
-
+        $sqlwhere = '';     
         if($vencido==1){
-            $sqlwhere.=" (TIMESTAMPDIFF(YEAR,activos.fecha_adquisicion , CURDATE()))>=4 ";
+            $sqlwhere.=" and (TIMESTAMPDIFF(YEAR,activos.fecha_adquisicion , CURDATE()))>=4 ";
         }else{
-            $sqlwhere .= " activos.tipo_activo={$estado}";
+            $sqlwhere .= " and activos.estado_activo={$estado}";
         }
 
 
