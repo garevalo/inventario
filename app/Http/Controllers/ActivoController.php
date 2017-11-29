@@ -199,6 +199,14 @@ class ActivoController extends Controller
                     return 'Hardware';
                 }
             })
+            ->addColumn('descripcion_hardware',function($activo){
+                if($activo->software){
+                    return '';
+                }else{
+                    return $activo->descripcion;
+                }
+            })
+            ->rawColumns(['descripcion_hardware'])
             ->make(true);
     }
 

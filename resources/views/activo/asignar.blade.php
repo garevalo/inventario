@@ -57,6 +57,7 @@
                                         <th>SOftware/Marca</th>
                                         <th>Arquitecura / Modelo</th>
                                         <th>Service Pack / Num. Serie</th>
+                                        <th>Descripción</th>
 
                                     </tr>
                                     </thead>
@@ -118,7 +119,8 @@
                 {data: 'campo4', name: 'campo4'},
                 {data: 'campo1', name: 'campo1'},
                 {data: 'campo2', name: 'campo2'},
-                {data: 'campo3', name: 'campo3'}
+                {data: 'campo3', name: 'campo3'},
+                {data: 'descripcion_hardware', name: 'descripcion_hardware'}
             ],
             order: [[0, 'desc']],
             "language": {

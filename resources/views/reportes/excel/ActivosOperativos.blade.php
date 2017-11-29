@@ -9,6 +9,7 @@
 <table border="1" cellpadding="2" cellspacing="0" width="100%" style="font-size: 8">
 	
 	<tr>
+		<th></th>
 		<th>Sede</th>
 		<th >Gerencia</th>
 		<th >Sub Gerencia</th>
@@ -19,13 +20,14 @@
 		<th >Código Inventario</th>
 		<th>Código Patrimonial</th>
 		<th >Fecha de Adquisición</th>
-		<th>Descripción</th>
+		<th >Descripción</th>
 	</tr>
 	
 
 	<tbody>
-	@foreach( $data as $val )
+	@foreach( $data as $key => $val )
 		<tr>
+			<td>{{$key+1}}</td>
 			<td>{{$val->sede}}</td>
 			<td>{{$val->gerencia}}</td>
 			<td>{{$val->subgerencia}}</td>
