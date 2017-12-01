@@ -16,7 +16,7 @@
 
                     <div class="form-group-sm {{ $errors->has('idsede_personal') ? 'has-error' : '' }}">
                         <label>Sede:</label>
-                        <select class="form-control" name="idsede_personal" id="idsede_personal" required="">
+                        <select class="form-control" name="idsede_personal" id="idsede_personal">
                             <option value="">Seleccione Sede</option>
                             @foreach($sedes as $sede)
                                 <option value="{{$sede->idsede}}" @if(old('idsede_personal')== $sede->idsede) selected @endif>{{$sede->sede}}</option>

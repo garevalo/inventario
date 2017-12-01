@@ -244,7 +244,7 @@ class ReporteController extends Controller
             }
           }
           else{
-            echo "<script>alert('No hay datos'); document.location='".route('reportes-operativos')."';</script>";
+            echo "<script>alert('No hay datos'); window.close();</script>";
           }
     }
 
@@ -271,7 +271,7 @@ class ReporteController extends Controller
         }
         }
         else{
-        echo "<script>alert('No hay datos'); document.location='".route('reportes-operativos')."';</script>";
+        echo "<script>alert('No hay datos'); window.close();</script>";
         }
 
     }

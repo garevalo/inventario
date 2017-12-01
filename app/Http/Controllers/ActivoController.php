@@ -22,7 +22,6 @@ class ActivoController extends Controller
     public function index()
     {
         $activos = Activo::with('hardware','software')->get();
-        //dd($activos);
         return view('activo.index',compact('activos'));
     }
 
@@ -61,7 +60,7 @@ class ActivoController extends Controller
            foreach ($request->activo as $activo){
                 Personals_activos::create(['activos_id'=>$activo,
                                            'personals_idpersonal'=>$request->personal,
-                                            'fecha_asignacion'=> date('Y-m-d') ]);
+                                            'fecha_asignacion'=> date('Y-m-d G:i') ]);
 
                 Activo::FindOrFail($activo)->update(['asignado'=> 1]);
             }
