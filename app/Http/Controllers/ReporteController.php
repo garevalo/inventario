@@ -131,18 +131,19 @@ class ReporteController extends Controller
           $estado       = $request->estado; /* 1 operativo 2 inoperativo*/
           $exportar     = $request->exportar;
 
-          $data = $this->getActivosOperativos($sede,$gerencia,$subgerencia,$estado);
+          $data['datos'] = $this->getActivosOperativos($sede,$gerencia,$subgerencia,$estado);
+          $data['title'] = ($estado == 1)? 'Operativos': 'Inoperativos'; 
           //dd($data);
 
-          if(!empty($data)){
+          if(!empty($data['datos'])){
             if($exportar==1){
-                $this->export('reportes.excel.ActivosOperativos',$data);
+               return $this->export('reportes.excel.ActivosOperativos',$data);
             } else{
                 return $this->export('reportes.excel.ActivosOperativos',$data,'pdf');
             }
           }
           else{
-            echo "<script>alert('No hay datos'); document.location='".route('reportes-operativos')."';</script>";
+            echo "<script>alert('No hay datos'); window.close();</script>";
           }
           
 
