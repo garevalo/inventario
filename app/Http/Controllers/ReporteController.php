@@ -49,7 +49,6 @@ class ReporteController extends Controller
              ) pa
             join `activos` on `activos_id` = `activos`.`idactivo` 
             join personals p1 on pa.personals_idpersonal = p1.idpersonal
-            where activos.tipo_activo=1
             group by p1.idgerencia_personal'));
 
 

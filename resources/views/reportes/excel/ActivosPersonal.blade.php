@@ -10,12 +10,13 @@
 	
 	<tr>
 		<th width="5%">ID Activo</th>
-		<th width="10%">Sede</th>
-		<th width="10%">Gerencia</th>
-		<th width="10%">Sub Gerencia</th>
-		<th width="20%">Activo</th>
-		<th width="10%">Fecha Asignación</th>
-		<th width="20%">Descripción</th>
+		<th>Personal</th>
+		<th>Sede</th>
+		<th>Gerencia</th>
+		<th>Sub Gerencia</th>
+		<th>Activo</th>
+		<th>Fecha Asignación</th>
+		<th>Descripción</th>
 		<th width="5%">Aginado</th>
 	</tr>
 	
@@ -24,6 +25,7 @@
 	@foreach( $data as $val )
 		<tr>
 			<td>{{$val->idactivo}}</td>
+			<td>{{$val->nombres .' '.$val->apellido_paterno.' '.$val->apellido_materno}}</td>
 			<td>{{$val->sede}}</td>
 			<td>{{$val->gerencia}}</td>
 			<td>{{$val->subgerencia}}</td>
