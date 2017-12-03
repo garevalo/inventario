@@ -6,7 +6,7 @@
 
         <div class="box box-danger">
             <div class="box-header">
-                <h3 class="box-title">Reporte De Activos Inoperativos</h3>
+                <h3 class="box-title">Reporte de Activos Inoperativos</h3>
             </div>
 
             <form method="POST" action="{{url('reporte/activos/operativos')}}" target="_blank">
