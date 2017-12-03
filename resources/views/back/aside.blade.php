@@ -67,6 +67,9 @@
                     <li class="@if(request()->getRequestUri()=='/reporte1') active @endif" ><a href="{{url('reporte/licenciaspagadas')}}"><i class="fa fa-file-pdf-o"></i> Licencias Pagadas</a></li>
                     <li class="@if(request()->getRequestUri()=='/reporte2') active @endif"><a href="{{url('reporte/activosobsoletos')}}"><i class="fa fa-file-pdf-o"></i> Activos Obsoletos</a></li>
                     <li class="@if(request()->getRequestUri()=='/reporte3') active @endif"><a href="{{url('reporte/activos/operativos')}}"><i class="fa fa-file-pdf-o"></i> Activos Operativos</a></li>
+
+                    <li class="@if(request()->getRequestUri()=='/reporte4') active @endif"><a href="{{url('reporte/activos/inoperativos')}}"><i class="fa fa-file-pdf-o"></i> Activos Inoperativos</a></li>
+
                     <li class="@if(request()->getRequestUri()=='/reporte4') active @endif"><a href="{{url('reporte/activos/vencidos')}}"><i class="fa fa-file-pdf-o"></i> Activos Vencidos</a></li>
                     <li class="@if(request()->getRequestUri()=='/reporte5') active @endif"><a href="{{url('reporte/activos/personal')}}"><i class="fa fa-file-pdf-o"></i> Activos Personal</a></li>
                 </ul>

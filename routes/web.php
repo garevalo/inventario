@@ -62,6 +62,8 @@ Route::middleware(['auth'])->group(function () {
     Route::post('reporte/activos/operativos', 'ReporteController@ActivosOperativosProcesar');
     Route::get('reporte/activos/getoperativos', 'ReporteController@getActivosOperativos');
 
+    Route::get('reporte/activos/inoperativos', 'ReporteController@ActivosInoperativos')->name("reportes-inoperativos");
+
     Route::get('reporte/activos/vencidos', 'ReporteController@ActivosVencidos');
     Route::post('reporte/activos/vencidos', 'ReporteController@ActivosVencidosProcesar');
 

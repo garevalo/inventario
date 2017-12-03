@@ -1,12 +1,12 @@
 @extends('back.app')
-@section('title')Reporte De Activos Operativos @endsection
+@section('title')Reporte De Activos Inoperativos @endsection
 @section('content')
 
     <div class="col-xs-12">
 
         <div class="box box-danger">
             <div class="box-header">
-                <h3 class="box-title">Reporte De Activos Operativos</h3>
+                <h3 class="box-title">Reporte De Activos Inoperativos</h3>
             </div>
 
             <form method="POST" action="{{url('reporte/activos/operativos')}}" target="_blank">
@@ -47,7 +47,8 @@
                         {!! $errors->first('idsubgerencia_personal','<span class="help-block">:message</span>') !!}
                     </div>
 
-                    <input type="hidden" name="estado" value="1">
+
+                    <input type="hidden" name="estado" value="2">
                     
                     <div class="form-group-sm {{ $errors->has('hasta') ? ' has-error' : '' }}">
                          <label>Exportar a :</label>
