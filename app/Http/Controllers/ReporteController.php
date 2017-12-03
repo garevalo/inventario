@@ -51,7 +51,7 @@ class ReporteController extends Controller
              ) pa
             join `activos` on `activos_id` = `activos`.`idactivo` 
             join personals p1 on pa.personals_idpersonal = p1.idpersonal
-            where activos.tipo_activo=1
+            where activos.tipo_activo=1 and activos.asignado=1
             group by p1.idgerencia_personal'));
 
 
@@ -123,6 +123,16 @@ class ReporteController extends Controller
         $subgerencias = Subgerencia::all();
 
         return view('reportes.FrmActivosOperativos',compact('sedes','gerencias','subgerencias'));
+
+    }
+
+    public function ActivosInoperativos(){
+
+        $sedes = Sede::all();
+        $gerencias = Gerencia::all();
+        $subgerencias = Subgerencia::all();
+
+        return view('reportes.FrmActivosInoperativos',compact('sedes','gerencias','subgerencias'));
 
     }
 
