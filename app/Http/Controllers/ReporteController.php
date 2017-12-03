@@ -299,12 +299,7 @@ class ReporteController extends Controller
 
     public function getActivosStock(){
 
-        $sql = "select  idgerencia_personal,
-            (select gerencia from gerencias g where g.idgerencia=p1.idgerencia_personal ) as gerencia,
-            (select subgerencia from subgerencias sg where sg.idsubgerencia=p1.idsubgerencia_personal ) as subgerencia,
-            (select sede from sedes s where s.idsede=p1.idsede_personal ) as sede,
-            concat(p1.nombres,' ',p1.apellido_paterno,' ',p1.apellido_materno) personal, 
-
+        $sql = "select  
             (
              select tipo_hardwares.tipo_hardware from tipo_hardwares where id_tipo_hardware = h.idtipo_hardware
             ) tipo_hardware,
@@ -317,19 +312,11 @@ class ReporteController extends Controller
             s.nombre_software,
             s.arquitectura,
             s.service_pack,
-            pa.*,h.*
-            from (
-             select activos_id, 
-            (select personals_idpersonal from personals_activos b where a.activos_id=b.activos_id order by activos_id desc limit 1) personals_idpersonal
-            from personals_activos a
-            group by activos_id
-            order by activos_id desc
-             ) pa
-            join activos on activos_id = activos.idactivo
-            join personals p1 on pa.personals_idpersonal = p1.idpersonal
-            left join hardwares h on h.id_activo_hardware = pa.activos_id
-            left join softwares s on s.id_activo_software = pa.activos_id
-            where (activos.asignado!=1) ";
+            h.*
+            from activos 
+            left join hardwares h on h.id_activo_hardware = activos.idactivo
+            left join softwares s on s.id_activo_software = activos.idactivo
+            where activos.asignado!=1 or activos.asignado is null ";
 
         $sqlwhere = '';     
 
