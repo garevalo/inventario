@@ -1,6 +1,6 @@
 @extends('back.app')
 
-@section('title')Módulo de Asignación @endsection
+@section('title')Módulo reporte por personal @endsection
 
 @section('head')
     @parent
@@ -10,7 +10,7 @@
 @endsection
 @section('menu-h1')
     <h1>
-        <i class="fa fa-microchip"></i>  Módulo de Asignación &nbsp;&nbsp;
+        <i class="fa fa-microchip"></i> Reporte de activos por personal &nbsp;&nbsp;
 
         <a href="{{route('reporte.personal')}}" class="btn btn-sm btn-success" title="Add Data">
             <i class="fa fa-plus-circle"></i> Registrar Hardware
