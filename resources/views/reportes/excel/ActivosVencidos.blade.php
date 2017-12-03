@@ -3,7 +3,7 @@
 <table>
 	<tr align="center">
 		<td></td>
-		<td colspan="11"><h3>Reporte de Activos Vencidos</h3></td>
+		<td colspan="11"><h3>Reporte de activos vencidos</h3></td>
 	</tr>	
 </table>
 

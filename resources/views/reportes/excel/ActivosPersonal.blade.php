@@ -2,7 +2,7 @@
 
 <table>
 	<tr align="center">
-		<td colspan="9" ><h2>Reporte de Activos Por Personal</h2></td>
+		<td colspan="9" ><h2>Reporte de activos por personal</h2></td>
 	</tr>	
 </table>
 

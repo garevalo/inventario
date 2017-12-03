@@ -283,7 +283,7 @@ class ReporteController extends Controller
           $exportar     = $request->exportar;
 
           $data = $this->getActivosStock($sede,$gerencia,$subgerencia);
-
+          dd($data);
           if(!empty($data)){
             if($exportar==1){
                 $this->export('reportes.excel.ActivoStock',$data);

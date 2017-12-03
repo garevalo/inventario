@@ -1,12 +1,12 @@
 @extends('back.app')
-@section('title')Reporte De Activos Inoperativos @endsection
+@section('title')Reporte de activos inoperativos @endsection
 @section('content')
 
     <div class="col-xs-12">
 
         <div class="box box-danger">
             <div class="box-header">
-                <h3 class="box-title">Reporte de Activos Inoperativos</h3>
+                <h3 class="box-title">Reporte de activos inoperativos</h3>
             </div>
 
             <form method="POST" action="{{url('reporte/activos/operativos')}}" target="_blank">

@@ -6,7 +6,7 @@
 
         <div class="box box-danger">
             <div class="box-header">
-                <h3 class="box-title">Reporte Licencias Pagadas</h3>
+                <h3 class="box-title">Reporte licencias pagadas</h3>
             </div>
 
             <form method="POST" action="{{url('reporte/verlicenciaspagadas')}}" target="_blank">
