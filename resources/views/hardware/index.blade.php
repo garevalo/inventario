@@ -31,7 +31,7 @@
                     <thead>
                     <tr>
                         <th>ID</th>
-                        <td>Tipo</td>
+                        <th>Tipo Hardware</th>
                         <th>Marca</th>
                         <th>Modelo</th>
                         <th>Num.Serie</th>

@@ -1,5 +1,5 @@
 @extends('back.app')
-@section('title')Reporte de Activos Vencidos @endsection
+@section('title')Reporte de activos en stock @endsection
 @section('content')
 
     <div class="col-xs-12">
