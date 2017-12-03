@@ -49,6 +49,7 @@ class ReporteController extends Controller
              ) pa
             join `activos` on `activos_id` = `activos`.`idactivo` 
             join personals p1 on pa.personals_idpersonal = p1.idpersonal
+            where activos.tipo_activo=1
             group by p1.idgerencia_personal'));
 
 
@@ -277,10 +278,8 @@ class ReporteController extends Controller
     }
 
 
-    public function getActivosPersonal($id){
-
-        $activos = DB::select(
-            DB::raw('select 
+    public function getActivosPersonal($id=null){
+        $sql = 'select 
             personals_idpersonal, `personals`.*, `activos`.*, `activos`.`updated_at` as `fecha_asignacion`, 
             (select gerencia from gerencias g where g.idgerencia=personals.idgerencia_personal ) as gerencia, 
             (select subgerencia from subgerencias sg where sg.idsubgerencia=personals.idsubgerencia_personal) subgerencia, 
@@ -311,9 +310,13 @@ class ReporteController extends Controller
             order by activos_id desc
              ) personals_activos
              left join `activos` on `personals_activos`.`activos_id` = `activos`.`idactivo` 
-             left join `personals` on `personals_activos`.`personals_idpersonal` = `personals`.`idpersonal` 
-             where personals_activos.personals_idpersonal = '. $id)
-         );
+             left join `personals` on `personals_activos`.`personals_idpersonal` = `personals`.`idpersonal`';
+
+        if(!empty($id) || $id==null){
+            $sql.= "where personals_activos.personals_idpersonal = ". $id;
+        }     
+
+        $activos = DB::select( DB::raw($sql));
 
  
         return $activos ;
