@@ -39,8 +39,9 @@ class ReporteController extends Controller
                     order by activos_id desc
                 ) pa2   
             join activos   on pa2.activos_id = activos.idactivo
+            join hardwares h on activos.idactivo = h.id_activo_hardware
             join personals on pa2.personals_idpersonal = personals.idpersonal
-            where (TIMESTAMPDIFF(YEAR,fecha_adquisicion , CURDATE()))>=4 and p1.idgerencia_personal = personals.idgerencia_personal and activos.tipo_activo=1
+            where (TIMESTAMPDIFF(YEAR,h.fecha_adquisicion , CURDATE()))>=4 and p1.idgerencia_personal = personals.idgerencia_personal and activos.tipo_activo=1
             ) activos_obsoletos
             from (
              select activos_id, 

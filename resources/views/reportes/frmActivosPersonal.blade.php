@@ -8,28 +8,14 @@
     <link rel="stylesheet" href="{{asset('plugins/datatables/dataTables.bootstrap.css')}}">
 
 @endsection
-@section('menu-h1')
-    <h1>
-        <i class="fa fa-microchip"></i> Reporte de activos por personal &nbsp;&nbsp;
-
-        <a href="{{route('reporte.personal')}}" class="btn btn-sm btn-success" title="Add Data">
-            <i class="fa fa-plus-circle"></i> Registrar Hardware
-        </a>
-
-        <a href="{{route('software.create')}}" class="btn btn-sm btn-success" title="Add Data">
-            <i class="fa fa-plus-circle"></i> Registrar Sofware
-        </a>
-        <a href="{{route('activo.index')}}" class="btn btn-sm btn-primary" title="Asignar Activos">
-            <i class="fa  fa-reply"></i> Regresar
-        </a>
-    </h1>
-@endsection
 
 @section('content')
 
     <div class="col-xs-12">
-        <div class="box">
-
+        <div class="box box-danger">
+            <div class="box-header">
+                <h3 class="box-title"> Reporte de activos por personal</h3>
+            </div>
             <!-- /.box-header -->
             <div class="box-body">
                 <form action="{{route("reporte.personal")}}" class="form-group" method="post" target="_blank">
