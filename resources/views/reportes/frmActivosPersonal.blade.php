@@ -38,7 +38,7 @@
                         <div class="form-group">
                             <label>Seleccione Personal</label>
                             <select class="input-sm form-control select2" name="personal">
-                                    <option >Seleccione Personal</option>
+                                    <option value="">Seleccione Personal</option>
                                 @foreach($personals as $personal)
                                     <option value="{{$personal->idpersonal}}">{{$personal->nombres.' '.$personal->apellido_paterno.' '.$personal->apellido_materno }}</option>
                                 @endforeach

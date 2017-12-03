@@ -28,11 +28,11 @@
                         </select>
                         {!! $errors->first('idtipo_hardware','<span class="help-block">:message</span>') !!}
                     </div>
-                    <div class="form-group-sm {{ $errors->has('orden_compra') ? ' has-error' : '' }}">
-                        <label>Orden de Compra:</label>
+                    <div class="form-group-sm {{ $errors->has('cod_inventario') ? ' has-error' : '' }}">
+                        <label>Código Inventario:</label>
 
-                        <input type="text" class="form-control" name="orden_compra" id="orden_compra" value="{{ $hardware->activo->orden_compra }}" required>
-                        {!! $errors->first('orden_compra','<span class="help-block">:message</span>') !!}
+                        <input type="text" class="form-control" name="cod_inventario" id="cod_inventario" value="{{$hardware->cod_inventario}}">
+                        {!! $errors->first('cod_inventario','<span class="help-block">:message</span>') !!}
                     </div>
                      <div class="form-group-sm {{ $errors->has('codigo_patrimonial') ? ' has-error' : '' }}">
                         <label>Código Patrimonial:</label>
@@ -59,13 +59,12 @@
                         <input type="text" class="form-control" name="num_serie" id="num_serie" value="{{ $hardware->num_serie  }}">
                         {!! $errors->first('num_serie','<span class="help-block">:message</span>') !!}
                     </div>
-                    <div class="form-group-sm {{ $errors->has('cod_inventario') ? ' has-error' : '' }}">
-                        <label>Código Inventario:</label>
+                    <div class="form-group-sm {{ $errors->has('orden_compra') ? ' has-error' : '' }}">
+                        <label>Orden de Compra:</label>
 
-                        <input type="text" class="form-control" name="cod_inventario" id="cod_inventario" value="{{$hardware->cod_inventario}}">
-                        {!! $errors->first('cod_inventario','<span class="help-block">:message</span>') !!}
+                        <input type="text" class="form-control" name="orden_compra" id="orden_compra" value="{{ $hardware->activo->orden_compra }}" required>
+                        {!! $errors->first('orden_compra','<span class="help-block">:message</span>') !!}
                     </div>
-
                     <div class="form-group-sm {{ $errors->has('estado_activo') ? ' has-error' : '' }}">
                         <label>Estado del Activo:</label>
 
