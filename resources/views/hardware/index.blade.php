@@ -38,6 +38,7 @@
                         <th>Cod. Inventario</th>
                         <th>Orden Compra</th>
                         <th>Código Patrimonial</th>
+                        <th width="20%">Descripción</th>
                         <th>Fec. Adquision</th>
                         <th>Estado</th>
                         <th>Estado Activo</th>
@@ -90,6 +91,7 @@
                 {data: 'cod_inventario', name: 'cod_inventario'},
                 {data: 'activo.orden_compra', name: 'orden_compra'},
                 {data: 'codigo_patrimonial', name: 'codigo_patrimonial'},
+                {data: 'descripcion', name: 'descripcion'},
                 {data: 'fecha_adquisicion', name: 'fecha_adquisicion'},
                 {data: 'estadohardware', name: 'estadohardware'},
                 {data: 'estadoactivo', name: 'estadoactivo'},
