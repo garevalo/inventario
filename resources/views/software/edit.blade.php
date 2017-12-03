@@ -25,7 +25,7 @@
                 <div class="box-body">
          
                     <div class="form-group {{ $errors->has('idtipo_software') ? ' has-error' : '' }}">
-                        <label>Tipo Sftware:</label>
+                        <label>Tipo Software:</label>
                         <select name="idtipo_software" id="idtipo_software" class="form-control input-sm">
                             <option>Seleccione Tipo</option>
                             @foreach($tiposoftwares as $tiposoftware)
