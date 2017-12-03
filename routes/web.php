@@ -69,6 +69,9 @@ Route::middleware(['auth'])->group(function () {
 
     Route::get('reporte/activos/personal', 'ReporteController@ActivosPersonal');
     Route::post('reporte/activos/personal', 'ReporteController@ActivosPersonalProcesar')->name('reporte.personal');
+
+    Route::get('reporte/activos/stock', 'ReporteController@ActivosStock');
+    Route::post('reporte/activos/stock', 'ReporteController@ActivosStockProcesar')->name('reporte.stock');
 });
 
 
