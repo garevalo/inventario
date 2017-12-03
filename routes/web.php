@@ -53,25 +53,31 @@ Route::middleware(['auth'])->group(function () {
     Route::resource('activo','ActivoController');
     Route::get('/home', 'HomeController@index')->name('home');
 
-    Route::get('reporte/activosobsoletos', 'ReporteController@ActivosObsoletos');
-    Route::get('reporte/licenciaspagadas', 'ReporteController@LicenciasPagadas');
-    Route::post('reporte/veractivosobsoletos','ReporteController@ActivosObsoletosPdf');
-    Route::post('reporte/verlicenciaspagadas','ReporteController@LicenciasPagadasPdf');
+    Route::group(['middleware' => 'role'], function() {
 
-    Route::get('reporte/activos/operativos', 'ReporteController@ActivosOperativos')->name("reportes-operativos");
-    Route::post('reporte/activos/operativos', 'ReporteController@ActivosOperativosProcesar');
-    Route::get('reporte/activos/getoperativos', 'ReporteController@getActivosOperativos');
+        Route::get('reporte/activosobsoletos', 'ReporteController@ActivosObsoletos');
+        Route::get('reporte/licenciaspagadas', 'ReporteController@LicenciasPagadas');
+        Route::post('reporte/veractivosobsoletos','ReporteController@ActivosObsoletosPdf');
+        Route::post('reporte/verlicenciaspagadas','ReporteController@LicenciasPagadasPdf');
 
-    Route::get('reporte/activos/inoperativos', 'ReporteController@ActivosInoperativos')->name("reportes-inoperativos");
+        Route::get('reporte/activos/operativos', 'ReporteController@ActivosOperativos')->name("reportes-operativos");
+        Route::post('reporte/activos/operativos', 'ReporteController@ActivosOperativosProcesar');
+        Route::get('reporte/activos/getoperativos', 'ReporteController@getActivosOperativos');
 
-    Route::get('reporte/activos/vencidos', 'ReporteController@ActivosVencidos');
-    Route::post('reporte/activos/vencidos', 'ReporteController@ActivosVencidosProcesar');
+        Route::get('reporte/activos/inoperativos', 'ReporteController@ActivosInoperativos')->name("reportes-inoperativos");
 
-    Route::get('reporte/activos/personal', 'ReporteController@ActivosPersonal');
-    Route::post('reporte/activos/personal', 'ReporteController@ActivosPersonalProcesar')->name('reporte.personal');
+        Route::get('reporte/activos/vencidos', 'ReporteController@ActivosVencidos');
+        Route::post('reporte/activos/vencidos', 'ReporteController@ActivosVencidosProcesar');
 
-    Route::get('reporte/activos/stock', 'ReporteController@ActivosStock');
-    Route::post('reporte/activos/stock', 'ReporteController@ActivosStockProcesar')->name('reporte.stock');
+        Route::get('reporte/activos/personal', 'ReporteController@ActivosPersonal');
+        Route::post('reporte/activos/personal', 'ReporteController@ActivosPersonalProcesar')->name('reporte.personal');
+
+        Route::get('reporte/activos/stock', 'ReporteController@ActivosStock');
+        Route::post('reporte/activos/stock', 'ReporteController@ActivosStockProcesar')->name('reporte.stock');
+
+    });
+
+    
 });
 
 

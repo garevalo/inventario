@@ -57,7 +57,8 @@
                     <span class="pull-right-container"></span>
                 </a>
             </li>
-
+            @if(Auth::check())
+            @if(Auth::user()->idrol == 1 )
             <li class="treeview @if(in_array(request()->getRequestUri(),['/reporte'])) active @endif ">
                 <a href="/activo">
                     <i class="fa fa-pie-chart"></i> <span>Módulo de Reportes</span>
@@ -76,6 +77,8 @@
                     <li class="@if(request()->getRequestUri()=='/reporte7') active @endif"><a href="{{url('reporte/activos/stock')}}"><i class="fa fa-file-pdf-o"></i> Activos Stock</a></li>
                 </ul>
             </li>
+            @endif
+            @endif
             <li class="treeview @if(in_array(request()->getRequestUri(),['/cargo','/sede','/gerencia','/subgerencia','/personal','/tiposoftware','/tipohardware'])) active @endif ">
                 <a href="#">
                     <i class="fa fa-pencil-square-o"></i>

@@ -38,9 +38,9 @@
 
                         <!-- Menu Footer-->
                         <li class="user-footer">
-                            <div class="pull-left">
+                            <!-- <div class="pull-left">
                                 <a href="#" class="btn btn-default btn-flat">Perfil de Usuario</a>
-                            </div>
+                            </div> -->
                             <div class="pull-right">
                                 <a href="{{ route('logout') }}" onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();" class="btn btn-default btn-flat">Cerrar Sesión</a>
