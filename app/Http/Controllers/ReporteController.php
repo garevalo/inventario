@@ -329,7 +329,7 @@ class ReporteController extends Controller
             join personals p1 on pa.personals_idpersonal = p1.idpersonal
             left join hardwares h on h.id_activo_hardware = pa.activos_id
             left join softwares s on s.id_activo_software = pa.activos_id
-            where (activos.asignado=0 || activos.asignado is null) ";
+            where (activos.asignado!=1) ";
 
         $sqlwhere = '';     
 
