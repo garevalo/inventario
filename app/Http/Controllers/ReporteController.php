@@ -14,6 +14,8 @@ use App\Gerencia;
 use App\Subgerencia;
 use App\Personal;
 
+ini_set('max_execution_time', 180);
+
 class ReporteController extends Controller
 {
 
@@ -178,7 +180,7 @@ class ReporteController extends Controller
 
         $sqlwhere = '';     
         if($vencido==1){
-            $sqlwhere.=" and (TIMESTAMPDIFF(YEAR,activos.fecha_adquisicion , CURDATE()))>=4 ";
+            $sqlwhere.=" and (TIMESTAMPDIFF(YEAR,h.fecha_adquisicion , CURDATE()))>=4 ";
         }else{
             $sqlwhere .= " and activos.estado_activo={$estado}";
         }
@@ -312,7 +314,7 @@ class ReporteController extends Controller
              left join `activos` on `personals_activos`.`activos_id` = `activos`.`idactivo` 
              left join `personals` on `personals_activos`.`personals_idpersonal` = `personals`.`idpersonal`';
 
-        if(!empty($id) || $id==null){
+        if(empty($id) || $id==null){
             $sql.= "where personals_activos.personals_idpersonal = ". $id;
         }     
 

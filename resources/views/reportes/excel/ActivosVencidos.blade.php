@@ -2,11 +2,12 @@
 
 <table>
 	<tr align="center">
-		<td colspan="11" width="100%"><h2>Reporte de Activos Vencidos</h2></td>
+		<td></td>
+		<td colspan="11"><h3>Reporte de Activos Vencidos</h3></td>
 	</tr>	
 </table>
 
-<table border="1" cellpadding="2" cellspacing="0" width="100%" style="font-size: 8">
+<table border="1" cellpadding="2" cellspacing="0" width="100%" style="font-size: 7">
 	
 	<tr>
 		<th></th>
@@ -18,6 +19,7 @@
 		<th >Num. Serie</th>
 		<th >Código Inventario</th>
 		<th>Código Patrimonial</th>
+		<th>Tipo</th>
 		<th >Fecha de Adquisición</th>
 		<th>Descripción</th>
 	</tr>
@@ -35,6 +37,7 @@
 			<td>{{$val->num_serie}}</td>
 			<td>{{$val->cod_inventario}}</td>
 			<td>{{$val->codigo_patrimonial }}</td>
+			<td>{{$val->tipo_hardware}}</td>
 			<td>{{$val->fecha_adquisicion }}</td>
 			<td>{{$val->descripcion}}</td>
 		</tr>
