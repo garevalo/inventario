@@ -322,10 +322,10 @@ class ReporteController extends Controller
             order by activos_id desc
              ) personals_activos
              left join `activos` on `personals_activos`.`activos_id` = `activos`.`idactivo` 
-             left join `personals` on `personals_activos`.`personals_idpersonal` = `personals`.`idpersonal`';
+             left join `personals` on `personals_activos`.`personals_idpersonal` = `personals`.`idpersonal` where activos.asignado=1';
 
         if(empty($id) || $id==null){
-            $sql.= "where personals_activos.personals_idpersonal = ". $id;
+            $sql.= "and personals_activos.personals_idpersonal = ". $id;
         }     
 
         $activos = DB::select( DB::raw($sql));

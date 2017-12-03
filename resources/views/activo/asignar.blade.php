@@ -57,6 +57,8 @@
                                         <th>SOftware/Marca</th>
                                         <th>Arquitecura / Modelo</th>
                                         <th>Service Pack / Num. Serie</th>
+                                        <th>C.Inventario</th>
+                                        <th>C.Patrimonial</th>
                                         <th>Descripción</th>
 
                                     </tr>
@@ -120,6 +122,8 @@
                 {data: 'campo1', name: 'campo1'},
                 {data: 'campo2', name: 'campo2'},
                 {data: 'campo3', name: 'campo3'},
+                {data: 'cod_inventario', name: 'cod_inventario'},
+                {data: 'codigo_patrimonial', name: 'codigo_patrimonial'},
                 {data: 'descripcion_hardware', name: 'descripcion_hardware'}
             ],
             order: [[0, 'desc']],
