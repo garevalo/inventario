@@ -282,8 +282,8 @@ class ReporteController extends Controller
           $subgerencia  = $request->idsubgerencia_personal;
           $exportar     = $request->exportar;
 
-          $data = $this->getActivosStock($sede,$gerencia,$subgerencia);
-          dd($data);
+          $data = $this->getActivosStock();
+          //dd($data);
           if(!empty($data)){
             if($exportar==1){
                 $this->export('reportes.excel.ActivoStock',$data);
@@ -297,7 +297,7 @@ class ReporteController extends Controller
     }
 
 
-    public function getActivosStock($sede=null,$gerencia=null,$subgerencia=null){
+    public function getActivosStock(){
 
         $sql = "select  idgerencia_personal,
             (select gerencia from gerencias g where g.idgerencia=p1.idgerencia_personal ) as gerencia,
@@ -333,17 +333,6 @@ class ReporteController extends Controller
 
         $sqlwhere = '';     
 
-
-        if(!empty($sede) )
-            $sqlwhere .= " and p1.idsede_personal = {$sede}";
-
-        if(!empty($gerencia) )
-            $sqlwhere .= " and p1.idgerencia_personal = {$gerencia}";
-
-        if(!empty($subgerencia) )
-            $sqlwhere .= " and p1.idsubgerencia_personal = {$subgerencia}";
-
-        //return $sql.$sqlwhere;  
         return $activos = DB::select(DB::raw($sql.$sqlwhere));
 
     }

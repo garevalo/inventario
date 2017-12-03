@@ -34,6 +34,7 @@
                         <th>ID</th>
                         <th>Nombres</th>
                         <th>Apellidos</th>
+                        <th>Dni</th>
                         <th>Cargo</th>
                         <th>Sede</th>
                         <th>Gerencia</th>
@@ -48,6 +49,7 @@
                             <td>{{$personal->idpersonal}}</td>
                             <td>{{$personal->nombres}}</td>
                             <td>{{$personal->apellido_paterno .' '.$personal->apellido_materno  }}</td>
+                            <td>{{ str_pad($personal->dni, 8, "0", STR_PAD_LEFT)  }}</td>
                             <td>{{$personal->cargo->cargo}}</td>
                             <td>{{$personal->sede->sede}}</td>
                             <td>{{$personal->gerencia->gerencia}}</td>
