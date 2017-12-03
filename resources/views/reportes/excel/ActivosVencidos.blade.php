@@ -14,12 +14,12 @@
 		<th>Sede</th>
 		<th >Gerencia</th>
 		<th >Sub Gerencia</th>
+		<th>Tipo</th>
 		<th >Marca</th>
 		<th >Modelo</th>
 		<th >Num. Serie</th>
 		<th >Código Inventario</th>
 		<th>Código Patrimonial</th>
-		<th>Tipo</th>
 		<th >Fecha de Adquisición</th>
 		<th>Descripción</th>
 	</tr>
@@ -32,12 +32,12 @@
 			<td>{{$val->sede}}</td>
 			<td>{{$val->gerencia}}</td>
 			<td>{{$val->subgerencia}}</td>
+			<td>{{$val->tipo_hardware}}</td>
 			<td>{{$val->marca}}</td>
 			<td>{{$val->modelo}}</td>
 			<td>{{$val->num_serie}}</td>
 			<td>{{$val->cod_inventario}}</td>
 			<td>{{$val->codigo_patrimonial }}</td>
-			<td>{{$val->tipo_hardware}}</td>
 			<td>{{$val->fecha_adquisicion }}</td>
 			<td>{{$val->descripcion}}</td>
 		</tr>
