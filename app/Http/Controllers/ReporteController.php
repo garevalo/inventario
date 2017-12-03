@@ -40,7 +40,7 @@ class ReporteController extends Controller
                 ) pa2   
             join activos   on pa2.activos_id = activos.idactivo
             join personals on pa2.personals_idpersonal = personals.idpersonal
-            where (TIMESTAMPDIFF(YEAR,fecha_adquisicion , CURDATE()))>=4 and p1.idgerencia_personal = personals.idgerencia_personal
+            where (TIMESTAMPDIFF(YEAR,fecha_adquisicion , CURDATE()))>=4 and p1.idgerencia_personal = personals.idgerencia_personal and activos.tipo_activo=1
             ) activos_obsoletos
             from (
              select activos_id, 
