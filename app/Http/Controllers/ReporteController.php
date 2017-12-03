@@ -261,6 +261,93 @@ class ReporteController extends Controller
           }
     }
 
+
+
+    public function ActivosStock(){
+
+
+        $sedes = Sede::all();
+        $gerencias = Gerencia::all();
+        $subgerencias = Subgerencia::all();
+
+        return view('reportes.FrmActivosStock',compact('sedes','gerencias','subgerencias'));
+        //return view('reportes.FrmActivosOperativos');
+
+    }
+
+    public function ActivosStockProcesar(Request $request){
+
+          $sede         = $request->idsede_personal;
+          $gerencia     = $request->idgerencia_personal;
+          $subgerencia  = $request->idsubgerencia_personal;
+          $exportar     = $request->exportar;
+
+          $data = $this->getActivosStock($sede,$gerencia,$subgerencia);
+
+          if(!empty($data)){
+            if($exportar==1){
+                $this->export('reportes.excel.ActivoStock',$data);
+            } else{
+                return $this->export('reportes.excel.ActivoStock',$data,'pdf');
+            }
+          }
+          else{
+            echo "<script>alert('No hay datos'); window.close();</script>";
+          }
+    }
+
+
+    public function getActivosStock($sede=null,$gerencia=null,$subgerencia=null){
+
+        $sql = "select  idgerencia_personal,
+            (select gerencia from gerencias g where g.idgerencia=p1.idgerencia_personal ) as gerencia,
+            (select subgerencia from subgerencias sg where sg.idsubgerencia=p1.idsubgerencia_personal ) as subgerencia,
+            (select sede from sedes s where s.idsede=p1.idsede_personal ) as sede,
+            concat(p1.nombres,' ',p1.apellido_paterno,' ',p1.apellido_materno) personal, 
+
+            (
+             select tipo_hardwares.tipo_hardware from tipo_hardwares where id_tipo_hardware = h.idtipo_hardware
+            ) tipo_hardware,
+
+            (
+             select tipo_softwares.tipo_software from tipo_softwares where id_tipo_software = s.idtipo_software
+            ) tipo_software,
+            h.fecha_adquisicion fa_hardware,
+            s.fecha_adquisicion fa_software,
+            s.nombre_software,
+            s.arquitectura,
+            s.service_pack,
+            pa.*,h.*
+            from (
+             select activos_id, 
+            (select personals_idpersonal from personals_activos b where a.activos_id=b.activos_id order by activos_id desc limit 1) personals_idpersonal
+            from personals_activos a
+            group by activos_id
+            order by activos_id desc
+             ) pa
+            join activos on activos_id = activos.idactivo
+            join personals p1 on pa.personals_idpersonal = p1.idpersonal
+            left join hardwares h on h.id_activo_hardware = pa.activos_id
+            left join softwares s on s.id_activo_software = pa.activos_id
+            where (activos.asignado=0 || activos.asignado is null) ";
+
+        $sqlwhere = '';     
+
+
+        if(!empty($sede) )
+            $sqlwhere .= " and p1.idsede_personal = {$sede}";
+
+        if(!empty($gerencia) )
+            $sqlwhere .= " and p1.idgerencia_personal = {$gerencia}";
+
+        if(!empty($subgerencia) )
+            $sqlwhere .= " and p1.idsubgerencia_personal = {$subgerencia}";
+
+        //return $sql.$sqlwhere;  
+        return $activos = DB::select(DB::raw($sql.$sqlwhere));
+
+    }
+
     public function ActivosPersonal(){
 
         $personals = Personal::all();
