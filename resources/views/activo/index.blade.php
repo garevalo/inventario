@@ -44,8 +44,9 @@
                         <th width="5%">Sede</th>
                         <th width="5%">Gerencia</th>
                         <th width="5%">Sub Gerencia</th>
+                        <th width="5%">Fecha Adquision </th> 
                         <th width="5%">Fecha Asignación</th>
-                        <th width="20%">Descripción</th>
+                        <th width="15%">Descripción</th>
                         <th width="5%">Estado Activo</th>
                         <th width="5%">Estado Hardware</th>
                         <th width="5%">Reasignar</th>
@@ -100,6 +101,7 @@
                 {data: 'sede',name:'sede'},
                 {data: 'gerencia', name: 'gerencia'},
                 {data: 'subgerencia', name: 'subgerencia'},
+                {data: 'fechaadquision', name: 'fechaadquision'},
                 {data: 'fechaasignacion', name: 'fechaasignacion'},
                 {data: 'descripcion', name: 'descripcion'},
                 {data: 'estado_activo', name: 'estado_activo'},

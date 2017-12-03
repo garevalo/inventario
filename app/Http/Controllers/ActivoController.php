@@ -237,7 +237,7 @@ class ActivoController extends Controller
             (select idsoftware from softwares where softwares.id_activo_software=activos.idactivo) idsoftware,
 
             (select estado from hardwares where hardwares.id_activo_hardware=activos.idactivo) estado,
-
+            (select fecha_adquisicion from hardwares where hardwares.id_activo_hardware=activos.idactivo) fa_hardware,
             activos.estado_activo
 
              from (
@@ -268,6 +268,16 @@ class ActivoController extends Controller
                 else
                     return "Software";
             })
+            
+            ->addColumn('fechaadquision',function($activo){
+                if($activo->hardware){
+                    return $activo->fa_hardware;
+
+                }else{
+                    return $activo->fecha_adquisicion;                   
+                }
+            })
+
             ->addColumn('fechaasignacion',function($activo){
                 return $activo->fecha_asignacion;
             })
